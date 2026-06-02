@@ -7,7 +7,7 @@
 const siteConfig = {
   brandName: "TutorMate Pro",
   email: "tutormatepro@gmail.com",
-  googleCalendarScheduleUrl: "https://calendar.google.com/calendar/appointments/schedules/MI-LINK-DE-RESERVA"
+  googleCalendarScheduleUrl: "https://calendar.app.google/DN737BSE7ohxLCzf6"
 };
 
 document.addEventListener("DOMContentLoaded", () => {
