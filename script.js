@@ -6,7 +6,7 @@
 // Configuración global de la marca y enlaces
 const siteConfig = {
   brandName: "TutorMate Pro",
-  email: "info@tutormatepro.es",
+  email: "tutormatepro@gmail.com",
   googleCalendarScheduleUrl: "https://calendar.google.com/calendar/appointments/schedules/MI-LINK-DE-RESERVA"
 };
 
