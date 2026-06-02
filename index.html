@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CEQ1MQZWDH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CEQ1MQZWDH');
+</script>
   <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
@@ -84,7 +93,7 @@
       </nav>
       
       <div class="nav-cta">
-        <a href="contacto.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.82rem;">Reservar</a>
+        <a href="contacto.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.82rem;" data-analytics-event="reserve_click" data-analytics-label="Header Reserve Button">Reservar</a>
       </div>
       
       <button class="hamburger" id="hamburger" aria-label="Abrir menú">
@@ -101,7 +110,7 @@
       <a href="metodo.html" class="nav-link">Método</a>
       <a href="sobre-mi.html" class="nav-link">Sobre mí</a>
       <a href="contacto.html" class="nav-link">Reservar</a>
-      <a href="contacto.html" class="btn btn-primary" style="text-align: center; margin-top: 0.5rem;">Reservar</a>
+      <a href="contacto.html" class="btn btn-primary" style="text-align: center; margin-top: 0.5rem;" data-analytics-event="reserve_click" data-analytics-label="Mobile Header Reserve Button">Reservar</a>
     </div>
   </header>
 
@@ -114,8 +123,8 @@
         <h1 class="hero-title" id="hero-title">Asegura la nota en Selectividad y el aprobado final</h1>
         <p class="hero-desc" id="hero-desc">Preparación intensiva de Matemáticas II para la PAU y refuerzo urgente de final de curso en ESO y Bachillerato. No dejes tu plaza universitaria al azar.</p>
         <div class="hero-btns">
-          <a href="contacto.html" class="btn btn-secondary" id="hero-cta-btn">Reservar valoración inicial</a>
-          <a href="planes.html" class="btn btn-wsp-outline">Ver planes de clase</a>
+          <a href="contacto.html" class="btn btn-secondary" id="hero-cta-btn" data-analytics-event="contact_cta_click" data-analytics-label="Hero CTA Valoracion">Reservar valoración inicial</a>
+          <a href="planes.html" class="btn btn-wsp-outline" data-analytics-event="contact_cta_click" data-analytics-label="Hero View Plans">Ver planes de clase</a>
         </div>
         <p class="hero-microcopy">Horarios de tarde · Clases individuales · Enfoque práctico</p>
 
@@ -462,8 +471,8 @@
         <h2>¿Quieres saber si puedo ayudarte?</h2>
         <p>Cuéntame el curso, el tema actual y la fecha de tu examen.</p>
         <div class="cta-banner-btns">
-          <a href="contacto.html" class="btn btn-secondary">Reservar valoración</a>
-          <a href="#" class="btn btn-wsp-outline calendar-link">Ver horarios disponibles</a>
+          <a href="contacto.html" class="btn btn-secondary" data-analytics-event="reserve_click" data-analytics-label="Bottom CTA Valoracion">Reservar valoración</a>
+          <a href="#" class="btn btn-wsp-outline calendar-link" data-analytics-event="calendar_click" data-analytics-label="Calendar Link Wsp Outline">Ver horarios disponibles</a>
         </div>
       </div>
     </section>

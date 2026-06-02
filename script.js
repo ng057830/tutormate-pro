@@ -213,3 +213,15 @@ function initSeasonalHero() {
     }
   }
 }
+
+// Seguimiento de eventos en Google Analytics 4 (GA4)
+document.addEventListener('click', function(event) {
+  const target = event.target.closest('[data-analytics-event]');
+  if (!target || typeof gtag !== 'function') return;
+
+  gtag('event', target.dataset.analyticsEvent, {
+    event_category: 'engagement',
+    event_label: target.dataset.analyticsLabel || target.textContent.trim(),
+    link_url: target.href || ''
+  });
+});

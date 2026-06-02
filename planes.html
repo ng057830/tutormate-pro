@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CEQ1MQZWDH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CEQ1MQZWDH');
+</script>
   <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
@@ -33,7 +42,7 @@
         <a href="contacto.html" class="nav-link">Reservar</a>
       </nav>
       <div class="nav-cta">
-        <a href="contacto.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Reservar</a>
+        <a href="contacto.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;" data-analytics-event="reserve_click" data-analytics-label="Header Reserve Button">Reservar</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Abrir menú">
         <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -49,7 +58,7 @@
       <a href="metodo.html" class="nav-link">Método</a>
       <a href="sobre-mi.html" class="nav-link">Sobre mí</a>
       <a href="contacto.html" class="nav-link">Reservar</a>
-      <a href="contacto.html" class="btn btn-primary" style="text-align: center; margin-top: 0.5rem;">Reservar</a>
+      <a href="contacto.html" class="btn btn-primary" style="text-align: center; margin-top: 0.5rem;" data-analytics-event="reserve_click" data-analytics-label="Mobile Header Reserve Button">Reservar</a>
     </div>
   </header>
 
@@ -110,7 +119,7 @@
                 <span class="plan-price-desc">Equivale a 18 € / sesión</span>
               </div>
               <div class="plan-btns">
-                <a href="contacto.html" class="btn btn-primary">Reservar valoración inicial</a>
+                <a href="contacto.html" class="btn btn-primary" data-analytics-event="pricing_plan_click" data-analytics-label="Plan Inicial Click">Reservar valoración inicial</a>
               </div>
             </div>
           </div>
@@ -155,7 +164,7 @@
                 <span class="plan-price-desc">Equivale a 16 € / sesión</span>
               </div>
               <div class="plan-btns">
-                <a href="contacto.html" class="btn btn-secondary">Reservar valoración inicial</a>
+                <a href="contacto.html" class="btn btn-secondary" data-analytics-event="pricing_plan_click" data-analytics-label="Plan Seguimiento Click">Reservar valoración inicial</a>
               </div>
             </div>
           </div>
@@ -200,7 +209,7 @@
                 <span class="plan-price-desc">Equivale a 15 € / sesión</span>
               </div>
               <div class="plan-btns">
-                <a href="contacto.html" class="btn btn-primary">Reservar valoración inicial</a>
+                <a href="contacto.html" class="btn btn-primary" data-analytics-event="pricing_plan_click" data-analytics-label="Plan Intensivo Click">Reservar valoración inicial</a>
               </div>
             </div>
           </div>
@@ -249,7 +258,7 @@
                 <span class="plan-price-desc">Equivale a 18 € / sesión</span>
               </div>
               <div class="plan-btns">
-                <a href="contacto.html" class="btn btn-primary">Reservar valoración inicial</a>
+                <a href="contacto.html" class="btn btn-primary" data-analytics-event="pricing_plan_click" data-analytics-label="Plan Universidad Click">Reservar valoración inicial</a>
               </div>
             </div>
           </div>
@@ -293,7 +302,7 @@
                 <span class="plan-price-desc">Equivale a 20 € / sesión</span>
               </div>
               <div class="plan-btns">
-                <a href="contacto.html" class="btn btn-primary">Reservar valoración inicial</a>
+                <a href="contacto.html" class="btn btn-primary" data-analytics-event="pricing_plan_click" data-analytics-label="Plan Preparacion Urgente Click">Reservar valoración inicial</a>
               </div>
             </div>
           </div>

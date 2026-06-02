@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CEQ1MQZWDH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CEQ1MQZWDH');
+</script>
   <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
@@ -75,7 +84,7 @@
             </p>
             
             <div style="margin-top: 1rem;">
-              <a href="#" class="btn btn-primary calendar-link" style="display: inline-block; font-size: 1.05rem; padding: 0.75rem 2rem;">Ver horarios disponibles</a>
+              <a href="#" class="btn btn-primary calendar-link" data-analytics-event="calendar_click" data-analytics-label="Calendar Link Primary" style="display: inline-block; font-size: 1.05rem; padding: 0.75rem 2rem;">Ver horarios disponibles</a>
             </div>
           </div>
 

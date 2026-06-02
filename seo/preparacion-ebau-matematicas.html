@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CEQ1MQZWDH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CEQ1MQZWDH');
+</script>
   <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
@@ -57,7 +66,7 @@
         <a href="../contacto.html" class="nav-link">Reservar</a>
       </nav>
       <div class="nav-cta">
-        <a href="../contacto.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Reservar</a>
+        <a href="../contacto.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;" data-analytics-event="reserve_click" data-analytics-label="SEO Header Reserve Button">Reservar</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Abrir menú">
         <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -73,7 +82,7 @@
       <a href="../metodo.html" class="nav-link">Método</a>
       <a href="../sobre-mi.html" class="nav-link">Sobre mí</a>
       <a href="../contacto.html" class="nav-link">Reservar</a>
-      <a href="../contacto.html" class="btn btn-primary" style="text-align: center; margin-top: 0.5rem;">Reservar</a>
+      <a href="../contacto.html" class="btn btn-primary" style="text-align: center; margin-top: 0.5rem;" data-analytics-event="reserve_click" data-analytics-label="SEO Mobile Header Reserve Button">Reservar</a>
     </div>
   </header>
 
@@ -85,8 +94,8 @@
         <h1 class="hero-title" style="font-size: 2.5rem; line-height: 1.2;">Maximizar tu Calificación en las Matemáticas de EBAU</h1>
         <p class="hero-desc" style="font-size: 1.1rem; max-width: 600px; margin-bottom: 2rem;">Preparación individualizada enfocada en el modelo de examen de tu Comunidad Autónoma. Analizamos el histórico de selectividad para que entres a la prueba sabiendo exactamente qué esperar.</p>
         <div class="hero-btns">
-          <a href="../contacto.html" class="btn btn-primary">Reservar valoración inicial</a>
-          <a href="#" class="btn btn-outline calendar-link">Ver horarios disponibles</a>
+          <a href="../contacto.html" class="btn btn-primary" data-analytics-event="reserve_click" data-analytics-label="SEO CTA Valoracion Inicial">Reservar valoración inicial</a>
+          <a href="#" class="btn btn-outline calendar-link" data-analytics-event="calendar_click" data-analytics-label="Calendar Link Outline">Ver horarios disponibles</a>
         </div>
       </div>
     </section>
@@ -135,8 +144,8 @@
         <h2>¿Estás en el último sprint del curso?</h2>
         <p>Dime en qué Comunidad Autónoma te presentas y si necesitas preparar Matemáticas II o Matemáticas Aplicadas a las Ciencias Sociales. Trazaremos una agenda intensiva de repaso.</p>
         <div class="cta-banner-btns">
-          <a href="../contacto.html" class="btn btn-secondary">Reservar valoración</a>
-          <a href="#" class="btn btn-wsp-outline calendar-link">Ver horarios disponibles</a>
+          <a href="../contacto.html" class="btn btn-secondary" data-analytics-event="reserve_click" data-analytics-label="SEO Bottom CTA Valoracion">Reservar valoración</a>
+          <a href="#" class="btn btn-wsp-outline calendar-link" data-analytics-event="calendar_click" data-analytics-label="Calendar Link Wsp Outline">Ver horarios disponibles</a>
         </div>
       </div>
     </section>
