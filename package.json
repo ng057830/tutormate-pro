@@ -1,0 +1,12 @@
+{
+  "name": "tutormate-pro",
+  "version": "1.0.0",
+  "description": "Clases de Matemáticas Online",
+  "main": "script.js",
+  "scripts": {
+    "build": "node tools/build-check.js",
+    "test": "node tools/build-check.js"
+  },
+  "author": "TutorMate Pro",
+  "license": "ISC"
+}

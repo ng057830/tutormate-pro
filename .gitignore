@@ -43,3 +43,9 @@ node_modules/
 .env.local
 .vercel/
 _diagnostico-github-clases.txt
+
+# Google Ads API secrets and tokens
+google-ads.yaml
+client_secret*.json
+credentials.json
+*.token

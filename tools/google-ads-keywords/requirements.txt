@@ -1,0 +1,5 @@
+google-ads
+pandas
+openpyxl
+python-dotenv
+google-auth-oauthlib

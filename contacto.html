@@ -88,9 +88,59 @@
             </div>
           </div>
 
+          <!-- FORMULARIO DE CONTACTO Y VALORACIÓN -->
+          <div class="card" style="box-shadow: var(--shadow-sm); border-radius: var(--radius-lg); padding: 2.5rem; display: flex; flex-direction: column; gap: 1.5rem; transform: none; hover: none; border-color: var(--clr-border);">
+            <h2 style="font-size: 1.4rem; font-family: var(--font-title); margin: 0; color: var(--clr-primary);">Solicitar valoración inicial gratuita</h2>
+            <p style="font-size: 0.88rem; color: var(--clr-text-muted); margin: 0;">Si lo prefieres, completa el formulario de contacto y te responderé en menos de 24 horas laborables.</p>
+            
+            <form id="contact-form" class="contact-form" style="display: flex; flex-direction: column; gap: 1.25rem;">
+              <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <label for="form-name" style="font-size: 0.85rem; font-weight: 600; color: var(--clr-primary);">Nombre completo *</label>
+                <input type="text" id="form-name" name="name" required style="padding: 0.75rem; border: 1px solid var(--clr-border); border-radius: var(--radius-md); font-family: var(--font-body); font-size: 0.9rem;" placeholder="Tu nombre y apellidos">
+              </div>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                  <label for="form-email" style="font-size: 0.85rem; font-weight: 600; color: var(--clr-primary);">Correo electrónico *</label>
+                  <input type="email" id="form-email" name="email" required style="padding: 0.75rem; border: 1px solid var(--clr-border); border-radius: var(--radius-md); font-family: var(--font-body); font-size: 0.9rem;" placeholder="ejemplo@correo.com">
+                </div>
+                <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                  <label for="form-phone" style="font-size: 0.85rem; font-weight: 600; color: var(--clr-primary);">Teléfono (WhatsApp)</label>
+                  <input type="tel" id="form-phone" name="phone" style="padding: 0.75rem; border: 1px solid var(--clr-border); border-radius: var(--radius-md); font-family: var(--font-body); font-size: 0.9rem;" placeholder="600 000 000">
+                </div>
+              </div>
+              
+              <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <label for="form-level" style="font-size: 0.85rem; font-weight: 600; color: var(--clr-primary);">Nivel académico del estudiante *</label>
+                <select id="form-level" name="level" required style="padding: 0.75rem; border: 1px solid var(--clr-border); border-radius: var(--radius-md); font-family: var(--font-body); font-size: 0.9rem; background-color: white;">
+                  <option value="" disabled selected>Selecciona una opción</option>
+                  <option value="ESO">Matemáticas ESO (1º a 4º)</option>
+                  <option value="Bachillerato">Matemáticas Bachillerato (1º o 2º)</option>
+                  <option value="EBAU">Preparación EBAU / Selectividad</option>
+                  <option value="Universidad">Universidad (Cálculo, Álgebra, Estadística)</option>
+                  <option value="Otros">Otros / Programación (Python, R, Wolfram)</option>
+                </select>
+              </div>
+              
+              <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <label for="form-message" style="font-size: 0.85rem; font-weight: 600; color: var(--clr-primary);">Objetivos y asignaturas a reforzar *</label>
+                <textarea id="form-message" name="message" required rows="4" style="padding: 0.75rem; border: 1px solid var(--clr-border); border-radius: var(--radius-md); font-family: var(--font-body); font-size: 0.9rem; resize: vertical;" placeholder="Cuéntame brevemente las asignaturas que necesitas repasar, temas que te cuestan o la fecha de tus exámenes."></textarea>
+              </div>
+              
+              <div class="form-checkbox" style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                <input type="checkbox" id="form-consent" name="consent" required style="margin-top: 0.25rem;">
+                <label for="form-consent" style="font-size: 0.78rem; color: var(--clr-text-light); line-height: 1.4;">
+                  Acepto la <a href="privacidad.html" target="_blank" style="color: var(--clr-accent); text-decoration: underline;">política de privacidad</a>. Mis datos serán tratados exclusivamente para gestionar la solicitud de valoración.
+                </label>
+              </div>
+              
+              <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem; font-size: 1rem; border: none; cursor: pointer; text-align: center;">Enviar solicitud de valoración</button>
+            </form>
+          </div>
+
           <!-- Cómo funciona la reserva (Pasos 1 a 4) -->
           <div>
-            <h3 style="font-size: 1.3rem; font-family: var(--font-title); text-align: center; margin-bottom: 2rem; color: var(--clr-primary);">Cómo funciona la reserva</h3>
+            <h2 style="font-size: 1.3rem; font-family: var(--font-title); text-align: center; margin-bottom: 2rem; color: var(--clr-primary);">Cómo funciona la reserva</h2>
             <div class="grid-4" style="gap: 1.25rem;">
               <div class="card" style="padding: 1.5rem; text-align: left; gap: 0.75rem; transform: none; hover: none; justify-content: flex-start; background-color: var(--clr-surface);">
                 <span style="font-size: 0.75rem; font-weight: 700; color: var(--clr-accent); text-transform: uppercase;">Paso 1</span>
@@ -117,7 +167,7 @@
 
           <!-- Filtro Comercial -->
           <div class="problem-box" style="padding: 2rem; border-radius: var(--radius-lg); text-align: left; background-color: var(--clr-surface-alt); border: 1px solid var(--clr-border); max-width: 100%;">
-            <h3 style="font-size: 1.15rem; font-family: var(--font-title); font-weight: 700; color: var(--clr-primary); margin-bottom: 0.75rem;">Para familias que buscan un seguimiento serio</h3>
+            <h2 style="font-size: 1.15rem; font-family: var(--font-title); font-weight: 700; color: var(--clr-primary); margin-bottom: 0.75rem;">Para familias que buscan un seguimiento serio</h2>
             <p style="font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.6; margin: 0;">
               Este servicio está pensado para familias que desean organizar un refuerzo constante, preparar exámenes importantes o trabajar con un plan estructurado durante varias semanas. No se orienta a resolver dudas sueltas de última hora sin continuidad.
             </p>
@@ -142,8 +192,11 @@
           <li><a href="seo/clases-matematicas-eso.html" class="footer-link">Matemáticas ESO</a></li>
           <li><a href="seo/clases-matematicas-bachillerato.html" class="footer-link">Matemáticas Bachillerato</a></li>
           <li><a href="seo/preparacion-ebau-matematicas.html" class="footer-link">Preparación PAU / EBAU</a></li>
-          <li><a href="seo/clases-calculo-universidad.html" class="footer-link">Cálculo y Álgebra</a></li>
+          <li><a href="seo/clases-calculo-universidad.html" class="footer-link">Cálculo Infinitesimal</a></li>
+          <li><a href="seo/clases-algebra-lineal-universidad.html" class="footer-link">Álgebra Lineal</a></li>
           <li><a href="seo/clases-estadistica-online.html" class="footer-link">Estadística y Probabilidad</a></li>
+          <li><a href="seo/clases-matematicas-computacionales.html" class="footer-link">Matemáticas Computacionales (Python/R)</a></li>
+          <li><a href="seo/profesor-particular-matematicas-online.html" class="footer-link">Profesor Particular Online</a></li>
           <li><a href="seo/refuerzo-matematicas-verano.html" class="footer-link">Refuerzo de Verano</a></li>
           <li><a href="seo/recuperacion-matematicas-septiembre.html" class="footer-link">Recuperación Septiembre</a></li>
         </ul>
@@ -162,7 +215,7 @@
       <div>
         <h3 class="footer-col-title">Contacto</h3>
         <ul class="footer-list">
-          <li>Email: <a href="mailto:tutormatepro@gmail.com" class="footer-link">tutormatepro@gmail.com</a></li>
+          <li>Email: <a href="mailto:contacto@tutormatepro.com" class="footer-link">contacto@tutormatepro.com</a></li>
           <li style="font-size: 0.72rem; line-height: 1.4; color: rgba(255,255,255,0.45); margin-top: 0.5rem;">
             Las reservas se gestionan mediante calendario para mantener una atención ordenada y respetar los horarios de clase.
           </li>
@@ -195,7 +248,7 @@
       </div>
       <div class="modal-body">
         El sistema de reserva automática de citas en Calendly/Google Calendar está en proceso de configuración. Si deseas solicitar información o coordinar una sesión de orientación, por favor envíanos un correo electrónico directamente a:
-        <span class="modal-email-copy" id="calendar-modal-email">tutormatepro@gmail.com</span>
+        <span class="modal-email-copy" id="calendar-modal-email">contacto@tutormatepro.com</span>
       </div>
       <div class="modal-footer">
         <button class="btn btn-outline" id="modal-accept-btn" style="width: 100%;">Cerrar</button>

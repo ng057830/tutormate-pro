@@ -1,22 +1,34 @@
 /* 
    ==========================================================================
-   SCRIPT PRINCIPAL - INTERACTIVIDAD Y VALIDACIÓN - TUTORMATE PRO
+   SCRIPT PRINCIPAL - INTERACTIVIDAD, VALIDACIÓN Y SEGUIMIENTO - TUTORMATE PRO
    ========================================================================== */
 
 // Configuración global de la marca y enlaces
 const siteConfig = {
   brandName: "TutorMate Pro",
-  email: "tutormatepro@gmail.com",
+  email: "contacto@tutormatepro.com",
   googleCalendarScheduleUrl: "https://calendar.app.google/DN737BSE7ohxLCzf6"
 };
 
+// Configuración inicial de Consent Mode de GA4 al cargar el script
+(function() {
+  const consent = localStorage.getItem('cookies-consent');
+  if (consent !== 'accepted') {
+    // Desactivar GA4 por defecto hasta que se dé el consentimiento
+    window['ga-disable-G-CEQ1MQZWDH'] = true;
+  }
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
+  initCookieConsent();
   initMobileMenu();
   initFaqAccordion();
   initCalendarInterceptors();
   initModalClose();
   initScrollReveal();
   initSeasonalHero();
+  initFormHandler();
+  initEmailTracker();
 });
 
 /* 0. Scroll Reveal Animations */
@@ -117,7 +129,7 @@ function initCalendarInterceptors() {
   });
 }
 
-/* Cierre de Modales */
+/* 4. Cierre de Modales */
 function initModalClose() {
   const modal = document.getElementById("calendar-modal");
   const closeBtn = document.getElementById("modal-close-btn");
@@ -214,14 +226,249 @@ function initSeasonalHero() {
   }
 }
 
-// Seguimiento de eventos en Google Analytics 4 (GA4)
+/* 6. Consentimiento de Cookies (Cumplimiento RGPD en España / AEPD) */
+function initCookieConsent() {
+  const consent = localStorage.getItem('cookies-consent');
+  
+  if (consent === 'accepted') {
+    enableAnalytics();
+  } else if (consent === 'rejected') {
+    disableAnalytics();
+  } else {
+    disableAnalytics();
+    showCookieBanner();
+  }
+}
+
+function enableAnalytics() {
+  window['ga-disable-G-CEQ1MQZWDH'] = false;
+  if (typeof gtag === 'function') {
+    gtag('consent', 'update', {
+      'analytics_storage': 'granted',
+      'ad_storage': 'granted'
+    });
+    // Forzar registro de página vista una vez activado
+    gtag('config', 'G-CEQ1MQZWDH');
+  }
+}
+
+function disableAnalytics() {
+  window['ga-disable-G-CEQ1MQZWDH'] = true;
+  if (typeof gtag === 'function') {
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied'
+    });
+  }
+}
+
+function showCookieBanner() {
+  // Crear estilos del banner dinámicamente para evitar contaminar styles.css
+  const style = document.createElement('style');
+  style.innerHTML = `
+    .cookie-banner {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      width: 90%;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s;
+      opacity: 0;
+    }
+    .cookie-banner.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+    .cookie-banner-text h3 {
+      font-size: 1.05rem;
+      font-family: var(--font-title), sans-serif;
+      font-weight: 700;
+      color: var(--clr-primary, #002B66);
+      margin: 0 0 0.5rem 0;
+    }
+    .cookie-banner-text p {
+      font-size: 0.82rem;
+      color: var(--clr-text-muted, #4a5568);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .cookie-banner-btns {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: flex-end;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .cookie-banner-btns button {
+      padding: 0.55rem 1.25rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .cookie-accept {
+      background-color: var(--clr-primary, #002B66);
+      color: white;
+      border: none;
+    }
+    .cookie-accept:hover {
+      background-color: var(--clr-primary-hover, #001f4d);
+    }
+    .cookie-reject {
+      background-color: transparent;
+      color: var(--clr-text-light, #718096);
+      border: 1px solid var(--clr-border, #E2E8F0);
+    }
+    .cookie-reject:hover {
+      background-color: var(--clr-bg, #f7fafc);
+      color: var(--clr-primary, #002B66);
+    }
+    .cookie-info {
+      background-color: transparent;
+      color: var(--clr-accent, #002B66);
+      border: none;
+      text-decoration: underline;
+      padding: 0;
+      margin-right: auto;
+    }
+    @media (max-width: 480px) {
+      .cookie-banner-btns {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .cookie-info {
+        text-align: center;
+        margin-bottom: 0.5rem;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Crear elemento HTML
+  const banner = document.createElement('div');
+  banner.className = 'cookie-banner';
+  
+  // Ajustar ruta según ubicación de la carpeta
+  const inSeoFolder = window.location.pathname.includes('/seo/');
+  const cookiesPath = inSeoFolder ? '../cookies.html' : 'cookies.html';
+
+  banner.innerHTML = `
+    <div class="cookie-banner-text">
+      <h3>Tu privacidad es importante</h3>
+      <p>Utilizo cookies analíticas de Google Analytics para medir de forma anónima las visitas y el rendimiento de mis anuncios en España. Puedes aceptar el uso de cookies analíticas o rechazarlas.</p>
+    </div>
+    <div class="cookie-banner-btns">
+      <button class="cookie-info" id="btn-cookie-info">Política de cookies</button>
+      <button class="cookie-reject" id="btn-cookie-reject">Rechazar analíticas</button>
+      <button class="cookie-accept" id="btn-cookie-accept">Aceptar cookies</button>
+    </div>
+  `;
+  document.body.appendChild(banner);
+
+  // Animar entrada
+  setTimeout(() => {
+    banner.classList.add('show');
+  }, 100);
+
+  // Handlers de botones
+  document.getElementById('btn-cookie-info').addEventListener('click', () => {
+    window.open(cookiesPath, '_blank');
+  });
+
+  document.getElementById('btn-cookie-accept').addEventListener('click', () => {
+    localStorage.setItem('cookies-consent', 'accepted');
+    banner.classList.remove('show');
+    enableAnalytics();
+    setTimeout(() => banner.remove(), 400);
+  });
+
+  document.getElementById('btn-cookie-reject').addEventListener('click', () => {
+    localStorage.setItem('cookies-consent', 'rejected');
+    banner.classList.remove('show');
+    disableAnalytics();
+    setTimeout(() => banner.remove(), 400);
+  });
+}
+
+/* 7. Gestión de Formulario de Contacto (Conversión) */
+function initFormHandler() {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const formData = {
+      name: document.getElementById('form-name').value,
+      email: document.getElementById('form-email').value,
+      phone: document.getElementById('form-phone').value || '',
+      level: document.getElementById('form-level').value,
+      message: document.getElementById('form-message').value
+    };
+
+    console.log('Formulario enviado:', formData);
+
+    // Enviar evento de conversión a GA4 si las cookies han sido aceptadas
+    const consent = localStorage.getItem('cookies-consent');
+    if (consent === 'accepted' && typeof gtag === 'function') {
+      gtag('event', 'form_submit', {
+        'event_category': 'conversion',
+        'event_label': 'Formulario de Contacto Valoración',
+        'student_level': formData.level
+      });
+    }
+
+    // Redirigir a página de gracias
+    const inSeoFolder = window.location.pathname.includes('/seo/');
+    const graciasUrl = inSeoFolder ? '../gracias.html' : 'gracias.html';
+    
+    // Retardo mínimo para permitir disparar el evento
+    setTimeout(() => {
+      window.location.href = graciasUrl;
+    }, 250);
+  });
+}
+
+/* 8. Seguimiento de Clics en Email (Conversión) */
+function initEmailTracker() {
+  document.addEventListener('click', (e) => {
+    const mailLink = e.target.closest('a[href^="mailto:"]');
+    if (!mailLink) return;
+
+    const consent = localStorage.getItem('cookies-consent');
+    if (consent === 'accepted' && typeof gtag === 'function') {
+      gtag('event', 'email_click', {
+        'event_category': 'conversion',
+        'event_label': mailLink.href.replace('mailto:', '')
+      });
+    }
+  });
+}
+
+// Seguimiento de eventos en Google Analytics 4 (GA4) para clics genéricos con data attributes
 document.addEventListener('click', function(event) {
   const target = event.target.closest('[data-analytics-event]');
   if (!target || typeof gtag !== 'function') return;
 
-  gtag('event', target.dataset.analyticsEvent, {
-    event_category: 'engagement',
-    event_label: target.dataset.analyticsLabel || target.textContent.trim(),
-    link_url: target.href || ''
-  });
+  const consent = localStorage.getItem('cookies-consent');
+  if (consent === 'accepted') {
+    gtag('event', target.dataset.analyticsEvent, {
+      event_category: 'engagement',
+      event_label: target.dataset.analyticsLabel || target.textContent.trim(),
+      link_url: target.href || ''
+    });
+  }
 });
