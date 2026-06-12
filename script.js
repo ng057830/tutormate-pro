@@ -415,6 +415,9 @@ function initFormHandler() {
     e.preventDefault();
 
     const formData = {
+      access_key: '401af540-d626-4642-b6c7-4ad5344d9a63',
+      subject: 'Nuevo mensaje de contacto - TutorMate Pro',
+      from_name: 'TutorMate Pro Contacto',
       name: document.getElementById('form-name').value,
       email: document.getElementById('form-email').value,
       phone: document.getElementById('form-phone') ? document.getElementById('form-phone').value : '',
@@ -423,6 +426,22 @@ function initFormHandler() {
     };
 
     console.log('Formulario enviado:', formData);
+
+    // Enviar a Web3Forms vía fetch
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(() => {
+      console.log('Enviado con éxito a Web3Forms');
+    })
+    .catch(error => {
+      console.error('Error al enviar a Web3Forms:', error);
+    });
 
     // Enviar evento de conversión a GA4 si las cookies han sido aceptadas
     const consent = localStorage.getItem('cookies-consent');
@@ -438,10 +457,10 @@ function initFormHandler() {
     const inSeoFolder = window.location.pathname.includes('/seo/');
     const graciasUrl = inSeoFolder ? '../gracias.html' : 'gracias.html';
     
-    // Retardo mínimo para permitir disparar el evento
+    // Retardo un poco mayor para dar tiempo al envío asíncrono
     setTimeout(() => {
       window.location.href = graciasUrl;
-    }, 250);
+    }, 450);
   });
 }
 

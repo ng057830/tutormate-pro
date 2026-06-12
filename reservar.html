@@ -277,6 +277,29 @@
         localStorage.setItem("tmp_booking_lead", JSON.stringify(leadData));
         console.log("Datos del lead guardados localmente:", leadData);
 
+        // Enviar a Web3Forms vía fetch
+        const web3Payload = {
+          access_key: '401af540-d626-4642-b6c7-4ad5344d9a63',
+          subject: 'Nueva reserva de valoración - TutorMate Pro',
+          from_name: 'TutorMate Pro Reservas',
+          ...leadData
+        };
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(web3Payload)
+        })
+        .then(() => {
+          console.log('Reserva enviada con éxito a Web3Forms');
+        })
+        .catch(err => {
+          console.error('Error al enviar reserva a Web3Forms:', err);
+        });
+
         // 4. Disparar el evento de analítica (se deduplicará en tracking.js en el paso gracias-reserva)
         if (typeof trackEvent === 'function') {
           trackEvent('form_submit_reserva', {
@@ -286,7 +309,10 @@
         }
 
         // Redirigir a la página de gracias con el lead_id para la deduplicación y el resumen
-        window.location.href = `gracias-reserva.html?lead_id=${leadId}&plan=${selectedPlanValue}`;
+        // Añadimos un pequeño retraso para permitir el envío asíncrono
+        setTimeout(() => {
+          window.location.href = `gracias-reserva.html?lead_id=${leadId}&plan=${selectedPlanValue}`;
+        }, 450);
       });
     }
   </script>
