@@ -163,68 +163,6 @@
       border: none;
     }
 
-    /* 3D Geometry Gallery */
-    .geometry-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-    @media (min-width: 640px) {
-      .geometry-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 1024px) {
-      .geometry-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    .geometry-card {
-      background: var(--clr-surface);
-      border: 1px solid var(--clr-border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-    }
-    .geometry-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: rgba(13, 148, 136, 0.3);
-    }
-    .geometry-img-wrapper {
-      position: relative;
-      padding-top: 75%; /* 4:3 Aspect Ratio */
-      background-color: #f1f4f9;
-      overflow: hidden;
-      border-bottom: 1px solid var(--clr-border);
-    }
-    .geometry-img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: var(--transition-slow);
-    }
-    .geometry-card:hover .geometry-img {
-      transform: scale(1.04);
-    }
-    .geometry-body {
-      padding: 1.25rem;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-    .geometry-title {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-      color: var(--clr-primary);
-    }
-    .geometry-desc {
-      font-size: 0.8rem;
-      color: var(--clr-text-light);
-      line-height: 1.5;
-    }
   </style>
 
   <!-- JSON-LD Structured Data for Educational Resources -->
@@ -295,10 +233,9 @@
       <div class="container hero-content">
         <span class="badge">Recursos Académicos</span>
         <h1 class="hero-title">Muestras de nuestros materiales de clase</h1>
-        <p class="hero-desc">Explora la calidad del material que diseñamos a medida para nuestros alumnos. Consulta nuestros apuntes directamente en pantalla o examina el modelado geométrico en 3D.</p>
+        <p class="hero-desc">Explora la calidad del material que diseñamos a medida para nuestros alumnos. Consulta nuestros apuntes directamente en pantalla.</p>
         <div class="hero-btns">
           <a href="#apuntes" class="btn btn-secondary">Ver Visor de Apuntes</a>
-          <a href="#modelos3d" class="btn btn-outline-light">Ver Modelos 3D</a>
         </div>
       </div>
     </section>
@@ -363,84 +300,6 @@
       </div>
     </section>
 
-    <!-- SECTION 2: MODELADO GEOMÉTRICO 3D -->
-    <section class="section section-alt" id="modelos3d">
-      <div class="container">
-        <div class="section-header">
-          <span class="badge">Modelización Visual</span>
-          <h2 class="section-title">Visualización geométrica en 3D</h2>
-          <p class="section-subtitle">Utilizamos gráficos vectoriales y modelos tridimensionales para que nuestros alumnos asimilen la teoría espacial de forma intuitiva, no memorística.</p>
-        </div>
-
-        <div class="geometry-grid">
-          <!-- Cono -->
-          <div class="geometry-card">
-            <div class="geometry-img-wrapper">
-              <img class="geometry-img" src="./assets/images/geometry3d/1_tronco_cono.png" alt="Modelado de Tronco de Cono 3D">
-            </div>
-            <div class="geometry-body">
-              <h3 class="geometry-title">Tronco de Cono</h3>
-              <p class="geometry-desc">Representación tridimensional paramétrica con cálculo de límites en las bases mayor y menor.</p>
-            </div>
-          </div>
-
-          <!-- Pirámide -->
-          <div class="geometry-card">
-            <div class="geometry-img-wrapper">
-              <img class="geometry-img" src="./assets/images/geometry3d/2_tronco_piramide.png" alt="Modelado de Tronco de Pirámide 3D">
-            </div>
-            <div class="geometry-body">
-              <h3 class="geometry-title">Tronco de Pirámide</h3>
-              <p class="geometry-desc">Estructura poliédrica regular en el espacio con visualización de aristas y planos límites.</p>
-            </div>
-          </div>
-
-          <!-- Cilindro Truncado -->
-          <div class="geometry-card">
-            <div class="geometry-img-wrapper">
-              <img class="geometry-img" src="./assets/images/geometry3d/3_cilindro_truncado.png" alt="Modelado de Cilindro Truncado 3D">
-            </div>
-            <div class="geometry-body">
-              <h3 class="geometry-title">Cilindro Truncado</h3>
-              <p class="geometry-desc">Modelo con tapa oblicua para ilustrar el cálculo de volúmenes por integración de planos.</p>
-            </div>
-          </div>
-
-          <!-- Prisma Truncado -->
-          <div class="geometry-card">
-            <div class="geometry-img-wrapper">
-              <img class="geometry-img" src="./assets/images/geometry3d/4_prisma_truncado.png" alt="Modelado de Prisma Triangular Truncado 3D">
-            </div>
-            <div class="geometry-body">
-              <h3 class="geometry-title">Prisma Truncado</h3>
-              <p class="geometry-desc">Modelización de alturas desiguales en los tres vértices para problemas de geometría descriptiva.</p>
-            </div>
-          </div>
-
-          <!-- Casquete Esférico -->
-          <div class="geometry-card">
-            <div class="geometry-img-wrapper">
-              <img class="geometry-img" src="./assets/images/geometry3d/5_casquete_esferico.png" alt="Modelado de Casquete Esférico 3D">
-            </div>
-            <div class="geometry-body">
-              <h3 class="geometry-title">Casquete Esférico</h3>
-              <p class="geometry-desc">Curvatura en el espacio para visualizar el área de la superficie esférica cortada por un plano.</p>
-            </div>
-          </div>
-
-          <!-- Segmento Esférico -->
-          <div class="geometry-card">
-            <div class="geometry-img-wrapper">
-              <img class="geometry-img" src="./assets/images/geometry3d/6_segmento_esferico.png" alt="Modelado de Segmento Esférico 3D">
-            </div>
-            <div class="geometry-body">
-              <h3 class="geometry-title">Segmento Esférico</h3>
-              <p class="geometry-desc">Región contenida entre dos planos paralelos para problemas de optimización avanzada de volumen.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- FINAL CTA -->
     <section class="section container">
