@@ -34,6 +34,9 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="./styles.css">
   
+  <!-- Central Tracking and Analytics Module -->
+  <script src="./tracking.js"></script>
+  
   <!-- JSON-LD Structured Data (Ad-Ready and targeted to parents & students in Spain) -->
   <script type="application/ld+json">
     {
@@ -88,12 +91,13 @@
         <a href="index.html" class="nav-link active">Inicio</a>
         <a href="planes.html" class="nav-link">Planes</a>
         <a href="metodo.html" class="nav-link">Método</a>
+        <a href="materiales.html" class="nav-link">Materiales</a>
         <a href="sobre-mi.html" class="nav-link">Sobre mí</a>
-        <a href="contacto.html" class="nav-link">Reservar</a>
+        <a href="reservar.html" class="nav-link">Reservar</a>
       </nav>
       
       <div class="nav-cta">
-        <a href="contacto.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.82rem;" data-analytics-event="reserve_click" data-analytics-label="Header Reserve Button">Reservar</a>
+        <a href="reservar.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.82rem;" data-action="reservar-valoracion">Reservar</a>
       </div>
       
       <button class="hamburger" id="hamburger" aria-label="Abrir menú">
@@ -108,9 +112,10 @@
       <a href="index.html" class="nav-link active">Inicio</a>
       <a href="planes.html" class="nav-link">Planes</a>
       <a href="metodo.html" class="nav-link">Método</a>
+        <a href="materiales.html" class="nav-link">Materiales</a>
       <a href="sobre-mi.html" class="nav-link">Sobre mí</a>
-      <a href="contacto.html" class="nav-link">Reservar</a>
-      <a href="contacto.html" class="btn btn-primary" style="text-align: center; margin-top: 0.5rem;" data-analytics-event="reserve_click" data-analytics-label="Mobile Header Reserve Button">Reservar</a>
+      <a href="reservar.html" class="nav-link">Reservar</a>
+      <a href="reservar.html" class="btn btn-primary" style="text-align: center; margin-top: 0.5rem;" data-action="reservar-valoracion">Reservar</a>
     </div>
   </header>
 
@@ -119,14 +124,16 @@
     <!-- ═══════ HERO ═══════ -->
     <section class="hero">
       <div class="container hero-content">
-        <span class="badge" id="hero-badge">Convocatoria ordinaria EBAU / Cierre de curso</span>
-        <h1 class="hero-title" id="hero-title">Asegura la nota en Selectividad y el aprobado final</h1>
-        <p class="hero-desc" id="hero-desc">Preparación intensiva de Matemáticas II para la PAU y refuerzo urgente de final de curso en ESO y Bachillerato. No dejes tu plaza universitaria al azar.</p>
+        <span class="badge" id="hero-badge">TutorMate Pro</span>
+        <h1 class="hero-title" id="hero-title">Clases online de matemáticas para aprobar, recuperar o preparar el próximo examen</h1>
+        <p class="hero-desc" id="hero-desc">Tutorías individuales para ESO, Bachillerato, EBAU/PAU, universidad y estadística. Explicación paso a paso, pizarra digital y acompañamiento personalizado.</p>
         <div class="hero-btns">
-          <a href="contacto.html" class="btn btn-secondary" id="hero-cta-btn" data-analytics-event="contact_cta_click" data-analytics-label="Hero CTA Valoracion">Reservar valoración inicial</a>
-          <a href="planes.html" class="btn btn-wsp-outline" data-analytics-event="contact_cta_click" data-analytics-label="Hero View Plans">Ver planes de clase</a>
+          <a href="reservar.html" class="btn btn-secondary" id="hero-cta-btn" data-action="reservar-valoracion">Reservar valoración inicial gratuita</a>
+          <a href="planes.html" class="btn btn-outline-light" data-action="ver-planes">Ver planes de clase</a>
         </div>
-        <p class="hero-microcopy">Horarios de tarde · Clases individuales · Enfoque práctico</p>
+        <p class="hero-microcopy" style="margin-top: 1rem; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.4; font-size: 0.8rem; color: rgba(255,255,255,0.75);">
+          * <strong>Sesión de 30 minutos</strong> para revisar el curso, el temario, la fecha del examen y recomendar el plan más adecuado. No es una clase completa.
+        </p>
 
         <div class="hero-stats">
           <div class="hero-stat">
@@ -265,7 +272,7 @@
               <span class="timeline-step">Paso 01</span>
               <h3 class="timeline-title">Orientación inicial</h3>
             </div>
-            <p class="timeline-desc">Analizamos el nivel, el temario y el examen en 15 min sin compromiso.</p>
+            <p class="timeline-desc">Analizamos el nivel, el temario y el examen en 30 min sin compromiso.</p>
           </div>
           
           <div class="timeline-item">
@@ -360,6 +367,100 @@
       <div style="margin-top: 3.5rem; text-align: center; display: flex; justify-content: center; align-items: center; flex-direction: column;">
         <img src="./assets/whiteboard_mockup.png" alt="Pizarra Interactiva TutorMate Pro" style="width: 100%; max-width: 640px; border-radius: var(--radius-lg); border: 1px solid var(--clr-border); box-shadow: var(--shadow-lg);">
         <p style="font-size: 0.78rem; color: var(--clr-text-light); margin-top: 1rem; max-width: 540px; text-align: center; line-height: 1.4;">Vista de nuestra aula virtual interactiva: videollamada integrada con una pizarra gráfica digital a color que se entrega completa en formato PDF tras cada sesión.</p>
+      </div>
+    </section>
+
+    <!-- ═══════ SECCIÓN DE CONFIANZA ═══════ -->
+    <section class="section container reveal">
+      <div class="section-header">
+        <span class="badge">Garantía y Confianza</span>
+        <h2 class="section-title">¿Por qué elegir TutorMate Pro?</h2>
+        <p class="section-subtitle">Un servicio premium diseñado para el éxito académico de tu hijo con total tranquilidad.</p>
+      </div>
+
+      <div class="grid-4" style="margin-top: 2rem;">
+        <div class="card" style="padding: 1.75rem; hover: none; transform: none; border-radius: var(--radius-lg);">
+          <div class="card-icon" style="color: var(--clr-accent); margin-bottom: 0.75rem;">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width: 1.75rem; height: 1.75rem;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+            </svg>
+          </div>
+          <h3 class="card-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Matemático Profesional</h3>
+          <p class="card-desc" style="font-size: 0.8rem; margin: 0; line-height: 1.5;">Tutor con formación matemática universitaria avanzada, rigor y vocación por la enseñanza estructurada.</p>
+        </div>
+
+        <div class="card" style="padding: 1.75rem; hover: none; transform: none; border-radius: var(--radius-lg);">
+          <div class="card-icon" style="color: var(--clr-accent); margin-bottom: 0.75rem;">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width: 1.75rem; height: 1.75rem;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="card-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">+600 Clases Impartidas</h3>
+          <p class="card-desc" style="font-size: 0.8rem; margin: 0; line-height: 1.5;">Amplia experiencia en tutorías online personalizadas con una metodología probada y eficiente.</p>
+        </div>
+
+        <div class="card" style="padding: 1.75rem; hover: none; transform: none; border-radius: var(--radius-lg);">
+          <div class="card-icon" style="color: var(--clr-accent); margin-bottom: 0.75rem;">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width: 1.75rem; height: 1.75rem;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </div>
+          <h3 class="card-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Clases 1:1 Individuales</h3>
+          <p class="card-desc" style="font-size: 0.8rem; margin: 0; line-height: 1.5;">Atención 100% exclusiva centrada en las dificultades específicas y ritmo del estudiante, sin distracciones de grupo.</p>
+        </div>
+
+        <div class="card" style="padding: 1.75rem; hover: none; transform: none; border-radius: var(--radius-lg);">
+          <div class="card-icon" style="color: var(--clr-accent); margin-bottom: 0.75rem;">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width: 1.75rem; height: 1.75rem;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="card-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Pizarra Digital e Interactiva</h3>
+          <p class="card-desc" style="font-size: 0.8rem; margin: 0; line-height: 1.5;">Aula virtual de última generación que permite escribir, dibujar funciones y resolver problemas en tiempo real.</p>
+        </div>
+      </div>
+
+      <div class="grid-4" style="margin-top: 1.25rem;">
+        <div class="card" style="padding: 1.75rem; hover: none; transform: none; border-radius: var(--radius-lg);">
+          <div class="card-icon" style="color: var(--clr-accent); margin-bottom: 0.75rem;">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width: 1.75rem; height: 1.75rem;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="card-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Apuntes Resueltos en PDF</h3>
+          <p class="card-desc" style="font-size: 0.8rem; margin: 0; line-height: 1.5;">Tras finalizar la clase, el alumno recibe de forma inmediata todo lo escrito en la pizarra en PDF a color para su repaso.</p>
+        </div>
+
+        <div class="card" style="padding: 1.75rem; hover: none; transform: none; border-radius: var(--radius-lg);">
+          <div class="card-icon" style="color: var(--clr-accent); margin-bottom: 0.75rem;">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width: 1.75rem; height: 1.75rem;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 01-2-2V4a2 2 0 012-2h14a2 2 0 012 2v2a2 2 0 01-2 2v12a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="card-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">ESO a Universidad</h3>
+          <p class="card-desc" style="font-size: 0.8rem; margin: 0; line-height: 1.5;">Apoyo completo para ESO, Bachillerato, preparación EBAU/PAU, cálculo, álgebra lineal, estadística y probabilidad.</p>
+        </div>
+
+        <div class="card" style="padding: 1.75rem; hover: none; transform: none; border-radius: var(--radius-lg);">
+          <div class="card-icon" style="color: var(--clr-accent); margin-bottom: 0.75rem;">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width: 1.75rem; height: 1.75rem;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </div>
+          <h3 class="card-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Atención Personalizada</h3>
+          <p class="card-desc" style="font-size: 0.8rem; margin: 0; line-height: 1.5;">Seguimiento continuo de la evolución, tareas guiadas entre sesiones y contacto directo para resolver dificultades.</p>
+        </div>
+
+        <div class="card" style="padding: 1.75rem; hover: none; transform: none; border-radius: var(--radius-lg); border-color: var(--clr-accent);">
+          <div class="card-icon" style="color: var(--clr-accent); margin-bottom: 0.75rem;">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width: 1.75rem; height: 1.75rem;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="card-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Valoración Gratuita 30 Min</h3>
+          <p class="card-desc" style="font-size: 0.8rem; margin: 0; line-height: 1.5;">Sesión de orientación sin compromiso para revisar temarios, analizar la urgencia del examen y proponer el plan óptimo.</p>
+        </div>
       </div>
     </section>
 
@@ -471,8 +572,8 @@
         <h2>¿Quieres saber si puedo ayudarte?</h2>
         <p>Cuéntame el curso, el tema actual y la fecha de tu examen.</p>
         <div class="cta-banner-btns">
-          <a href="contacto.html" class="btn btn-secondary" data-analytics-event="reserve_click" data-analytics-label="Bottom CTA Valoracion">Reservar valoración</a>
-          <a href="#" class="btn btn-wsp-outline calendar-link" data-analytics-event="calendar_click" data-analytics-label="Calendar Link Wsp Outline">Ver horarios disponibles</a>
+          <a href="reservar.html" class="btn btn-secondary" data-action="reservar-valoracion">Reservar valoración</a>
+          <a href="#" class="btn btn-wsp-outline calendar-link" data-action="calendar-link">Ver horarios disponibles</a>
         </div>
       </div>
     </section>
@@ -508,8 +609,9 @@
         <ul class="footer-list">
           <li><a href="planes.html" class="footer-link">Planes</a></li>
           <li><a href="metodo.html" class="footer-link">Método</a></li>
+          <li><a href="materiales.html" class="footer-link">Materiales</a></li>
           <li><a href="sobre-mi.html" class="footer-link">Sobre mí</a></li>
-          <li><a href="contacto.html" class="footer-link">Reservar</a></li>
+          <li><a href="reservar.html" class="footer-link">Reservar</a></li>
           <li style="margin-top: 0.75rem;"><a href="seo/clases-matematicas-madrid.html" class="footer-link" style="opacity: 0.75; font-size: 0.8rem;">Matemáticas Madrid</a></li>
           <li><a href="seo/clases-matematicas-barcelona.html" class="footer-link" style="opacity: 0.75; font-size: 0.8rem;">Matemáticas Barcelona</a></li>
         </ul>

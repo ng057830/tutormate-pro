@@ -24,6 +24,9 @@
   <meta name="description" content="Conoce la trayectoria y filosofía educativa de TutorMate Pro, tutor de matemáticas online. Clases particulares rigurosas en España.">
   
   <link class="stylesheet" rel="stylesheet" href="./styles.css">
+  
+  <!-- Central Tracking and Analytics Module -->
+  <script src="./tracking.js"></script>
 </head>
 <body>
 
@@ -38,11 +41,12 @@
         <a href="index.html" class="nav-link">Inicio</a>
         <a href="planes.html" class="nav-link">Planes</a>
         <a href="metodo.html" class="nav-link">Método</a>
-        <a href="sobre-mi.html" class="nav-link active">Sobre mí</a>
-        <a href="contacto.html" class="nav-link">Reservar</a>
+        <a href="materiales.html" class="nav-link">Materiales</a>
+        <a href="sobre-mi.html" class="nav-link">Sobre mí</a>
+        <a href="reservar.html" class="nav-link">Reservar</a>
       </nav>
       <div class="nav-cta">
-        <a href="contacto.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;" data-analytics-event="reserve_click" data-analytics-label="Header Reserve Button">Reservar</a>
+        <a href="reservar.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;" data-action="reservar-valoracion">Reservar</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Abrir menú">
         <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -56,9 +60,10 @@
       <a href="index.html" class="nav-link">Inicio</a>
       <a href="planes.html" class="nav-link">Planes</a>
       <a href="metodo.html" class="nav-link">Método</a>
+        <a href="materiales.html" class="nav-link">Materiales</a>
       <a href="sobre-mi.html" class="nav-link active">Sobre mí</a>
-      <a href="contacto.html" class="nav-link">Reservar</a>
-      <a href="contacto.html" class="btn btn-primary" style="text-align: center; margin-top: 0.5rem;" data-analytics-event="reserve_click" data-analytics-label="Mobile Header Reserve Button">Reservar</a>
+      <a href="reservar.html" class="nav-link">Reservar</a>
+      <a href="reservar.html" class="btn btn-primary" style="text-align: center; margin-top: 0.5rem;" data-action="reservar-valoracion">Reservar</a>
     </div>
   </header>
 
@@ -119,10 +124,10 @@
 
           <div style="background-color: var(--clr-surface-alt); padding: 1.5rem; border-radius: var(--radius-md); text-align: center;">
             <h4 style="font-size: 0.95rem; color: var(--clr-primary); font-family: var(--font-title); font-weight: 700; margin-bottom: 0.5rem;">¿Deseas concertar una orientación previa?</h4>
-            <p style="font-size: 0.85rem; color: var(--clr-text-muted); margin-bottom: 1rem;">Hablamos 15 minutos sin compromiso para valorar tu caso y ver si mi metodología encaja con lo que necesitas.</p>
+            <p style="font-size: 0.85rem; color: var(--clr-text-muted); margin-bottom: 1rem;">Hablamos 30 minutos sin compromiso para valorar tu caso y ver si mi metodología encaja con lo que necesitas.</p>
             <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-              <a href="contacto.html" class="btn btn-primary" data-analytics-event="reserve_click" data-analytics-label="CTA Valoracion Inicial">Reservar valoración inicial</a>
-              <a href="#" class="btn btn-outline calendar-link" data-analytics-event="calendar_click" data-analytics-label="Calendar Link Outline">Ver horarios disponibles</a>
+              <a href="reservar.html" class="btn btn-primary" data-action="reservar-valoracion">Reservar valoración inicial</a>
+              <a href="#" class="btn btn-outline calendar-link" data-action="calendar-link">Ver horarios disponibles</a>
             </div>
           </div>
 
@@ -159,8 +164,9 @@
         <ul class="footer-list">
           <li><a href="planes.html" class="footer-link">Planes</a></li>
           <li><a href="metodo.html" class="footer-link">Método</a></li>
+          <li><a href="materiales.html" class="footer-link">Materiales</a></li>
           <li><a href="sobre-mi.html" class="footer-link">Sobre mí</a></li>
-          <li><a href="contacto.html" class="footer-link">Reservar</a></li>
+          <li><a href="reservar.html" class="footer-link">Reservar</a></li>
           <li style="margin-top: 0.75rem;"><a href="seo/clases-matematicas-madrid.html" class="footer-link" style="opacity: 0.75; font-size: 0.8rem;">Matemáticas Madrid</a></li>
           <li><a href="seo/clases-matematicas-barcelona.html" class="footer-link" style="opacity: 0.75; font-size: 0.8rem;">Matemáticas Barcelona</a></li>
         </ul>

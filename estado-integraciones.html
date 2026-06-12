@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estado de Integraciones | TutorMate Pro</title>
+  <meta name="description" content="Panel de diagnóstico técnico de integraciones y analítica de TutorMate Pro.">
+  <link rel="canonical" href="https://www.tutormatepro.com/estado-integraciones.html">
+  
+  <!-- Bloquear indexación de motores de búsqueda -->
+  <meta name="robots" content="noindex, nofollow">
+  
+  <link rel="stylesheet" href="./styles.css">
+  
+  <!-- Central Tracking and Analytics Module -->
+  <script src="./tracking.js"></script>
+  
+  <!-- Google tag (gtag.js) simulador / real -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CEQ1MQZWDH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CEQ1MQZWDH');
+  </script>
+
+  <style>
+    .status-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .status-ok {
+      background-color: #d1fae5;
+      color: #065f46;
+    }
+    .status-pending {
+      background-color: #fef3c7;
+      color: #92400e;
+    }
+    .status-error {
+      background-color: #fee2e2;
+      color: #991b1b;
+    }
+    .integrations-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .integrations-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .config-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin-top: 1rem;
+    }
+    .config-table th, .config-table td {
+      padding: 0.6rem;
+      text-align: left;
+      border-bottom: 1px solid var(--clr-border);
+    }
+    .config-table th {
+      font-family: var(--font-title);
+      font-weight: 700;
+      color: var(--clr-primary);
+    }
+    .test-btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 1px solid var(--clr-border);
+      background-color: white;
+      transition: all 0.2s;
+    }
+    .test-btn:hover {
+      background-color: var(--clr-surface-alt);
+      border-color: var(--clr-accent);
+    }
+  </style>
+</head>
+<body style="background-color: #f8fafc;">
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-name">TutorMate Pro</span>
+        <span class="brand-sub">Clases de Matemáticas Online</span>
+      </a>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="planes.html" class="nav-link">Planes</a>
+        <a href="metodo.html" class="nav-link">Método</a>
+        <a href="materiales.html" class="nav-link">Materiales</a>
+        <a href="sobre-mi.html" class="nav-link">Sobre mí</a>
+        <a href="reservar.html" class="nav-link">Reservar</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="reservar.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;" data-action="reservar-valoracion">
+          Reservar
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding: 4rem 0;">
+    <section class="container">
+      
+      <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 2.5rem;">
+        
+        <!-- Cabecera panel -->
+        <div class="card" style="padding: 2rem; border-color: var(--clr-border); transform: none; hover: none; box-shadow: var(--shadow-sm);">
+          <span class="badge" style="background-color: #475569; color: white; border: none; align-self: flex-start;">Panel Técnico Diagnóstico</span>
+          <h1 style="font-size: 1.8rem; font-family: var(--font-title); margin: 0.5rem 0 0.25rem 0; color: var(--clr-primary);">Estado de Integraciones</h1>
+          <p style="font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.6; margin: 0;">
+            Panel de control para chequear la medición de eventos y cargas de scripts de marketing para campañas de Google Ads.
+          </p>
+        </div>
+
+        <div class="integrations-grid">
+          
+          <!-- Checklist Scripts -->
+          <div class="card" style="padding: 1.5rem; transform: none; hover: none; border-color: var(--clr-border);">
+            <h2 style="font-size: 1.15rem; font-family: var(--font-title); color: var(--clr-primary); margin: 0 0 1rem 0; border-bottom: 1px solid var(--clr-border); padding-bottom: 0.5rem;">
+              Carga de Scripts
+            </h2>
+            
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; font-weight: 600;">Modulo tracking.js</span>
+                <span id="chk-tracking" class="status-badge status-pending">Comprobando...</span>
+              </div>
+              
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; font-weight: 600;">Google Tag (gtag.js)</span>
+                <span id="chk-gtag" class="status-badge status-pending">Comprobando...</span>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; font-weight: 600;">Consentimiento de Cookies</span>
+                <span id="chk-cookies" class="status-badge status-pending">Comprobando...</span>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; font-weight: 600;">Persistencia UTM / GCLID</span>
+                <span id="chk-params" class="status-badge status-pending">Comprobando...</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Configuración Activa -->
+          <div class="card" style="padding: 1.5rem; transform: none; hover: none; border-color: var(--clr-border);">
+            <h2 style="font-size: 1.15rem; font-family: var(--font-title); color: var(--clr-primary); margin: 0 0 1rem 0; border-bottom: 1px solid var(--clr-border); padding-bottom: 0.5rem;">
+              Configuración en tracking.js
+            </h2>
+            
+            <table class="config-table">
+              <thead>
+                <tr>
+                  <th>Parámetro</th>
+                  <th>Valor Actual</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>GOOGLE_TAG_ID</td>
+                  <td id="cfg-tag-id" style="font-family: monospace;">-</td>
+                </tr>
+                <tr>
+                  <td>GOOGLE_ADS_CONVERSION_ID</td>
+                  <td id="cfg-ads-id" style="font-family: monospace;">-</td>
+                </tr>
+                <tr>
+                  <td>PAYMENT_PROVIDER</td>
+                  <td id="cfg-provider" style="font-weight: 700; color: var(--clr-accent);">-</td>
+                </tr>
+                <tr>
+                  <td>LEAD_ID (Sesión)</td>
+                  <td id="cfg-lead-id" style="font-family: monospace; font-size: 0.72rem;">-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+        <!-- Consola simulador de conversiones -->
+        <div class="card" style="padding: 2rem; transform: none; hover: none; border-color: var(--clr-border);">
+          <h2 style="font-size: 1.2rem; font-family: var(--font-title); color: var(--clr-primary); margin: 0 0 0.5rem 0;">
+            Simulador de Analíticas (Sandbox)
+          </h2>
+          <p style="font-size: 0.82rem; color: var(--clr-text-muted); margin-bottom: 1.5rem;">
+            Pulsa en los botones para disparar eventos simulados a la consola y verificar el flujo de analíticas y cookies.
+          </p>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            <button onclick="simulateEvent('click_whatsapp')" class="test-btn">Simular click_whatsapp</button>
+            <button onclick="simulateEvent('click_ver_planes')" class="test-btn">Simular click_ver_planes</button>
+            <button onclick="simulateEvent('click_solicitar_plan', {plan: 'pack-4'})" class="test-btn">Simular click_solicitar_plan</button>
+            <button onclick="simulateEvent('lead_reserva_valoracion', {plan: 'pack-4'})" class="test-btn">Simular lead_reserva_valoracion</button>
+            <button onclick="simulateEvent('purchase_success', {plan: 'pack-4', value: 72.00, order_id: 'TEST-123'})" class="test-btn">Simular purchase_success (Seguro)</button>
+          </div>
+
+          <div id="sim-console" style="margin-top: 1.5rem; background-color: #0f172a; color: #38bdf8; font-family: monospace; font-size: 0.78rem; padding: 1rem; border-radius: 6px; min-height: 100px; max-height: 200px; overflow-y: auto;">
+            [Consola de Pruebas]<br>Listo para capturar eventos de tracking...
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Diagnóstico de tracking.js
+      const chkTracking = document.getElementById("chk-tracking");
+      if (typeof TRACKING_CONFIG !== "undefined") {
+        chkTracking.className = "status-badge status-ok";
+        chkTracking.textContent = "Cargado";
+        
+        // Rellenar tabla
+        document.getElementById("cfg-tag-id").textContent = TRACKING_CONFIG.GOOGLE_TAG_ID || "No configurado";
+        document.getElementById("cfg-ads-id").textContent = TRACKING_CONFIG.GOOGLE_ADS_CONVERSION_ID || "No configurado";
+        document.getElementById("cfg-provider").textContent = TRACKING_CONFIG.PAYMENT_PROVIDER || "manual";
+      } else {
+        chkTracking.className = "status-badge status-error";
+        chkTracking.textContent = "Error Carga";
+      }
+
+      // 2. Diagnóstico de gtag.js
+      const chkGtag = document.getElementById("chk-gtag");
+      if (typeof gtag === "function") {
+        chkGtag.className = "status-badge status-ok";
+        chkGtag.textContent = "Activo";
+      } else {
+        chkGtag.className = "status-badge status-pending";
+        chkGtag.textContent = "Bloqueado / No cargado";
+      }
+
+      // 3. Diagnóstico de Cookies
+      const chkCookies = document.getElementById("chk-cookies");
+      const consent = localStorage.getItem("cookies-consent");
+      if (consent === "accepted") {
+        chkCookies.className = "status-badge status-ok";
+        chkCookies.textContent = "Aceptado (GA4 Activo)";
+      } else if (consent === "rejected") {
+        chkCookies.className = "status-badge status-error";
+        chkCookies.textContent = "Rechazado (GA4 Inactivo)";
+      } else {
+        chkCookies.className = "status-badge status-pending";
+        chkCookies.textContent = "Pendiente de Consentimiento";
+      }
+
+      // 4. Diagnóstico de Parámetros
+      const chkParams = document.getElementById("chk-params");
+      const leadId = localStorage.getItem("tmp_lead_id");
+      const gclid = localStorage.getItem("tmp_gclid");
+      
+      document.getElementById("cfg-lead-id").textContent = leadId || "No generado";
+      
+      if (leadId) {
+        let msg = "Lead ID OK";
+        if (gclid) msg += " + GCLID Activo";
+        chkParams.className = "status-badge status-ok";
+        chkParams.textContent = msg;
+      } else {
+        chkParams.className = "status-badge status-error";
+        chkParams.textContent = "Fallo almacenamiento";
+      }
+    });
+
+    // Simulador de clics
+    function simulateEvent(name, params = {}) {
+      const consoleLog = document.getElementById("sim-console");
+      
+      let statusText = `Fuego evento: ${name}`;
+      if (Object.keys(params).length) statusText += ` con params: ${JSON.stringify(params)}`;
+      
+      consoleLog.innerHTML += `<br>[${new Date().toLocaleTimeString()}] ${statusText}`;
+      
+      // Lanzar el evento a tracking.js
+      if (typeof trackEvent === 'function') {
+        trackEvent(name, params);
+        
+        // Registrar en la consola visual de la página
+        const consent = localStorage.getItem("cookies-consent");
+        if (consent !== 'accepted') {
+          consoleLog.innerHTML += `<br><span style="color: #f87171;">[Aviso] El evento se omitió en analíticas porque el consentimiento de cookies está deshabilitado.</span>`;
+        } else {
+          consoleLog.innerHTML += `<br><span style="color: #4ade80;">[Éxito] Evento enviado a Google Analytics / Ads.</span>`;
+        }
+      } else {
+        consoleLog.innerHTML += `<br><span style="color: #f87171;">[Error] No se ha encontrado la función trackEvent.</span>`;
+      }
+      
+      consoleLog.scrollTop = consoleLog.scrollHeight;
+    }
+  </script>
+</body>
+</html>

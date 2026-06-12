@@ -49,3 +49,7 @@ google-ads.yaml
 client_secret*.json
 credentials.json
 *.token
+
+# Local backups and temporary directories
+backup_original/
+scratch/

@@ -24,6 +24,9 @@
   <meta name="description" content="Nuestra metodología de enseñanza de matemáticas en 6 pasos. Del diagnóstico inicial al simulacro de examen.">
   
   <link rel="stylesheet" href="./styles.css">
+  
+  <!-- Central Tracking and Analytics Module -->
+  <script src="./tracking.js"></script>
 </head>
 <body>
 
@@ -38,11 +41,12 @@
         <a href="index.html" class="nav-link">Inicio</a>
         <a href="planes.html" class="nav-link">Planes</a>
         <a href="metodo.html" class="nav-link active">Método</a>
+        <a href="materiales.html" class="nav-link">Materiales</a>
         <a href="sobre-mi.html" class="nav-link">Sobre mí</a>
-        <a href="contacto.html" class="nav-link">Reservar</a>
+        <a href="reservar.html" class="nav-link">Reservar</a>
       </nav>
       <div class="nav-cta">
-        <a href="contacto.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;" data-analytics-event="reserve_click" data-analytics-label="Header Reserve Button">Reservar</a>
+        <a href="reservar.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;" data-action="reservar-valoracion">Reservar</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Abrir menú">
         <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -56,9 +60,10 @@
       <a href="index.html" class="nav-link">Inicio</a>
       <a href="planes.html" class="nav-link">Planes</a>
       <a href="metodo.html" class="nav-link active">Método</a>
+        <a href="materiales.html" class="nav-link">Materiales</a>
       <a href="sobre-mi.html" class="nav-link">Sobre mí</a>
-      <a href="contacto.html" class="nav-link">Reservar</a>
-      <a href="contacto.html" class="btn btn-primary" style="text-align: center; margin-top: 0.5rem;" data-analytics-event="reserve_click" data-analytics-label="Mobile Header Reserve Button">Reservar</a>
+      <a href="reservar.html" class="nav-link">Reservar</a>
+      <a href="reservar.html" class="btn btn-primary" style="text-align: center; margin-top: 0.5rem;" data-action="reservar-valoracion">Reservar</a>
     </div>
   </header>
 
@@ -80,7 +85,7 @@
               <span style="font-size: 0.75rem; font-weight: 700; background-color: var(--clr-bg); padding: 0.2rem 0.5rem; border-radius: var(--radius-md); color: var(--clr-text-muted);">Consulta de orientación</span>
             </div>
             <h3 style="font-size: 1.25rem;">1. Orientación inicial sin compromiso</h3>
-            <p style="font-size: 0.9rem; color: var(--clr-text-muted);">Hablamos 15 minutos en una sesión inicial virtual (Meet / Teams) para analizar el temario del centro educativo, los temas que causan más problemas y la urgencia de cara a exámenes.</p>
+            <p style="font-size: 0.9rem; color: var(--clr-text-muted);">Hablamos 30 minutos en una sesión inicial virtual (Meet / Teams) para analizar el temario del centro educativo, los temas que causan más problemas y la urgencia de cara a exámenes.</p>
             <div style="background-color: var(--clr-accent-bg); padding: 0.75rem; border-radius: var(--radius-md); font-size: 0.8rem; font-weight: 600; color: var(--clr-accent-hover);">
               Objetivo: Delimitar el nivel real del alumno y coordinar calendarios.
             </div>
@@ -166,8 +171,8 @@
           <h2 style="font-size: 1.75rem;">¿Deseas valorar tu caso?</h2>
           <p style="font-size: 0.95rem; color: var(--clr-text-muted);">Agenda una llamada breve para programar una revisión sin compromiso de los boletines o el temario.</p>
           <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-            <a href="contacto.html" class="btn btn-primary" data-analytics-event="reserve_click" data-analytics-label="CTA Valoracion Inicial">Reservar valoración inicial</a>
-            <a href="#" class="btn btn-outline calendar-link" data-analytics-event="calendar_click" data-analytics-label="Calendar Link Outline">Ver horarios disponibles</a>
+            <a href="reservar.html" class="btn btn-primary" data-action="reservar-valoracion">Reservar valoración inicial</a>
+            <a href="#" class="btn btn-outline calendar-link" data-action="calendar-link">Ver horarios disponibles</a>
           </div>
         </div>
       </div>
@@ -203,8 +208,9 @@
         <ul class="footer-list">
           <li><a href="planes.html" class="footer-link">Planes</a></li>
           <li><a href="metodo.html" class="footer-link">Método</a></li>
+          <li><a href="materiales.html" class="footer-link">Materiales</a></li>
           <li><a href="sobre-mi.html" class="footer-link">Sobre mí</a></li>
-          <li><a href="contacto.html" class="footer-link">Reservar</a></li>
+          <li><a href="reservar.html" class="footer-link">Reservar</a></li>
           <li style="margin-top: 0.75rem;"><a href="seo/clases-matematicas-madrid.html" class="footer-link" style="opacity: 0.75; font-size: 0.8rem;">Matemáticas Madrid</a></li>
           <li><a href="seo/clases-matematicas-barcelona.html" class="footer-link" style="opacity: 0.75; font-size: 0.8rem;">Matemáticas Barcelona</a></li>
         </ul>

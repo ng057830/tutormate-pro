@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CEQ1MQZWDH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CEQ1MQZWDH');
+</script>
+  <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <meta name="theme-color" content="#002B66">
+  <link rel="canonical" href="https://www.tutormatepro.com/reservar.html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Reservar Valoración Inicial Gratuita | TutorMate Pro</title>
+  <meta name="description" content="Solicita tu sesión de orientación y valoración inicial de matemáticas y estadística de 30 minutos sin compromiso. Evaluamos tu nivel y fecha de examen.">
+  
+  <link rel="stylesheet" href="./styles.css">
+  
+  <!-- Central Tracking and Analytics Module -->
+  <script src="./tracking.js"></script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-name">TutorMate Pro</span>
+        <span class="brand-sub">Clases de Matemáticas Online</span>
+      </a>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="planes.html" class="nav-link">Planes</a>
+        <a href="metodo.html" class="nav-link">Método</a>
+        <a href="materiales.html" class="nav-link">Materiales</a>
+        <a href="sobre-mi.html" class="nav-link">Sobre mí</a>
+        <a href="reservar.html" class="nav-link active">Reservar</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="reservar.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;" data-action="reservar-valoracion">
+          Reservar
+        </a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="nav-menu-mobile" id="mobile-menu">
+      <a href="index.html" class="nav-link">Inicio</a>
+      <a href="planes.html" class="nav-link">Planes</a>
+      <a href="metodo.html" class="nav-link">Método</a>
+        <a href="materiales.html" class="nav-link">Materiales</a>
+      <a href="sobre-mi.html" class="nav-link">Sobre mí</a>
+      <a href="reservar.html" class="nav-link active">Reservar</a>
+      <a href="reservar.html" class="btn btn-primary" style="text-align: center; margin-top: 0.5rem;" data-action="reservar-valoracion">
+        Reservar
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        
+        <div class="booking-container" style="max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem;">
+          
+          <!-- Introducción a la valoración -->
+          <div class="card" style="box-shadow: var(--shadow-sm); border-radius: var(--radius-lg); padding: 2rem; display: flex; flex-direction: column; gap: 1rem; border-color: var(--clr-accent); transform: none; hover: none;">
+            <span class="badge" style="align-self: flex-start;">Sesión de Orientación</span>
+            <h1 style="font-size: 1.6rem; font-family: var(--font-title); margin: 0; color: var(--clr-primary);">Reserva tu valoración inicial gratuita</h1>
+            <p style="font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.6; margin: 0;">
+              Completa el formulario a continuación para registrar tu solicitud. Analizaremos las asignaturas a reforzar, el nivel del alumno y la fecha del examen para diseñar el plan de clases más adecuado.
+            </p>
+            <p style="font-size: 0.82rem; color: var(--clr-text-light); line-height: 1.5; margin: 0; font-style: italic;">
+              * Esta valoración es una sesión breve de 30 minutos sin compromiso para revisar temarios y objetivos, no es una clase completa.
+            </p>
+          </div>
+
+          <!-- FORMULARIO DE RESERVA -->
+          <div class="form-box" style="padding: 2.25rem;">
+            <h2 style="font-size: 1.25rem; font-family: var(--font-title); margin: 0 0 1.25rem 0; color: var(--clr-primary);">Formulario de Reserva</h2>
+            
+            <form id="booking-form" style="display: flex; flex-direction: column; gap: 1.25rem;">
+              
+              <!-- Campos Ocultos de Tracking obligatorios -->
+              <input type="hidden" name="utm_source" id="utm_source">
+              <input type="hidden" name="utm_medium" id="utm_medium">
+              <input type="hidden" name="utm_campaign" id="utm_campaign">
+              <input type="hidden" name="utm_term" id="utm_term">
+              <input type="hidden" name="utm_content" id="utm_content">
+              <input type="hidden" name="gclid" id="gclid">
+              <input type="hidden" name="landing_page" id="landing_page">
+              <input type="hidden" name="referrer" id="referrer">
+              <input type="hidden" name="timestamp" id="timestamp">
+              <input type="hidden" name="selected_plan" id="selected_plan">
+              <input type="hidden" name="lead_id" id="lead_id">
+
+              <!-- Nombre completo -->
+              <div class="form-group">
+                <label for="student-name" class="form-label" style="font-size: 0.8rem; font-weight: 700;">Nombre completo *</label>
+                <input type="text" id="student-name" name="student_name" class="form-control" required placeholder="Tu nombre o el del alumno">
+              </div>
+
+              <!-- Email -->
+              <div class="form-group">
+                <label for="form-email" class="form-label" style="font-size: 0.8rem; font-weight: 700;">Correo electrónico *</label>
+                <input type="email" id="form-email" name="email" class="form-control" required placeholder="ejemplo@correo.com">
+              </div>
+
+              <!-- Curso o nivel -->
+              <div class="form-group">
+                <label for="form-level" class="form-label" style="font-size: 0.8rem; font-weight: 700;">Curso o nivel académico *</label>
+                <select id="form-level" name="level" class="form-control" required style="background-color: white;">
+                  <option value="" disabled selected>Selecciona el nivel actual</option>
+                  <option value="ESO">ESO (Educación Secundaria Obligatoria)</option>
+                  <option value="Bachillerato">Bachillerato</option>
+                  <option value="EBAU/PAU">EBAU / PAU / Selectividad</option>
+                  <option value="Universidad">Universidad (Cálculo / Álgebra)</option>
+                  <option value="Estadistica">Estadística (Universidad / Bachillerato)</option>
+                  <option value="Otro">Otro nivel académico</option>
+                </select>
+              </div>
+
+              <!-- Comentarios adicionales -->
+              <div class="form-group">
+                <label for="form-comments" class="form-label" style="font-size: 0.8rem; font-weight: 700;">Comentarios o dificultades (Opcional)</label>
+                <textarea id="form-comments" name="comments" class="form-control" rows="3" placeholder="Cuéntame en qué temas necesitas ayuda o la fecha del examen..."></textarea>
+              </div>
+
+              <!-- Consentimiento legal -->
+              <div class="form-checkbox">
+                <input type="checkbox" id="form-consent" name="consent" required>
+                <label for="form-consent">
+                  Acepto la <a href="privacidad.html" target="_blank">política de privacidad</a>. Mis datos serán tratados con la máxima confidencialidad únicamente para coordinar la valoración inicial.
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem; font-size: 1rem; border: none; cursor: pointer; text-align: center;">Solicitar valoración gratuita</button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-name">TutorMate Pro</a>
+        <p>Clases particulares de matemáticas online. Enfoque riguroso, explicaciones paso a paso.</p>
+      </div>
+      <div>
+        <h3 class="footer-col-title">Servicios</h3>
+        <ul class="footer-list" style="font-size: 0.8rem; line-height: 1.6;">
+          <li><a href="seo/clases-matematicas-eso.html" class="footer-link">Matemáticas ESO</a></li>
+          <li><a href="seo/clases-matematicas-bachillerato.html" class="footer-link">Matemáticas Bachillerato</a></li>
+          <li><a href="seo/preparacion-ebau-matematicas.html" class="footer-link">Preparación PAU / EBAU</a></li>
+          <li><a href="seo/clases-calculo-universidad.html" class="footer-link">Cálculo Infinitesimal</a></li>
+          <li><a href="seo/clases-algebra-lineal-universidad.html" class="footer-link">Álgebra Lineal</a></li>
+          <li><a href="seo/clases-estadistica-online.html" class="footer-link">Estadística y Probabilidad</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title">Navegación</h3>
+        <ul class="footer-list">
+          <li><a href="planes.html" class="footer-link">Planes</a></li>
+          <li><a href="metodo.html" class="footer-link">Método</a></li>
+          <li><a href="materiales.html" class="footer-link">Materiales</a></li>
+          <li><a href="sobre-mi.html" class="footer-link">Sobre mí</a></li>
+          <li><a href="reservar.html" class="footer-link">Reservar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title">Contacto</h3>
+        <ul class="footer-list">
+          <li>Email: <a href="mailto:contacto@tutormatepro.com" class="footer-link">contacto@tutormatepro.com</a></li>
+          <li style="font-size: 0.72rem; line-height: 1.4; color: rgba(255,255,255,0.45); margin-top: 0.5rem;">
+            Las reservas se gestionan mediante calendario para mantener una atención ordenada y respetar los horarios de clase.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div>&copy; 2026 TutorMate Pro — Todos los derechos reservados.</div>
+      <div class="footer-legal-links">
+        <a href="aviso-legal.html" class="footer-link">Aviso Legal</a>
+        <a href="privacidad.html" class="footer-link">Privacidad</a>
+        <a href="cookies.html" class="footer-link">Cookies</a>
+        <a href="condiciones.html" class="footer-link">Condiciones</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+  
+  <script>
+    // Sincronizar el plan pre-cargado de la URL con el input oculto del formulario
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlPlan = urlParams.get("plan");
+      const hiddenPlanInput = document.getElementById("selected_plan");
+      
+      if (hiddenPlanInput) {
+        if (urlPlan) {
+          // Mapeo por si acaso hay pequeñas variaciones
+          const plansMapping = {
+            'pack-4': 'pack-4',
+            'pack-8': 'pack-8',
+            'pack-10': 'pack-8', // Sync con la tarjeta de Plan Seguimiento
+            'intensivo': 'intensivo',
+            'universidad': 'universidad',
+            'urgente': 'intensivo' // Caída por defecto
+          };
+          hiddenPlanInput.value = plansMapping[urlPlan] || urlPlan;
+        } else {
+          hiddenPlanInput.value = 'no-lo-se';
+        }
+      }
+      
+      // Llenar campos ocultos de tracking
+      if (typeof autoFillHiddenFields === 'function') {
+        autoFillHiddenFields();
+      }
+    });
+
+    // Controlador de envío del formulario
+    const bookingForm = document.getElementById("booking-form");
+    if (bookingForm) {
+      bookingForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // 1. Asegurar la regeneración y llenado de campos ocultos antes de leer
+        if (typeof autoFillHiddenFields === 'function') {
+          autoFillHiddenFields();
+        }
+
+        const leadId = document.getElementById("lead_id").value || localStorage.getItem("tmp_lead_id") || "lead_unknown";
+        const selectedPlanValue = document.getElementById("selected_plan").value || "no-lo-se";
+        localStorage.setItem("tmp_selected_plan", selectedPlanValue);
+
+        // 2. Recopilar datos visibles y ocultos
+        const leadData = {
+          lead_id: leadId,
+          student_name: document.getElementById("student-name").value,
+          email: document.getElementById("form-email").value,
+          level: document.getElementById("form-level").value,
+          selected_plan: selectedPlanValue,
+          comments: document.getElementById("form-comments").value || "",
+          utm_source: document.getElementById("utm_source").value,
+          utm_medium: document.getElementById("utm_medium").value,
+          utm_campaign: document.getElementById("utm_campaign").value,
+          utm_term: document.getElementById("utm_term").value,
+          utm_content: document.getElementById("utm_content").value,
+          gclid: document.getElementById("gclid").value,
+          landing_page: document.getElementById("landing_page").value || window.location.pathname,
+          referrer: document.getElementById("referrer").value || document.referrer,
+          timestamp: new Date().toISOString()
+        };
+
+        // 3. Persistir el lead localmente en localStorage como respaldo
+        localStorage.setItem("tmp_booking_lead", JSON.stringify(leadData));
+        console.log("Datos del lead guardados localmente:", leadData);
+
+        // 4. Disparar el evento de analítica (se deduplicará en tracking.js en el paso gracias-reserva)
+        if (typeof trackEvent === 'function') {
+          trackEvent('form_submit_reserva', {
+            plan: selectedPlanValue,
+            level: leadData.level
+          });
+        }
+
+        // Redirigir a la página de gracias con el lead_id para la deduplicación y el resumen
+        window.location.href = `gracias-reserva.html?lead_id=${leadId}&plan=${selectedPlanValue}`;
+      });
+    }
+  </script>
+</body>
+</html>

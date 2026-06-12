@@ -159,6 +159,9 @@ function initSeasonalHero() {
   const desc = document.getElementById("hero-desc");
   const ctaBtn = document.getElementById("hero-cta-btn");
 
+  // Desactivar reemplazo automático del Hero para mantener el copy de Ads estable
+  return;
+
   if (!badge || !title || !desc || !ctaBtn) return;
 
   const currentMonth = new Date().getMonth(); // 0-11 (Ene-Dic)
@@ -414,7 +417,7 @@ function initFormHandler() {
     const formData = {
       name: document.getElementById('form-name').value,
       email: document.getElementById('form-email').value,
-      phone: document.getElementById('form-phone').value || '',
+      phone: document.getElementById('form-phone') ? document.getElementById('form-phone').value : '',
       level: document.getElementById('form-level').value,
       message: document.getElementById('form-message').value
     };

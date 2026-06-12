@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CEQ1MQZWDH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CEQ1MQZWDH');
+  </script>
+  <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <meta name="theme-color" content="#002B66">
+  <link rel="canonical" href="https://www.tutormatepro.com/materiales.html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Muestras de materiales de clase y apuntes PDF | TutorMate Pro</title>
+  <meta name="description" content="Explora nuestras muestras de apuntes de matemáticas en PDF a color con visor interactivo en pantalla y modelización de geometría 3D. Calidad académica premium.">
+  <meta name="keywords" content="apuntes matemáticas pdf, apuntes cálculo pdf, apuntes álgebra pdf, material didáctico matemáticas, visor pdf interactivo, modelado geométrico 3d, tutormate pro">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Muestras de materiales de clase y apuntes PDF | TutorMate Pro">
+  <meta property="og:description" content="Muestras reales de nuestros materiales didácticos: apuntes en PDF a color con visor integrado y modelos geométricos 3D.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./styles.css">
+  
+  <!-- Central Tracking and Analytics Module -->
+  <script src="./tracking.js"></script>
+  
+  <!-- Custom CSS for specific showcase features -->
+  <style>
+    /* Scribd-style Viewer Container */
+    .viewer-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    @media (min-width: 1024px) {
+      .viewer-container {
+        grid-template-columns: 340px 1fr;
+      }
+    }
+    
+    /* Tabs Sidebar */
+    .viewer-tabs-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .viewer-tab {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      width: 100%;
+    }
+    .viewer-tab:hover {
+      border-color: var(--clr-accent-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .viewer-tab.active {
+      border-color: var(--clr-accent);
+      background: var(--clr-accent-bg);
+      box-shadow: var(--shadow-md), var(--shadow-glow);
+    }
+    .tab-icon {
+      font-size: 1.5rem;
+      width: 3rem;
+      height: 3rem;
+      background: var(--clr-surface-alt);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+    .viewer-tab.active .tab-icon {
+      background: #ffffff;
+      color: var(--clr-accent);
+      box-shadow: var(--shadow-sm);
+    }
+    .tab-text h4 {
+      font-family: var(--font-title);
+      font-size: 0.95rem;
+      margin-bottom: 0.15rem;
+      color: var(--clr-primary);
+      font-weight: 700;
+    }
+    .tab-text p {
+      font-size: 0.72rem;
+      color: var(--clr-text-light);
+    }
+    
+    /* Display Frame Area */
+    .viewer-display {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .viewer-display-header {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--clr-border);
+      padding-bottom: 1.25rem;
+    }
+    @media (min-width: 640px) {
+      .viewer-display-header {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+    .viewer-info {
+      max-width: 580px;
+    }
+    .viewer-info h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.35rem;
+      color: var(--clr-primary);
+    }
+    .viewer-frame-wrapper {
+      position: relative;
+      width: 100%;
+      height: 680px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--clr-border);
+      background: #525659; /* Standard PDF reader background */
+      box-shadow: var(--shadow-sm);
+    }
+    .viewer-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* 3D Geometry Gallery */
+    .geometry-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .geometry-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .geometry-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .geometry-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .geometry-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(13, 148, 136, 0.3);
+    }
+    .geometry-img-wrapper {
+      position: relative;
+      padding-top: 75%; /* 4:3 Aspect Ratio */
+      background-color: #f1f4f9;
+      overflow: hidden;
+      border-bottom: 1px solid var(--clr-border);
+    }
+    .geometry-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-slow);
+    }
+    .geometry-card:hover .geometry-img {
+      transform: scale(1.04);
+    }
+    .geometry-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .geometry-title {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--clr-primary);
+    }
+    .geometry-desc {
+      font-size: 0.8rem;
+      color: var(--clr-text-light);
+      line-height: 1.5;
+    }
+  </style>
+
+  <!-- JSON-LD Structured Data for Educational Resources -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWorkSeries",
+      "name": "Materiales didácticos y apuntes de matemáticas | TutorMate Pro",
+      "description": "Colección de apuntes teóricos y simuladores interactivos de matemáticas y estadística para secundaria, bachillerato y universidad.",
+      "creator": {
+        "@type": "EducationalOrganization",
+        "name": "TutorMate Pro",
+        "url": "https://www.tutormatepro.com"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Estudiantes de ESO, Bachillerato y Universidad en España"
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header" id="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-name">TutorMate Pro</span>
+        <span class="brand-sub">Clases de Matemáticas Online</span>
+      </a>
+      
+      <nav class="nav-menu" id="nav-menu-desktop">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="planes.html" class="nav-link">Planes</a>
+        <a href="metodo.html" class="nav-link">Método</a>
+        <a href="materiales.html" class="nav-link active">Materiales</a>
+        <a href="sobre-mi.html" class="nav-link">Sobre mí</a>
+        <a href="reservar.html" class="nav-link">Reservar</a>
+      </nav>
+      
+      <div class="nav-cta">
+        <a href="reservar.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.82rem;" data-action="reservar-valoracion">Reservar</a>
+      </div>
+      
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="nav-menu-mobile" id="mobile-menu">
+      <a href="index.html" class="nav-link">Inicio</a>
+      <a href="planes.html" class="nav-link">Planes</a>
+      <a href="metodo.html" class="nav-link">Método</a>
+      <a href="materiales.html" class="nav-link active">Materiales</a>
+      <a href="sobre-mi.html" class="nav-link">Sobre mí</a>
+      <a href="reservar.html" class="nav-link">Reservar</a>
+      <a href="reservar.html" class="btn btn-primary" style="text-align: center; margin-top: 0.5rem;" data-action="reservar-valoracion">Reservar</a>
+    </div>
+  </header>
+
+  <main>
+    
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="container hero-content">
+        <span class="badge">Recursos Académicos</span>
+        <h1 class="hero-title">Muestras de nuestros materiales de clase</h1>
+        <p class="hero-desc">Explora la calidad del material que diseñamos a medida para nuestros alumnos. Consulta nuestros apuntes directamente en pantalla o examina el modelado geométrico en 3D.</p>
+        <div class="hero-btns">
+          <a href="#apuntes" class="btn btn-secondary">Ver Visor de Apuntes</a>
+          <a href="#modelos3d" class="btn btn-outline-light">Ver Modelos 3D</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: VISOR DE APUNTES PDF (Scribd-style) -->
+    <section class="section container" id="apuntes">
+      <div class="section-header">
+        <span class="badge">Documentos de Clase</span>
+        <h2 class="section-title">Apuntes y guías teóricas interactivas</h2>
+        <p class="section-subtitle">Visualiza directamente en pantalla las muestras reales de apuntes a color con explicaciones rigurosas e ilustraciones detalladas.</p>
+      </div>
+
+      <!-- Document Selector & Viewer -->
+      <div class="viewer-container">
+        <!-- Sidebar Tabs for selection -->
+        <div class="viewer-tabs-wrapper">
+          <button class="viewer-tab active" data-pdf="./assets/docs/apuntes-geometria-plano.pdf" data-title="Geometría Analítica en el Plano (R²)" data-desc="Vectores en el plano, combinaciones lineales (regla del paralelogramo), ecuaciones de la recta, paralelismo, perpendicularidad y propiedades métricas de vectores (normas y productos escalares).">
+            <span class="tab-icon">📐</span>
+            <div class="tab-text">
+              <h4>Geometría en el Plano</h4>
+              <p>Nivel Bachillerato y EBAU</p>
+            </div>
+          </button>
+
+          <button class="viewer-tab" data-pdf="./assets/docs/apuntes-sistemas-geometria-probabilidad.pdf" data-title="Sistemas, Geometría y Probabilidad (R³)" data-desc="Clasificación y resolución de sistemas de ecuaciones (SEL), estudio de planos en el espacio (R³), metódica de distancias y probabilidad condicional (teorema de Bayes con diagramas de árbol).">
+            <span class="tab-icon">📊</span>
+            <div class="tab-text">
+              <h4>Sistemas y Probabilidades</h4>
+              <p>Nivel Bachillerato Ciencias</p>
+            </div>
+          </button>
+
+          <button class="viewer-tab" data-pdf="./assets/docs/apuntes-espacio-dual.pdf" data-title="Álgebra Lineal: Espacio y Base Dual" data-desc="Guía teórica y práctica de nivel Universitario. Explicación intuitiva de covectores, formas lineales, bases duales y el pullback (traspuesta) de una aplicación lineal en el dual con gráficos en TikZ.">
+            <span class="tab-icon">🧬</span>
+            <div class="tab-text">
+              <h4>Espacio y Base Dual</h4>
+              <p>Nivel Universitario</p>
+            </div>
+          </button>
+
+          <button class="viewer-tab" data-pdf="./assets/docs/apuntes-endomorfismos-jordan.pdf" data-title="Álgebra Avanzada: Bloques de Jordan" data-desc="Material de nivel Universitario. Clasificación de endomorfismos reales y complejos, polinomio característico vs. minimal, estructuras de Jordan y cálculo de bases de Jordan generalizadas.">
+            <span class="tab-icon">🗝️</span>
+            <div class="tab-text">
+              <h4>Bloques de Jordan</h4>
+              <p>Nivel Universitario</p>
+            </div>
+          </button>
+        </div>
+
+        <!-- Central Viewer Frame -->
+        <div class="viewer-display">
+          <div class="viewer-display-header">
+            <div class="viewer-info">
+              <h3 id="active-pdf-title">Geometría Analítica en el Plano (R²)</h3>
+              <p id="active-pdf-desc" style="font-size: 0.85rem; color: var(--clr-text-light); line-height: 1.5;">Vectores en el plano, combinaciones lineales (regla del paralelogramo), ecuaciones de la recta, paralelismo, perpendicularidad y propiedades métricas de vectores (normas y productos escalares).</p>
+            </div>
+            <a id="active-pdf-download" href="./assets/docs/apuntes-geometria-plano.pdf" target="_blank" class="btn btn-outline" style="padding: 0.5rem 1.25rem; font-size: 0.78rem; flex-shrink: 0;" data-action="download-active-pdf">Descargar PDF &darr;</a>
+          </div>
+          <div class="viewer-frame-wrapper">
+            <iframe id="pdf-frame" class="viewer-iframe" src="./assets/docs/apuntes-geometria-plano.pdf" title="Visor de Apuntes PDF"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: MODELADO GEOMÉTRICO 3D -->
+    <section class="section section-alt" id="modelos3d">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">Modelización Visual</span>
+          <h2 class="section-title">Visualización geométrica en 3D</h2>
+          <p class="section-subtitle">Utilizamos gráficos vectoriales y modelos tridimensionales para que nuestros alumnos asimilen la teoría espacial de forma intuitiva, no memorística.</p>
+        </div>
+
+        <div class="geometry-grid">
+          <!-- Cono -->
+          <div class="geometry-card">
+            <div class="geometry-img-wrapper">
+              <img class="geometry-img" src="./assets/images/geometry3d/1_tronco_cono.png" alt="Modelado de Tronco de Cono 3D">
+            </div>
+            <div class="geometry-body">
+              <h3 class="geometry-title">Tronco de Cono</h3>
+              <p class="geometry-desc">Representación tridimensional paramétrica con cálculo de límites en las bases mayor y menor.</p>
+            </div>
+          </div>
+
+          <!-- Pirámide -->
+          <div class="geometry-card">
+            <div class="geometry-img-wrapper">
+              <img class="geometry-img" src="./assets/images/geometry3d/2_tronco_piramide.png" alt="Modelado de Tronco de Pirámide 3D">
+            </div>
+            <div class="geometry-body">
+              <h3 class="geometry-title">Tronco de Pirámide</h3>
+              <p class="geometry-desc">Estructura poliédrica regular en el espacio con visualización de aristas y planos límites.</p>
+            </div>
+          </div>
+
+          <!-- Cilindro Truncado -->
+          <div class="geometry-card">
+            <div class="geometry-img-wrapper">
+              <img class="geometry-img" src="./assets/images/geometry3d/3_cilindro_truncado.png" alt="Modelado de Cilindro Truncado 3D">
+            </div>
+            <div class="geometry-body">
+              <h3 class="geometry-title">Cilindro Truncado</h3>
+              <p class="geometry-desc">Modelo con tapa oblicua para ilustrar el cálculo de volúmenes por integración de planos.</p>
+            </div>
+          </div>
+
+          <!-- Prisma Truncado -->
+          <div class="geometry-card">
+            <div class="geometry-img-wrapper">
+              <img class="geometry-img" src="./assets/images/geometry3d/4_prisma_truncado.png" alt="Modelado de Prisma Triangular Truncado 3D">
+            </div>
+            <div class="geometry-body">
+              <h3 class="geometry-title">Prisma Truncado</h3>
+              <p class="geometry-desc">Modelización de alturas desiguales en los tres vértices para problemas de geometría descriptiva.</p>
+            </div>
+          </div>
+
+          <!-- Casquete Esférico -->
+          <div class="geometry-card">
+            <div class="geometry-img-wrapper">
+              <img class="geometry-img" src="./assets/images/geometry3d/5_casquete_esferico.png" alt="Modelado de Casquete Esférico 3D">
+            </div>
+            <div class="geometry-body">
+              <h3 class="geometry-title">Casquete Esférico</h3>
+              <p class="geometry-desc">Curvatura en el espacio para visualizar el área de la superficie esférica cortada por un plano.</p>
+            </div>
+          </div>
+
+          <!-- Segmento Esférico -->
+          <div class="geometry-card">
+            <div class="geometry-img-wrapper">
+              <img class="geometry-img" src="./assets/images/geometry3d/6_segmento_esferico.png" alt="Modelado de Segmento Esférico 3D">
+            </div>
+            <div class="geometry-body">
+              <h3 class="geometry-title">Segmento Esférico</h3>
+              <p class="geometry-desc">Región contenida entre dos planos paralelos para problemas de optimización avanzada de volumen.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section container">
+      <div class="cta-banner">
+        <h2>¿Quieres trabajar con material de este nivel?</h2>
+        <p>Preparamos clases individuales personalizadas con explicaciones paso a paso, aula virtual y apuntes detallados para que asimiles los conceptos sin esfuerzo.</p>
+        <div class="cta-banner-btns">
+          <a href="reservar.html" class="btn btn-secondary" data-action="reservar-valoracion">Reservar valoración gratuita</a>
+          <a href="#" class="btn btn-wsp-outline calendar-link" data-action="calendar-link">Ver horarios disponibles</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-name">TutorMate Pro</a>
+        <p>Clases particulares de matemáticas online. Enfoque riguroso, explicaciones paso a paso.</p>
+      </div>
+      
+      <div>
+        <h3 class="footer-col-title">Servicios</h3>
+        <ul class="footer-list" style="font-size: 0.8rem; line-height: 1.6;">
+          <li><a href="seo/clases-matematicas-eso.html" class="footer-link">Matemáticas ESO</a></li>
+          <li><a href="seo/clases-matematicas-bachillerato.html" class="footer-link">Matemáticas Bachillerato</a></li>
+          <li><a href="seo/preparacion-ebau-matematicas.html" class="footer-link">Preparación PAU / EBAU</a></li>
+          <li><a href="seo/clases-calculo-universidad.html" class="footer-link">Cálculo Infinitesimal</a></li>
+          <li><a href="seo/clases-algebra-lineal-universidad.html" class="footer-link">Álgebra Lineal</a></li>
+          <li><a href="seo/clases-estadistica-online.html" class="footer-link">Estadística y Probabilidad</a></li>
+          <li><a href="seo/clases-matematicas-computacionales.html" class="footer-link">Matemáticas Computacionales (Python/R)</a></li>
+          <li><a href="seo/profesor-particular-matematicas-online.html" class="footer-link">Profesor Particular Online</a></li>
+          <li><a href="seo/refuerzo-matematicas-verano.html" class="footer-link">Refuerzo de Verano</a></li>
+          <li><a href="seo/recuperacion-matematicas-septiembre.html" class="footer-link">Recuperación Septiembre</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="footer-col-title">Navegación</h3>
+        <ul class="footer-list">
+          <li><a href="planes.html" class="footer-link">Planes</a></li>
+          <li><a href="metodo.html" class="footer-link">Método</a></li>
+          <li><a href="materiales.html" class="footer-link">Materiales</a></li>
+          <li><a href="sobre-mi.html" class="footer-link">Sobre mí</a></li>
+          <li><a href="reservar.html" class="footer-link">Reservar</a></li>
+          <li style="margin-top: 0.75rem;"><a href="seo/clases-matematicas-madrid.html" class="footer-link" style="opacity: 0.75; font-size: 0.8rem;">Matemáticas Madrid</a></li>
+          <li><a href="seo/clases-matematicas-barcelona.html" class="footer-link" style="opacity: 0.75; font-size: 0.8rem;">Matemáticas Barcelona</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="footer-col-title">Contacto</h3>
+        <ul class="footer-list">
+          <li>Email: <a href="mailto:contacto@tutormatepro.com" class="footer-link">contacto@tutormatepro.com</a></li>
+          <li style="font-size: 0.72rem; line-height: 1.4; color: rgba(255,255,255,0.45); margin-top: 0.5rem;">
+            Las reservas se gestionan mediante calendario para mantener una atención ordenada y respetar los horarios de clase.
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <div>&copy; 2026 TutorMate Pro — Todos los derechos reservados.</div>
+      <div class="footer-legal-links">
+        <a href="aviso-legal.html" class="footer-link">Aviso Legal</a>
+        <a href="privacidad.html" class="footer-link">Privacidad</a>
+        <a href="cookies.html" class="footer-link">Cookies</a>
+        <a href="condiciones.html" class="footer-link">Condiciones</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL DE GOOGLE CALENDAR PENDIENTE DE CONFIGURACIÓN -->
+  <div class="modal-overlay" id="calendar-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">Reserva de Sesión Inactiva</h3>
+        <button class="modal-close" id="modal-close-btn" aria-label="Cerrar modal">
+          <svg style="width: 1.25rem; height: 1.25rem;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        El sistema de reserva automática de citas en Calendly/Google Calendar está en proceso de configuración. Si deseas solicitar información o coordinar una sesión de orientación, por favor envíanos un correo electrónico directamente a:
+        <span class="modal-email-copy" id="calendar-modal-email">contacto@tutormatepro.com</span>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="modal-accept-btn" style="width: 100%;">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./script.js"></script>
+  <!-- Script for PDF Tab Viewer (Scribd-style) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const viewerFrame = document.getElementById('pdf-frame');
+      const activeTitle = document.getElementById('active-pdf-title');
+      const activeDesc = document.getElementById('active-pdf-desc');
+      const activeDownload = document.getElementById('active-pdf-download');
+      const tabs = document.querySelectorAll('.viewer-tab');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Remove active class from all tabs
+          tabs.forEach(t => t.classList.remove('active'));
+          // Add active class to current tab
+          tab.classList.add('active');
+
+          // Get data attributes
+          const pdfPath = tab.getAttribute('data-pdf');
+          const pdfTitle = tab.getAttribute('data-title');
+          const pdfDesc = tab.getAttribute('data-desc');
+
+          // Update viewer display elements
+          viewerFrame.src = pdfPath;
+          activeTitle.textContent = pdfTitle;
+          activeDesc.textContent = pdfDesc;
+          activeDownload.href = pdfPath;
+        });
+      });
+    });
+  </script>
+</body>
+</html>

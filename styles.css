@@ -149,6 +149,19 @@ main { flex-grow: 1; }
   box-shadow: var(--shadow-md);
 }
 
+.btn-outline-light {
+  background-color: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+  box-shadow: none;
+}
+.btn-outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: #ffffff;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
 .btn-wsp-outline {
   background: transparent;
   border: 1.5px solid rgba(255,255,255,0.25);
