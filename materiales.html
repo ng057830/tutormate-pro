@@ -355,7 +355,6 @@
               <h3 id="active-pdf-title">Geometría Analítica en el Plano (R²)</h3>
               <p id="active-pdf-desc" style="font-size: 0.85rem; color: var(--clr-text-light); line-height: 1.5;">Vectores en el plano, combinaciones lineales (regla del paralelogramo), ecuaciones de la recta, paralelismo, perpendicularidad y propiedades métricas de vectores (normas y productos escalares).</p>
             </div>
-            <a id="active-pdf-download" href="./assets/docs/apuntes-geometria-plano.pdf" target="_blank" class="btn btn-outline" style="padding: 0.5rem 1.25rem; font-size: 0.78rem; flex-shrink: 0;" data-action="download-active-pdf">Descargar PDF &darr;</a>
           </div>
           <div class="viewer-frame-wrapper">
             <iframe id="pdf-frame" class="viewer-iframe" src="./assets/docs/apuntes-geometria-plano.pdf" title="Visor de Apuntes PDF"></iframe>
@@ -545,7 +544,6 @@
       const viewerFrame = document.getElementById('pdf-frame');
       const activeTitle = document.getElementById('active-pdf-title');
       const activeDesc = document.getElementById('active-pdf-desc');
-      const activeDownload = document.getElementById('active-pdf-download');
       const tabs = document.querySelectorAll('.viewer-tab');
 
       tabs.forEach(tab => {
@@ -564,7 +562,6 @@
           viewerFrame.src = pdfPath;
           activeTitle.textContent = pdfTitle;
           activeDesc.textContent = pdfDesc;
-          activeDownload.href = pdfPath;
         });
       });
     });
