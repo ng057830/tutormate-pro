@@ -8,7 +8,7 @@ const TRACKING_CONFIG = {
   // Configuración de Tags (Completar con IDs reales cuando estén configurados)
   GOOGLE_TAG_ID: 'G-CEQ1MQZWDH', // ID del contenedor de Google (gtag.js / GTM)
   GA4_MEASUREMENT_ID: 'G-CEQ1MQZWDH', // ID de Medición de GA4
-  GOOGLE_ADS_CONVERSION_ID: '', // ID de Conversión de Google Ads (ej: AW-XXXXXXXXX)
+  GOOGLE_ADS_CONVERSION_ID: 'AW-792175793', // ID de Conversión de Google Ads (ej: AW-XXXXXXXXX)
   
   // Etiquetas de Conversión de Google Ads
   GOOGLE_ADS_LABEL_LEAD: '', // Label para la valoración inicial gratuita
@@ -40,6 +40,11 @@ const TRACKING_CONFIG = {
 (function initTracking() {
   captureMarketingParameters();
   generateLeadId();
+  
+  // Inicializar Google Ads si está configurado y gtag está listo
+  if (TRACKING_CONFIG.GOOGLE_ADS_CONVERSION_ID && typeof gtag === 'function') {
+    gtag('config', TRACKING_CONFIG.GOOGLE_ADS_CONVERSION_ID);
+  }
   
   // Escuchar carga del DOM para autollenar formularios
   if (document.readyState === 'loading') {
