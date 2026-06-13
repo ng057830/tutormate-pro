@@ -11,7 +11,7 @@ const TRACKING_CONFIG = {
   GOOGLE_ADS_CONVERSION_ID: 'AW-792175793', // ID de Conversión de Google Ads (ej: AW-XXXXXXXXX)
   
   // Etiquetas de Conversión de Google Ads
-  GOOGLE_ADS_LABEL_LEAD: '', // Label para la valoración inicial gratuita
+  GOOGLE_ADS_LABEL_LEAD: 'R8PmCKa7iL4cELHJ3vkC', // Label para la valoración inicial gratuita
   GOOGLE_ADS_LABEL_WHATSAPP: '', // Label para clics en WhatsApp
   GOOGLE_ADS_LABEL_CHECKOUT_START: '', // Label para inicio de checkout
   GOOGLE_ADS_LABEL_PURCHASE: '', // Label para compra exitosa
