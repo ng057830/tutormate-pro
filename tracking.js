@@ -29,10 +29,10 @@ const TRACKING_CONFIG = {
   // Mapeo de Checkouts externos si aplica
   CHECKOUT_URLS: {
     'pack-4': 'https://pay.hotmart.com/Q106306704V', // URL de Hotmart/Payoneer para Pack 4 clases
-    'pack-8': '', // URL de Hotmart/Payoneer para Pack 8 clases
-    'intensivo': '', // URL de Hotmart/Payoneer para Plan Intensivo
-    'universidad': '', // URL para planes universitarios
-    'urgente': '' // URL para planes de preparación urgente
+    'pack-8': 'https://pay.hotmart.com/K106307172V', // URL de Hotmart/Payoneer para Pack 8 clases
+    'intensivo': 'https://pay.hotmart.com/F106307226R', // URL de Hotmart/Payoneer para Plan Intensivo
+    'universidad': 'https://pay.hotmart.com/T106307269S', // URL para planes universitarios
+    'urgente': 'https://pay.hotmart.com/Q106307298U' // URL para planes de preparación urgente
   }
 };
 
