@@ -1,0 +1,232 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.2cm}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Color Palette: TutorMate Pro
+\definecolor{primary}{HTML}{002B66}     % Dark Blue
+\definecolor{accent}{HTML}{0D9488}      % Turquoise
+\definecolor{gold}{HTML}{D97706}        % Gold
+\definecolor{lightbg}{HTML}{F8FAFC}     % Light Gray
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accent,
+    filecolor=accent,      
+    urlcolor=accent,
+    pdftitle={Guía de Inicio - TutorMate Pro},
+    pdfpagemode=FullScreen,
+}
+
+% Page styling
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\color{accent}\textbf{TutorMate Pro}}
+\lhead{\color{primary}\small\leftmark}
+\rfoot{\color{primary}\thepage}
+\lfoot{\color{primary}\scriptsize tutormatepro.com --- Acompañamiento Individualizado}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Section styling
+\titleformat{\section}
+  {\color{primary}\normalfont\Large\bfseries}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\color{accent}\normalfont\large\bfseries}
+  {\thesubsection}{1em}{}
+
+% TikZ Styles for Flowchart
+\tikzset{
+    block/.style={
+        rectangle, 
+        rounded corners=5pt, 
+        minimum width=5cm, 
+        minimum height=1.1cm, 
+        text centered, 
+        draw=primary, 
+        fill=lightbg, 
+        line width=1.2pt,
+        text width=4.8cm
+    },
+    arrow/.style={
+        thick,
+        -Stealth,
+        color=accent,
+        line width=1.5pt
+    }
+}
+
+\begin{document}
+
+% --- PORTADA ---
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    {\Huge \color{primary} \textbf{TutorMate Pro}} \\[0.5cm]
+    {\huge \color{accent} \textbf{Universidad / Estadística (10 clases)}} \\[0.8cm]
+    {\Large \color{gold} \textbf{Guía de Inicio y Bienvenida}} \\[1.5cm]
+    
+    \begin{minipage}{0.8\textwidth}
+        \centering
+        \large \color{primary} Acompañamiento individual para nivel universitario y estadística avanzada
+    \end{minipage} \\[2cm]
+    
+    \vspace*{\fill}
+    {\large \color{primary} \textbf{Autor: Nahuel García}} \\
+    {\large \color{primary} tutormatepro.com} \\
+    {\small \color{accent} \today}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Bienvenida al Programa}
+¡Te damos la bienvenida a \textbf{TutorMate Pro}! Al adquirir este programa, has dado un paso fundamental hacia el dominio y la comprensión profunda de las matemáticas y la estadística. 
+
+Este es un programa online de acompañamiento con \textbf{clases en vivo 1:1 (individuales)}. No se trata de un curso grabado estático: es un servicio diseñado a tu medida, donde dispondrás de un tutor dedicado que te guiará paso a paso, adaptándose a tus necesidades académicas específicas, tu ritmo y tus metas particulares.
+
+Este plan de \textbf{10 clases de nivel Universitario o Estadística} está estructurado para abordar asignaturas cuantitativas avanzadas de alta exigencia académica. Se enfoca en dotar al estudiante del rigor formal necesario, asimilando teoremas y demostraciones, resolviendo boletines prácticos de la facultad, y dominando la interpretación de resultados y software si aplica.
+
+\section{¿Qué incluye este Plan?}
+Este paquete de acompañamiento individualizado te proporciona las siguientes herramientas y recursos clave:
+\begin{itemize}
+    \item 10 sesiones online individuales en vivo de nivel avanzado.
+    \item Enfoque teórico-práctico riguroso y conceptualmente intuitivo.
+    \item Resolución paso a paso de boletines de prácticas de tu universidad.
+    \item Compartición y soporte para salidas de software si aplica (Python / R).
+    \item Acceso a pizarra digital y apuntes consolidados en PDF.
+\end{itemize}
+
+\section{¿Para quién es este Programa?}
+Este programa está estructurado para adaptarse con la máxima flexibilidad a estudiantes en distintas etapas académicas:
+\begin{itemize}
+    \item \textbf{Educación Secundaria (ESO):} Afianzamiento de bases operativas, superación del bloqueo con el álgebra básica y fomento de la seguridad en la resolución de problemas.
+    \item \textbf{Bachillerato y Selectividad (EBAU/PAU):} Preparación rigurosa de exámenes trimestrales, asimilación del análisis matemático (cálculo), la probabilidad y la geometría espacial.
+    \item \textbf{Universidad:} Acompañamiento en asignaturas de alto nivel como Álgebra Lineal, Cálculo Infinitesimal y Métodos Numéricos.
+    \item \textbf{Estadística Aplicada:} Comprensión teórica y desarrollo práctico de estadística descriptiva e inferencial para diversas carreras universitarias.
+    \item \textbf{Preparación de Convocatorias:} Refuerzo de verano, preparación de exámenes extraordinarios o nivelación pre-curso.
+\end{itemize}
+
+\newpage
+\section{Cómo se organiza el Trabajo}
+Para garantizar que cada minuto de clase sea productivo, el programa sigue una metodología organizada y personalizada. Antes del inicio o durante las primeras interacciones, el tutor recopila la siguiente información del estudiante:
+\begin{enumerate}
+    \item \textbf{Curso y Nivel Académico:} Para enmarcar el rigor matemático adecuado.
+    \item \textbf{Temario o Guía Docente:} El temario específico oficial de su institución.
+    \textbf{Fecha de Examen:} Para planificar el ritmo y priorizar temas clave.
+    \item \textbf{Ejercicios y Exámenes Anteriores:} El material práctico que el alumno debe dominar.
+    \item \textbf{Dificultades Principales:} Conceptos específicos donde se encuentra bloqueado.
+\end{enumerate}
+Con base en esta información, se define una \textbf{ruta de trabajo personalizada} para optimizar el número de sesiones contratadas.
+
+\section{Ejemplo de Ruta de Trabajo}
+La siguiente tabla muestra una planificación genérica orientativa del paquete. Es importante destacar que, al ser clases individuales, esta ruta se adapta y puede variar sustancialmente para ajustarse a tu ritmo real y prioridades académicas.
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|l|p{11cm}|}
+\hline
+\rowcolor{primary}
+\color{white}\textbf{Sesión} & \color{white}\textbf{Enfoque de Trabajo} \\ \hline
+ Clase 1 & Revisión detallada de la guía docente de tu universidad, boletines actuales y nivelación. \\ \hline
+ Clase 2 & Aclaración de conceptos teóricos abstractos y teoremas fundamentales. \\ \hline
+ Clase 3 & Resolución de problemas teóricos de desarrollo y demostraciones típicas. \\ \hline
+ Clase 4 & Ejercicios prácticos de aplicación directa del primer bloque de la materia. \\ \hline
+ Clase 5 & Abordaje de la parte práctica con software estadístico o métodos de cálculo avanzados. \\ \hline
+ Clase 6 & Resolución dirigida de exámenes de convocatorias anteriores de tu facultad. \\ \hline
+ Clase 7 & Análisis de casos complejos e interpretación detallada de resultados numéricos. \\ \hline
+ Clase 8 & Simulacro de examen universitario simulando condiciones reales de evaluación. \\ \hline
+ Clase 9 & Corrección minuciosa del simulacro, pulido de la redacción matemática y rúbrica. \\ \hline
+ Clase 10 & Repaso final de dudas de última hora y consejos para el examen universitario. \\ \hline
+\end{tabular}
+\caption{Planificación orientativa de las sesiones}
+\end{table}
+
+\newpage
+\section{Metodología TutorMate Pro}
+Nuestra filosofía didáctica se aleja de la memorización mecánica de fórmulas y procedimientos. Nos enfocamos en construir un aprendizaje sólido bajo las siguientes pautas:
+\begin{itemize}
+    \item \textbf{Entender antes de memorizar:} Explicar el "por qué" detrás de cada teorema, fórmula o algoritmo matemático.
+    \item \textbf{Detección y corrección de errores de base:} La mayoría de los problemas en niveles avanzados no se deben al tema actual, sino a fallos acumulados en álgebra básica o aritmética. Nos detenemos a resolver estas lagunas.
+    \item \textbf{Resolución estructurada paso a paso:} Enseñamos al alumno a desglosar problemas complejos en pasos sencillos, mejorando su redacción y organización matemática (clave para obtener el máximo puntaje en exámenes de selectividad y universidad).
+    \item \textbf{Conexión entre teoría y práctica:} Trabajamos directamente sobre ejemplos concretos e ilustrativos para afianzar la teoría abstracta.
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[node distance=1.6cm, auto]
+  \node (val) [block] {\textbf{1. Valoración y Diagnóstico} \\ \scriptsize Definición de metas y nivel inicial};
+  \node (plan) [block, below of=val] {\textbf{2. Ruta Personalizada} \\ \scriptsize Planificación según temario y fechas};
+  \node (class) [block, below of=plan] {\textbf{3. Clases Guiadas 1:1} \\ \scriptsize Pizarra digital interactiva y explicación};
+  \node (prac) [block, below of=class] {\textbf{4. Práctica de Consolidación} \\ \scriptsize Boletines de problemas adaptados};
+  \node (rev) [block, below of=prac] {\textbf{5. Cierre y Simulación} \\ \scriptsize Consejos de examen y revisión final};
+  
+  \draw [arrow] (val) -- (plan);
+  \draw [arrow] (plan) -- (class);
+  \draw [arrow] (class) -- (prac);
+  \draw [arrow] (prac) -- (rev);
+\end{tikzpicture}
+\caption{Esquema metodológico de aprendizaje TutorMate Pro}
+\label{fig:flujo}
+\end{figure}
+
+\newpage
+\section{Recomendaciones para el Alumno}
+Para maximizar el aprovechamiento de tus clases individuales, te recomendamos adoptar las siguientes prácticas:
+\begin{itemize}
+    \item \textbf{Envía el material con antelación:} Comparte tu guía docente, apuntes o boletines de ejercicios antes de la clase para que el tutor los tenga analizados.
+    \item \textbf{Apunta tus dudas concretas:} Lleva una lista con los puntos exactos donde te has atascado en tu estudio personal.
+    \item \textbf{Prepara tu espacio de estudio:} Dispón de papel, bolígrafo, calculadora y una conexión a internet estable.
+    \item \textbf{Trabaja entre sesiones:} Las clases online son el espacio para guiarte y aclarar dudas, pero la asimilación real ocurre cuando resuelves los ejercicios de forma autónoma entre clases.
+    \item \textbf{Planifica con tiempo:} No acumules todas las clases para los dos días previos al examen; espaciar las sesiones permite asimilar los conceptos mucho mejor.
+\end{itemize}
+
+\section{Temarios Disponibles para Trabajar}
+A continuación, se listan las principales materias y áreas que se pueden abordar en el acompañamiento, clasificadas por niveles académicos:
+
+\subsection{Educación Secundaria (ESO)}
+Operaciones fraccionarias, ecuaciones de primer y segundo grado, sistemas de ecuaciones lineales, funciones básicas, proporcionalidad directa e inversa, áreas y volúmenes geométricos, estadística descriptiva elemental.
+
+\subsection{Bachillerato y EBAU / PAU}
+\begin{itemize}
+    \item \textbf{Análisis:} Límites de funciones, continuidad, cálculo de derivadas, optimización, integrales inmediatas y por métodos de integración.
+    \textbf{Álgebra Lineal:} Matrices, operaciones, cálculo de determinantes y resolución de sistemas lineales (método de Rouché-Frobenius y regla de Cramer).
+    \item \textbf{Geometría en el Espacio ($R^3$):} Posiciones relativas de rectas y planos, cálculo de distancias, ángulos y áreas en el espacio.
+    \item \textbf{Probabilidad y Estadística:} Probabilidad condicionada, Teorema de Bayes, distribución Binomial y distribución Normal.
+\end{itemize}
+
+\subsection{Nivel Universitario y Estadística}
+\begin{itemize}
+    \item \textbf{Álgebra Avanzada:} Espacios vectoriales, bases, aplicaciones lineales, diagonalización de matrices y cálculo de bloques de Jordan.
+    \item \textbf{Cálculo Infinitesimal:} Cálculo multivariable, integración múltiple, ecuaciones diferenciales de primer orden y sucesiones.
+    \item \textbf{Estadística Descriptiva e Inferencial:} Intervalos de confianza, contrastes de hipótesis (paramétricos y no paramétricos), análisis de varianza (ANOVA), regresión lineal simple y múltiple, y su interpretación.
+\end{itemize}
+
+\section{Condiciones Generales del Programa}
+El desarrollo del programa de acompañamiento se rige por las siguientes pautas profesionales:
+\begin{itemize}
+    \item \textbf{Formato de impartición:} Todas las sesiones son 100\% online en vivo, utilizando pizarra interactiva y videoconferencia.
+    \item \textbf{Coordinación de horarios:} Las fechas de las clases se coordinarán directamente entre el tutor y el alumno según disponibilidad de agendas.
+    \item \textbf{Política de reprogramación:} Si necesitas mover una clase, debes avisar al tutor con al menos 24 horas de antelación para poder reorganizar la sesión sin penalización.
+    \item \textbf{Compromiso académico:} Las clases representan un soporte especializado y una guía didáctica de alto nivel, pero los resultados del alumno dependen directamente de su estudio independiente, constancia y realización de ejercicios prácticos recomendados.
+\end{itemize}
+
+\section{Próximo Paso}
+Para comenzar con tu programa, por favor coordina tus horarios iniciales compartiendo tu temario, boletines de ejercicios actuales o la fecha de tus próximos exámenes. Con base en esta información estructuraremos tu ruta de trabajo a medida para aprovechar al máximo cada una de tus sesiones.
+
+\end{document}
