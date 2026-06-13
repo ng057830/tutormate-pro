@@ -18,7 +18,7 @@ const TRACKING_CONFIG = {
   
   // Configuración de Proveedor de Pago y Productos
   // Opciones: 'manual' | 'hotmart' | 'payoneer' | 'wise_manual'
-  PAYMENT_PROVIDER: 'manual',
+  PAYMENT_PROVIDER: 'hotmart',
   
   // IDs de productos en Hotmart (para integraciones futuras)
   HOTMART_PRODUCT_ID_PACK_4: '',
@@ -28,7 +28,7 @@ const TRACKING_CONFIG = {
   
   // Mapeo de Checkouts externos si aplica
   CHECKOUT_URLS: {
-    'pack-4': '', // URL de Hotmart/Payoneer para Pack 4 clases
+    'pack-4': 'https://pay.hotmart.com/Q106306704V', // URL de Hotmart/Payoneer para Pack 4 clases
     'pack-8': '', // URL de Hotmart/Payoneer para Pack 8 clases
     'intensivo': '', // URL de Hotmart/Payoneer para Plan Intensivo
     'universidad': '', // URL para planes universitarios
@@ -344,8 +344,8 @@ function handlePlanSelection(planId) {
       trackEvent('checkout_start', { plan: planId, provider: 'hotmart' });
       window.location.href = checkoutUrl;
     } else {
-      // Si no hay checkout listo, va a pendiente
-      window.location.href = `checkout-pendiente.html?plan=${planId}&provider=hotmart`;
+      // Si no hay checkout listo, redirigir al formulario de reserva para no perder el lead
+      window.location.href = `reservar.html?plan=${planId}`;
     }
   } 
   else if (provider === 'wise_manual') {
