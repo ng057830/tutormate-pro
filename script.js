@@ -248,7 +248,9 @@ function enableAnalytics() {
   if (typeof gtag === 'function') {
     gtag('consent', 'update', {
       'analytics_storage': 'granted',
-      'ad_storage': 'granted'
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted'
     });
     // Forzar registro de página vista una vez activado
     gtag('config', 'G-CEQ1MQZWDH');
@@ -258,9 +260,11 @@ function enableAnalytics() {
 function disableAnalytics() {
   window['ga-disable-G-CEQ1MQZWDH'] = true;
   if (typeof gtag === 'function') {
-    gtag('consent', 'default', {
+    gtag('consent', 'update', {
       'analytics_storage': 'denied',
-      'ad_storage': 'denied'
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied'
     });
   }
 }
@@ -411,8 +415,15 @@ function initFormHandler() {
   const form = document.getElementById('contact-form');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalLabel = submitButton ? submitButton.textContent : '';
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Enviando solicitud…';
+    }
 
     const formData = {
       access_key: '401af540-d626-4642-b6c7-4ad5344d9a63',
@@ -425,23 +436,28 @@ function initFormHandler() {
       message: document.getElementById('form-message').value
     };
 
-    console.log('Formulario enviado:', formData);
-
-    // Enviar a Web3Forms vía fetch
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(() => {
-      console.log('Enviado con éxito a Web3Forms');
-    })
-    .catch(error => {
-      console.error('Error al enviar a Web3Forms:', error);
-    });
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || result.success === false) {
+        throw new Error(result.message || 'No se pudo enviar el formulario');
+      }
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+      alert('No hemos podido enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo. Si continúa el problema, escribe a contacto@tutormatepro.com.');
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = originalLabel;
+      }
+      return;
+    }
 
     // Enviar evento de conversión a GA4 si las cookies han sido aceptadas
     const consent = localStorage.getItem('cookies-consent');
@@ -457,10 +473,7 @@ function initFormHandler() {
     const inSeoFolder = window.location.pathname.includes('/seo/');
     const graciasUrl = inSeoFolder ? '../gracias.html' : 'gracias.html';
     
-    // Retardo un poco mayor para dar tiempo al envío asíncrono
-    setTimeout(() => {
-      window.location.href = graciasUrl;
-    }, 450);
+    window.location.href = graciasUrl;
   });
 }
 
