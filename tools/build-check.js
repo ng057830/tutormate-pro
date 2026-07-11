@@ -19,6 +19,14 @@ function checkHtmlFile(filePath) {
   const relativePath = path.relative(ROOT_DIR, filePath);
   const content = fs.readFileSync(filePath, 'utf8');
 
+  if (content.includes('tutormatepro.es')) {
+    logError(relativePath, 'References the obsolete tutormatepro.es domain');
+  }
+
+  if (content.includes('priceValued')) {
+    logError(relativePath, 'Contains invalid Schema.org property "priceValued"');
+  }
+
   // 1. Check title tag
   const titleMatch = content.match(/<title>([^]*?)<\/title>/i);
   if (!titleMatch) {
@@ -170,6 +178,22 @@ function runAudit() {
       
       if (!fs.existsSync(localFilePath)) {
         logError('sitemap.xml', `Sitemap references non-existent file: "${relativeUrl}"`);
+      }
+    });
+
+    const indexableRootFiles = fs.readdirSync(ROOT_DIR)
+      .filter(file => file.endsWith('.html'))
+      .filter(file => {
+        const html = fs.readFileSync(path.join(ROOT_DIR, file), 'utf8');
+        return !/<meta\s+name=["']robots["']\s+content=["'][^"']*noindex/i.test(html);
+      });
+
+    indexableRootFiles.forEach(file => {
+      const expectedUrl = file === 'index.html'
+        ? 'https://www.tutormatepro.com/'
+        : `https://www.tutormatepro.com/${file}`;
+      if (!sitemapContent.includes(`<loc>${expectedUrl}</loc>`)) {
+        logWarning('sitemap.xml', `Indexable page missing from sitemap: "${file}"`);
       }
     });
   } else {

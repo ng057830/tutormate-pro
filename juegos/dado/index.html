@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador Didáctico: Lanzamiento de un Dado</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Barra superior de navegación back-bar -->
+  <div class="top-back-bar">
+    <a href="../../juegos.html" class="back-link">
+      <svg style="width: 1.25rem; height: 1.25rem; display: inline; vertical-align: middle; margin-right: 0.25rem;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+      </svg>
+      Volver a Juegos
+    </a>
+    <span class="brand-text">TutorMate Pro</span>
+  </div>
+
+  <div class="container">
+    <header>
+      <h1>🎲 Simulador Didáctico: Lanzamiento de un Dado</h1>
+      <div class="toggle-wrapper">
+        <button class="toggle-btn active" onclick="switchTab('sim')">Simulador Interactivo</button>
+        <button class="toggle-btn" onclick="switchTab('theory')">Explicación Matemática</button>
+      </div>
+    </header>
+
+    <div id="view-sim" class="view active">
+
+      <div class="action-panel" id="main-panel">
+        <div class="panel-group">
+          <select id="amount">
+            <option value="1">Lanzar 1 vez (Lento)</option>
+            <option value="10">Lanzar 10 veces</option>
+            <option value="50">Lanzar 50 veces</option>
+            <option value="100">Lanzar 100 veces</option>
+            <option value="1000">Lanzar 1000 veces (Instantáneo)</option>
+          </select>
+          <button class="btn btn-main" id="btn-run">▶ Lanzar Dado</button>
+        </div>
+        <button class="btn btn-clear" id="btn-reset">Limpiar Resultados</button>
+      </div>
+
+      <div class="info-banner" id="banner-info">
+        ℹ️ MODO ACTUAL: Se lanza un dado cúbico justo y se anota el resultado. Espacio muestral: Ω = {1, 2, 3, 4, 5, 6}.
+      </div>
+
+      <div class="stage">
+        <div class="stage-label" id="stage-text">Resultado del Lanzamiento</div>
+
+        <div class="dice-display">
+          <div id="dice-face" class="dice-face unknown">
+            <span class="question-mark">?</span>
+          </div>
+        </div>
+
+        <div class="dice-info" id="dice-info">
+          Esperando el primer lanzamiento...
+        </div>
+      </div>
+
+      <div class="results-grid">
+
+        <div class="card c-blue" id="card-A">
+          <h3>🔵 Suceso A</h3>
+          <div class="desc">“Que salga un número impar”</div>
+
+          <div class="set-box">
+            A = {1, 3, 5}
+          </div>
+
+          <div class="stats-container">
+            <div class="stats-row">
+              <span>Probabilidad Teórica</span>
+              <span style="color:#64748b">3/6 = 50%</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill" style="background:#cbd5e1; width:50%"></div>
+            </div>
+
+            <div class="stats-row">
+              <span style="color:var(--primary)">Probabilidad Experimental</span>
+              <span id="pct-A">0.00%</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill fill-blue" id="bar-A"></div>
+            </div>
+
+            <div class="counter-row">
+              <span style="color:var(--text-muted); font-size:0.9rem;">Casos Favorables:</span>
+              <span style="color:var(--primary);">
+                <span id="count-A">0</span> / <span class="total-ref">0</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="token-pool" id="pool-A"></div>
+        </div>
+
+        <div class="card c-green" id="card-B">
+          <h3>🟢 Suceso B</h3>
+          <div class="desc">“Que salga un múltiplo de 3”</div>
+
+          <div class="set-box">
+            B = {3, 6}
+          </div>
+
+          <div class="stats-container">
+            <div class="stats-row">
+              <span>Probabilidad Teórica</span>
+              <span style="color:#64748b">2/6 = 33.33%</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill" style="background:#cbd5e1; width:33.33%"></div>
+            </div>
+
+            <div class="stats-row">
+              <span style="color:var(--success)">Probabilidad Experimental</span>
+              <span id="pct-B">0.00%</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill fill-green" id="bar-B"></div>
+            </div>
+
+            <div class="counter-row">
+              <span style="color:var(--text-muted); font-size:0.9rem;">Casos Favorables:</span>
+              <span style="color:var(--success);">
+                <span id="count-B">0</span> / <span class="total-ref">0</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="token-pool" id="pool-B"></div>
+        </div>
+
+        <div class="card c-warning" id="card-C">
+          <h3>🟠 Suceso A ∩ B</h3>
+          <div class="desc">“Que salga un número impar y múltiplo de 3”</div>
+
+          <div class="set-box">
+            A ∩ B = {3}
+          </div>
+
+          <div class="stats-container">
+            <div class="stats-row">
+              <span>Probabilidad Teórica</span>
+              <span style="color:#64748b">1/6 = 16.67%</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill" style="background:#cbd5e1; width:16.67%"></div>
+            </div>
+
+            <div class="stats-row">
+              <span style="color:var(--warning)">Probabilidad Experimental</span>
+              <span id="pct-C">0.00%</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill fill-warning" id="bar-C"></div>
+            </div>
+
+            <div class="counter-row">
+              <span style="color:var(--text-muted); font-size:0.9rem;">Casos Favorables:</span>
+              <span style="color:var(--warning);">
+                <span id="count-C">0</span> / <span class="total-ref">0</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="token-pool" id="pool-C"></div>
+        </div>
+
+        <div class="card c-purple" id="card-D">
+          <h3>🟣 Suceso A ∪ B</h3>
+          <div class="desc">“Que salga un número impar o un múltiplo de 3”</div>
+
+          <div class="set-box">
+            A ∪ B = {1, 3, 5, 6}
+          </div>
+
+          <div class="stats-container">
+            <div class="stats-row">
+              <span>Probabilidad Teórica</span>
+              <span style="color:#64748b">4/6 = 66.67%</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill" style="background:#cbd5e1; width:66.67%"></div>
+            </div>
+
+            <div class="stats-row">
+              <span style="color:var(--purple)">Probabilidad Experimental</span>
+              <span id="pct-D">0.00%</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill fill-purple" id="bar-D"></div>
+            </div>
+
+            <div class="counter-row">
+              <span style="color:var(--text-muted); font-size:0.9rem;">Casos Favorables:</span>
+              <span style="color:var(--purple);">
+                <span id="count-D">0</span> / <span class="total-ref">0</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="token-pool" id="pool-D"></div>
+        </div>
+
+      </div>
+
+      <div class="total-counter">
+        Total de Lanzamientos Realizados:
+        <span id="total-count">0</span>
+      </div>
+    </div>
+
+    <div id="view-theory" class="view">
+      <div class="theory-box">
+        <h2>📚 Análisis Matemático del Ejercicio</h2>
+
+        <h3>a) Espacio muestral</h3>
+        <p>
+          El experimento consiste en lanzar un dado cúbico y anotar el número que aparece en la cara superior.
+          Como el dado tiene seis caras numeradas del 1 al 6, el espacio muestral es:
+        </p>
+        <p><span class="math">Ω = {1, 2, 3, 4, 5, 6}</span></p>
+
+        <h3>b) ¿Los sucesos elementales son equiprobables?</h3>
+        <p>
+          Sí. Si el dado es justo, cada resultado elemental tiene la misma probabilidad de aparecer:
+        </p>
+        <p><span class="math">P(1) = P(2) = P(3) = P(4) = P(5) = P(6) = 1/6</span></p>
+
+        <h3>c) Suceso A: “que salga un número impar”</h3>
+        <p>
+          Los números impares del dado son 1, 3 y 5.
+        </p>
+        <p><span class="math">A = {1, 3, 5}</span></p>
+        <ul>
+          <li><strong>Casos favorables:</strong> 3</li>
+          <li><strong>Casos posibles:</strong> 6</li>
+          <li><strong>Probabilidad:</strong> <span class="math">P(A) = 3/6 = 1/2 = 0.5 = 50%</span></li>
+        </ul>
+
+        <h3>d) Suceso B: “que salga un múltiplo de 3”</h3>
+        <p>
+          Los múltiplos de 3 que aparecen en el dado son 3 y 6.
+        </p>
+        <p><span class="math">B = {3, 6}</span></p>
+        <ul>
+          <li><strong>Casos favorables:</strong> 2</li>
+          <li><strong>Casos posibles:</strong> 6</li>
+          <li><strong>Probabilidad:</strong> <span class="math">P(B) = 2/6 = 1/3 ≈ 33.33%</span></li>
+        </ul>
+
+        <h3>e) Complementario de A</h3>
+        <p>
+          El suceso complementario de A está formado por los resultados que no son impares.
+          Es decir, los números pares.
+        </p>
+        <p><span class="math">Aᶜ = {2, 4, 6}</span></p>
+        <ul>
+          <li><strong>Casos favorables:</strong> 3</li>
+          <li><strong>Probabilidad:</strong> <span class="math">P(Aᶜ) = 3/6 = 1/2 = 50%</span></li>
+        </ul>
+
+        <h3>f) Intersección A ∩ B</h3>
+        <p>
+          La intersección contiene los resultados que pertenecen a A y también a B.
+        </p>
+        <p><span class="math">A = {1, 3, 5}</span></p>
+        <p><span class="math">B = {3, 6}</span></p>
+        <p>
+          El único resultado común es 3.
+        </p>
+        <p><span class="math">A ∩ B = {3}</span></p>
+        <ul>
+          <li><strong>Casos favorables:</strong> 1</li>
+          <li><strong>Probabilidad:</strong> <span class="math">P(A ∩ B) = 1/6 ≈ 16.67%</span></li>
+        </ul>
+
+        <h3>g) Unión A ∪ B</h3>
+        <p>
+          La unión contiene los resultados que pertenecen a A, a B, o a ambos.
+        </p>
+        <p><span class="math">A ∪ B = {1, 3, 5, 6}</span></p>
+        <ul>
+          <li><strong>Casos favorables:</strong> 4</li>
+          <li><strong>Probabilidad:</strong> <span class="math">P(A ∪ B) = 4/6 = 2/3 ≈ 66.67%</span></li>
+        </ul>
+
+        <h3>Resumen final</h3>
+        <div class="summary-table">
+          <div class="summary-row">
+            <span>Espacio muestral</span>
+            <strong>Ω = {1, 2, 3, 4, 5, 6}</strong>
+          </div>
+          <div class="summary-row">
+            <span>A</span>
+            <strong>{1, 3, 5}</strong>
+          </div>
+          <div class="summary-row">
+            <span>B</span>
+            <strong>{3, 6}</strong>
+          </div>
+          <div class="summary-row">
+            <span>Aᶜ</span>
+            <strong>{2, 4, 6}</strong>
+          </div>
+          <div class="summary-row">
+            <span>A ∩ B</span>
+            <strong>{3}</strong>
+          </div>
+          <div class="summary-row">
+            <span>A ∪ B</span>
+            <strong>{1, 3, 5, 6}</strong>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CEQ1MQZWDH"></script>
+<!-- Consent Mode: denegado hasta una elección explícita -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    wait_for_update: 500
+  });
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CEQ1MQZWDH"></script>
+<script>
   gtag('js', new Date());
 
   gtag('config', 'G-CEQ1MQZWDH');
@@ -30,6 +40,10 @@
   <meta property="og:description" content="Clases particulares de matemáticas y estadística online en España. Refuerzo premium para ESO, Bachillerato, EBAU y Universidad.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_ES">
+  <meta property="og:url" content="https://www.tutormatepro.com/">
+  <meta property="og:image" content="https://www.tutormatepro.com/assets/whiteboard_mockup.png">
+  <meta property="og:image:alt" content="Pizarra digital utilizada en las clases online de TutorMate Pro">
+  <meta name="twitter:card" content="summary_large_image">
   
   <!-- Stylesheets -->
   <link rel="stylesheet" href="./styles.css">
@@ -44,13 +58,8 @@
       "@type": "EducationalOrganization",
       "name": "TutorMate Pro",
       "description": "Servicio premium de clases particulares de matemáticas y estadística online para ESO, Bachillerato, Selectividad y Universidad.",
-      "url": "https://tutormatepro.es",
-      "logo": "https://tutormatepro.es/assets/logo.png",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "ES",
-        "addressLocality": "Online"
-      },
+      "url": "https://www.tutormatepro.com/",
+      "logo": "https://www.tutormatepro.com/assets/favicon/android-chrome-512x512.png",
       "areaServed": [
         {
           "@type": "Country",
@@ -69,11 +78,7 @@
         "@type": "Audience",
         "audienceType": "Padres y estudiantes de ESO, Bachillerato y Universidad"
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "EUR",
-        "priceValued": "Premium"
-      }
+      "sameAs": []
     }
   </script>
 </head>
@@ -92,6 +97,7 @@
         <a href="planes.html" class="nav-link">Planes</a>
         <a href="metodo.html" class="nav-link">Método</a>
         <a href="materiales.html" class="nav-link">Materiales</a>
+        <a href="juegos.html" class="nav-link">Juegos</a>
         <a href="sobre-mi.html" class="nav-link">Sobre mí</a>
         <a href="reservar.html" class="nav-link">Reservar</a>
       </nav>
@@ -113,6 +119,7 @@
       <a href="planes.html" class="nav-link">Planes</a>
       <a href="metodo.html" class="nav-link">Método</a>
         <a href="materiales.html" class="nav-link">Materiales</a>
+        <a href="juegos.html" class="nav-link">Juegos</a>
       <a href="sobre-mi.html" class="nav-link">Sobre mí</a>
       <a href="reservar.html" class="nav-link">Reservar</a>
       <a href="reservar.html" class="btn btn-primary" style="text-align: center; margin-top: 0.5rem;" data-action="reservar-valoracion">Reservar</a>
