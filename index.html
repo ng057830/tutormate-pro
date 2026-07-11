@@ -49,7 +49,7 @@
   <meta name="twitter:card" content="summary_large_image">
   
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css?v=20260711">
   
   <!-- Central Tracking and Analytics Module -->
   <script src="./tracking.js"></script>
@@ -134,36 +134,37 @@
   <main>
     
     <!-- ═══════ HERO ═══════ -->
-    <section class="hero">
-      <div class="container hero-content">
-        <span class="badge" id="hero-badge">TutorMate Pro</span>
-        <h1 class="hero-title" id="hero-title">Clases online de matemáticas para aprobar, recuperar o preparar el próximo examen</h1>
-        <p class="hero-desc" id="hero-desc">Tutorías individuales para ESO, Bachillerato, EBAU/PAU, universidad y estadística. Explicación paso a paso, pizarra digital y acompañamiento personalizado.</p>
-        <div class="hero-btns">
-          <a href="reservar.html" class="btn btn-secondary" id="hero-cta-btn" data-action="reservar-valoracion">Reservar valoración inicial gratuita</a>
-          <a href="planes.html" class="btn btn-outline-light" data-action="ver-planes">Ver planes de clase</a>
+    <section class="hero hero-premium">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="hero-kicker" id="hero-badge"><span></span> Tutorías 1:1 · España</span>
+          <h1 class="hero-title" id="hero-title">Matemáticas explicadas con calma, método y criterio</h1>
+          <p class="hero-desc" id="hero-desc">Clases individuales para ESO, Bachillerato, PAU y universidad. Partimos de tus dudas reales y construimos una forma de resolver que puedas repetir sin depender del profesor.</p>
+          <div class="hero-btns">
+            <a href="reservar.html" class="btn btn-secondary" id="hero-cta-btn" data-action="reservar-valoracion">Reservar valoración gratuita <span aria-hidden="true">→</span></a>
+            <a href="metodo.html" class="btn btn-outline-light">Cómo trabajamos</a>
+          </div>
+          <div class="hero-proof">
+            <div><strong>30 min</strong><span>valoración inicial</span></div>
+            <div><strong>1:1</strong><span>atención exclusiva</span></div>
+            <div><strong>PDF</strong><span>material de cada sesión</span></div>
+          </div>
         </div>
-        <p class="hero-microcopy" style="margin-top: 1rem; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.4; font-size: 0.8rem; color: rgba(255,255,255,0.75);">
-          * <strong>Sesión de 30 minutos</strong> para revisar el curso, el temario, la fecha del examen y recomendar el plan más adecuado. No es una clase completa.
-        </p>
-
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <span class="hero-stat-number">100%</span>
-            <span class="hero-stat-label">Online</span>
+        <div class="hero-visual" aria-label="Ejemplo visual de una clase en pizarra digital">
+          <div class="math-board">
+            <div class="board-top"><span class="board-dot"></span><span>Sesión de cálculo · en directo</span><span class="board-status">● online</span></div>
+            <div class="board-body">
+              <span class="board-label">Problema</span>
+              <p class="board-equation">f(x) = x³ − 3x² + 2</p>
+              <div class="board-rule"></div>
+              <p class="board-note">1. Derivamos para encontrar puntos críticos</p>
+              <p class="board-work">f′(x) = 3x² − 6x = 3x(x − 2)</p>
+              <div class="board-result"><span>x = 0</span><span>x = 2</span></div>
+              <svg class="board-graph" viewBox="0 0 220 92" role="img" aria-label="Gráfica de una función cúbica"><path d="M8 69 C38 67 49 18 82 31 S126 89 158 55 S185 17 214 20" fill="none" stroke="currentColor" stroke-width="3"/><path d="M8 75H214M28 8V84" fill="none" stroke="currentColor" stroke-width="1" opacity=".25"/></svg>
+            </div>
           </div>
-          <div class="hero-stat">
-            <span class="hero-stat-number">1:1</span>
-            <span class="hero-stat-label">Individual</span>
-          </div>
-          <div class="hero-stat">
-            <span class="hero-stat-number">PDF</span>
-            <span class="hero-stat-label">Tras cada sesión</span>
-          </div>
-          <div class="hero-stat">
-            <span class="hero-stat-number">Flexible</span>
-            <span class="hero-stat-label">Horarios de tarde</span>
-          </div>
+          <div class="floating-note note-one"><span>✓</span><div><strong>Sin saltos</strong><small>Cada paso tiene un porqué</small></div></div>
+          <div class="floating-note note-two"><span>↗</span><div><strong>Tu ritmo</strong><small>Preguntas en tiempo real</small></div></div>
         </div>
       </div>
     </section>
