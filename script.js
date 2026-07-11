@@ -369,13 +369,14 @@ function showCookieBanner() {
   banner.className = 'cookie-banner';
   
   // Ajustar ruta según ubicación de la carpeta
-  const inSeoFolder = window.location.pathname.includes('/seo/');
-  const cookiesPath = inSeoFolder ? '../cookies.html' : 'cookies.html';
+  const inNestedFolder = window.location.pathname.includes('/seo/') || window.location.pathname.includes('/mexico/');
+  const cookiesPath = inNestedFolder ? '../cookies.html' : 'cookies.html';
 
+  const marketName = window.location.pathname.includes('/mexico/') ? 'México' : 'España';
   banner.innerHTML = `
     <div class="cookie-banner-text">
       <h3>Tu privacidad es importante</h3>
-      <p>Utilizo cookies analíticas de Google Analytics para medir de forma anónima las visitas y el rendimiento de mis anuncios en España. Puedes aceptar el uso de cookies analíticas o rechazarlas.</p>
+      <p>Utilizo cookies analíticas de Google Analytics para medir de forma anónima las visitas y el rendimiento de mis anuncios en ${marketName}. Puedes aceptar el uso de cookies analíticas o rechazarlas.</p>
     </div>
     <div class="cookie-banner-btns">
       <button class="cookie-info" id="btn-cookie-info">Política de cookies</button>

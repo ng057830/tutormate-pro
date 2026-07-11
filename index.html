@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES" data-region="es" data-region-redirect="true">
 <head>
 <!-- Consent Mode: denegado hasta una elección explícita -->
 <script>
@@ -27,6 +27,9 @@
   <link rel="manifest" href="/assets/favicon/site.webmanifest">
   <meta name="theme-color" content="#002B66">
   <link rel="canonical" href="https://www.tutormatepro.com/">
+  <link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/">
+  <link rel="alternate" hreflang="es-MX" href="https://www.tutormatepro.com/mexico/">
+  <link rel="alternate" hreflang="x-default" href="https://www.tutormatepro.com/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -50,6 +53,7 @@
   
   <!-- Central Tracking and Analytics Module -->
   <script src="./tracking.js"></script>
+  <script src="./region.js" defer></script>
   
   <!-- JSON-LD Structured Data (Ad-Ready and targeted to parents & students in Spain) -->
   <script type="application/ld+json">
@@ -103,6 +107,7 @@
       </nav>
       
       <div class="nav-cta">
+        <a href="/mexico/?region=mx" data-region="mx" class="nav-link" style="font-size: 0.75rem;">México</a>
         <a href="reservar.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.82rem;" data-action="reservar-valoracion">Reservar</a>
       </div>
       

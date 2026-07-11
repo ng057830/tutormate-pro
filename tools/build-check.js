@@ -3,6 +3,7 @@ const path = require('path');
 
 const ROOT_DIR = path.resolve(__dirname, '..');
 const SEO_DIR = path.join(ROOT_DIR, 'seo');
+const MEXICO_DIR = path.join(ROOT_DIR, 'mexico');
 
 let exitCode = 0;
 
@@ -65,11 +66,14 @@ function checkHtmlFile(filePath) {
   } else {
     const canonical = canonicalMatch[1].trim();
     const expectedBasename = path.basename(filePath);
-    const inSeoFolder = filePath.includes(path.sep + 'seo' + path.sep) || filePath.includes('/seo/');
-    const expectedCanonical = `https://www.tutormatepro.com/${inSeoFolder ? 'seo/' : ''}${expectedBasename === 'index.html' && !inSeoFolder ? '' : expectedBasename}`;
+    const relativeHtmlPath = path.relative(ROOT_DIR, filePath).split(path.sep).join('/');
+    const canonicalPath = expectedBasename === 'index.html'
+      ? relativeHtmlPath.replace(/index\.html$/, '')
+      : relativeHtmlPath;
+    const expectedCanonical = `https://www.tutormatepro.com/${canonicalPath}`;
     
     // Allow ending with / for root domain index.html
-    const isRootIndex = expectedBasename === 'index.html' && !inSeoFolder;
+    const isRootIndex = relativeHtmlPath === 'index.html';
     if (isRootIndex) {
       if (canonical !== 'https://www.tutormatepro.com/' && canonical !== 'https://www.tutormatepro.com') {
         logWarning(relativePath, `Canonical URL mismatch. Expected: "https://www.tutormatepro.com/", got: "${canonical}"`);
@@ -96,7 +100,8 @@ function checkHtmlFile(filePath) {
   // 6. Check for CTA
   const hasCta = content.includes('contacto.html') || 
                  content.includes('calendar-link') || 
-                 content.includes('mailto:');
+                 content.includes('mailto:') ||
+                 content.includes('#reservar');
   if (!hasCta) {
     logWarning(relativePath, "No CTA links found (contacto.html, calendar-link, or mailto)");
   }
@@ -162,6 +167,14 @@ function runAudit() {
     seoFiles.forEach(file => {
       checkHtmlFile(file);
     });
+  }
+
+  if (fs.existsSync(MEXICO_DIR)) {
+    const mexicoFiles = fs.readdirSync(MEXICO_DIR)
+      .filter(file => file.endsWith('.html'))
+      .map(file => path.join(MEXICO_DIR, file));
+
+    mexicoFiles.forEach(file => checkHtmlFile(file));
   }
 
   // Audit sitemap.xml
