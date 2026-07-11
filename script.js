@@ -78,6 +78,8 @@ function initFaqAccordion() {
       // Cierra todos los acordeones
       document.querySelectorAll(".faq-item").forEach((faq) => {
         faq.classList.remove("open");
+        const faqButton = faq.querySelector(".faq-btn");
+        if (faqButton) faqButton.setAttribute("aria-expanded", "false");
         const answer = faq.querySelector(".faq-answer");
         if (answer) answer.style.maxHeight = null;
       });
@@ -85,6 +87,7 @@ function initFaqAccordion() {
       // Si no estaba abierto, lo abre
       if (!isOpen) {
         item.classList.add("open");
+        btn.setAttribute("aria-expanded", "true");
         const answer = item.querySelector(".faq-answer");
         if (answer) {
           answer.style.maxHeight = answer.scrollHeight + "px";
