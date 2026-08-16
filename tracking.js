@@ -16,24 +16,8 @@ const TRACKING_CONFIG = {
   GOOGLE_ADS_LABEL_CHECKOUT_START: '', // Label para inicio de checkout
   GOOGLE_ADS_LABEL_PURCHASE: '', // Label para compra exitosa
   
-  // Configuración de Proveedor de Pago y Productos
-  // Opciones: 'manual' | 'hotmart' | 'payoneer' | 'wise_manual'
-  PAYMENT_PROVIDER: 'hotmart',
-  
-  // IDs de productos en Hotmart (para integraciones futuras)
-  HOTMART_PRODUCT_ID_PACK_4: '',
-  HOTMART_PRODUCT_ID_PACK_8: '',
-  HOTMART_PRODUCT_ID_INTENSIVE: '',
-  HOTMART_WEBHOOK_SECRET: '',
-  
-  // Mapeo de Checkouts externos si aplica
-  CHECKOUT_URLS: {
-    'pack-4': 'https://pay.hotmart.com/Q106306704V', // URL de Hotmart/Payoneer para Pack 4 clases
-    'pack-8': 'https://pay.hotmart.com/K106307172V', // URL de Hotmart/Payoneer para Pack 8 clases
-    'intensivo': 'https://pay.hotmart.com/F106307226R', // URL de Hotmart/Payoneer para Plan Intensivo
-    'universidad': 'https://pay.hotmart.com/T106307269S', // URL para planes universitarios
-    'urgente': 'https://pay.hotmart.com/Q106307298U' // URL para planes de preparación urgente
-  }
+  // Pago directo por transferencia, sin pasarela ni cobro automático.
+  PAYMENT_PROVIDER: 'direct_transfer'
 };
 
 // Inicialización de tracking al cargar el script
@@ -330,30 +314,6 @@ function trackEvent(eventName, params = {}) {
 function handlePlanSelection(planId) {
   localStorage.setItem('tmp_selected_plan', planId);
   trackEvent('click_solicitar_plan', { plan: planId });
-
-  const provider = TRACKING_CONFIG.PAYMENT_PROVIDER;
-
-  if (provider === 'manual') {
-    // Redirección por defecto al formulario de valoración para asesorar primero
-    window.location.href = `reservar.html?plan=${planId}`;
-  } 
-  else if (provider === 'hotmart') {
-    // En el futuro, enviar directamente al checkout de Hotmart si ya existe URL configurada
-    const checkoutUrl = TRACKING_CONFIG.CHECKOUT_URLS[planId];
-    if (checkoutUrl) {
-      trackEvent('checkout_start', { plan: planId, provider: 'hotmart' });
-      window.location.href = checkoutUrl;
-    } else {
-      // Si no hay checkout listo, redirigir al formulario de reserva para no perder el lead
-      window.location.href = `reservar.html?plan=${planId}`;
-    }
-  } 
-  else if (provider === 'wise_manual') {
-    // Redirigir a la página informativa de pago manual en EUR
-    window.location.href = `checkout-pendiente.html?plan=${planId}&provider=wise_manual`;
-  } 
-  else if (provider === 'payoneer') {
-    // Redirigir a checkout pendiente
-    window.location.href = `checkout-pendiente.html?plan=${planId}&provider=payoneer`;
-  }
+  trackEvent('checkout_start', { plan: planId, provider: 'direct_transfer' });
+  window.location.href = `pago-directo.html?market=es&plan=${encodeURIComponent(planId)}`;
 }
