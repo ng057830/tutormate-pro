@@ -1705,6 +1705,12 @@ html[data-region="mx"] .faq-icon {
 html[data-region="mx"] .faq-item.open { border-color: rgba(230,106,69,.36); box-shadow: 0 14px 36px rgba(16,42,43,.08); }
 html[data-region="mx"] .faq-answer-content { color: #5f6c6c; font-size: .9rem; line-height: 1.75; }
 
+@media (min-width: 768px) and (max-width: 1180px) {
+  html[data-region="mx"] .nav-menu { gap: .85rem; }
+  html[data-region="mx"] .nav-link { font-size: .72rem; }
+  html[data-region="mx"] .nav-cta { display: none; }
+}
+
 @media (max-width: 1050px) {
   .hero-grid { grid-template-columns: 1fr .82fr; gap: 2.5rem; }
   .hero-premium .hero-title { font-size: clamp(2.75rem, 5.8vw, 4.2rem); }
