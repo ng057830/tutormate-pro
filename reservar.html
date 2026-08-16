@@ -77,23 +77,47 @@
     <section class="section">
       <div class="container">
         
-        <div class="booking-container" style="max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem;">
+        <div class="booking-container" style="max-width: 1040px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem;">
           
           <!-- Introducción a la valoración -->
           <div class="card" style="box-shadow: var(--shadow-sm); border-radius: var(--radius-lg); padding: 2rem; display: flex; flex-direction: column; gap: 1rem; border-color: var(--clr-accent); transform: none; hover: none;">
             <span class="badge" style="align-self: flex-start;">Sesión de Orientación</span>
             <h1 style="font-size: 1.6rem; font-family: var(--font-title); margin: 0; color: var(--clr-primary);">Reserva tu valoración inicial gratuita</h1>
             <p style="font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.6; margin: 0;">
-              Completa el formulario a continuación para registrar tu solicitud. Analizaremos las asignaturas a reforzar, el nivel del alumno y la fecha del examen para diseñar el plan de clases más adecuado.
+              Selecciona directamente un horario disponible en Google Calendar. La reserva quedará confirmada al instante, se añadirá a ambas agendas y Google Meet generará el enlace de videollamada.
             </p>
             <p style="font-size: 0.82rem; color: var(--clr-text-light); line-height: 1.5; margin: 0; font-style: italic;">
               * Esta valoración es una sesión breve de 30 minutos sin compromiso para revisar temarios y objetivos, no es una clase completa.
             </p>
           </div>
 
-          <!-- FORMULARIO DE RESERVA -->
+          <section class="google-booking-shell" aria-labelledby="calendar-booking-title">
+            <div class="google-booking-heading">
+              <div>
+                <span class="badge">Reserva directa con Google Calendar</span>
+                <h2 id="calendar-booking-title">Elige el día y la hora</h2>
+                <p>La cita se añadirá automáticamente a tu calendario y recibirás por correo la confirmación y el enlace de Google Meet.</p>
+              </div>
+              <a href="https://calendar.app.google/PY6Tqz4pdFBUvLpL8" class="btn btn-outline calendar-link" target="_blank" rel="noopener noreferrer">Abrir calendario en otra pestaña</a>
+            </div>
+            <!-- Google Calendar Appointment Scheduling begin -->
+            <iframe
+              class="google-booking-frame"
+              src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0ss5On1sv_kDDqDw4JLfY4ZUkTv2l88Ddo3Fa-9MrpnnY0D7jGldZkOjnE2IonyeVzfyHK3NW1?gv=true"
+              title="Agenda de citas de TutorMate Pro"
+              width="100%"
+              height="680"
+              frameborder="0"
+              loading="eager"
+              allow="clipboard-write"
+            ></iframe>
+            <!-- end Google Calendar Appointment Scheduling -->
+          </section>
+
+          <!-- FORMULARIO DE RESERVA ALTERNATIVO -->
           <div class="form-box" style="padding: 2.25rem;">
-            <h2 style="font-size: 1.25rem; font-family: var(--font-title); margin: 0 0 1.25rem 0; color: var(--clr-primary);">Formulario de Reserva</h2>
+            <h2 style="font-size: 1.25rem; font-family: var(--font-title); margin: 0 0 0.5rem 0; color: var(--clr-primary);">¿No encuentras un horario adecuado?</h2>
+            <p style="font-size: 0.88rem; color: var(--clr-text-muted); margin: 0 0 1.25rem;">Envíame tu caso y disponibilidad como alternativa. Para confirmar una cita inmediatamente, utiliza el calendario de arriba.</p>
             
             <form id="booking-form" style="display: flex; flex-direction: column; gap: 1.25rem;">
               
