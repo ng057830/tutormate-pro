@@ -372,10 +372,10 @@ function showCookieBanner() {
   banner.className = 'cookie-banner';
   
   // Ajustar ruta según ubicación de la carpeta
-  const inNestedFolder = window.location.pathname.includes('/seo/') || window.location.pathname.includes('/mexico/');
+  const inNestedFolder = window.location.pathname.includes('/seo/') || window.location.pathname.includes('/latam/');
   const cookiesPath = inNestedFolder ? '../cookies.html' : 'cookies.html';
 
-  const marketName = window.location.pathname.includes('/mexico/') ? 'México' : 'España';
+  const marketName = window.location.pathname.includes('/latam/') ? 'Latinoamérica' : 'España';
   banner.innerHTML = `
     <div class="cookie-banner-text">
       <h3>Tu privacidad es importante</h3>

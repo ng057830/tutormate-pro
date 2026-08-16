@@ -3,7 +3,7 @@ const path = require('path');
 
 const ROOT_DIR = path.resolve(__dirname, '..');
 const SEO_DIR = path.join(ROOT_DIR, 'seo');
-const MEXICO_DIR = path.join(ROOT_DIR, 'mexico');
+const LATAM_DIR = path.join(ROOT_DIR, 'latam');
 
 let exitCode = 0;
 
@@ -169,12 +169,12 @@ function runAudit() {
     });
   }
 
-  if (fs.existsSync(MEXICO_DIR)) {
-    const mexicoFiles = fs.readdirSync(MEXICO_DIR)
+  if (fs.existsSync(LATAM_DIR)) {
+    const latamFiles = fs.readdirSync(LATAM_DIR)
       .filter(file => file.endsWith('.html'))
-      .map(file => path.join(MEXICO_DIR, file));
+      .map(file => path.join(LATAM_DIR, file));
 
-    mexicoFiles.forEach(file => checkHtmlFile(file));
+    latamFiles.forEach(file => checkHtmlFile(file));
   }
 
   // Audit sitemap.xml
