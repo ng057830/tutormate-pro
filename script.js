@@ -7,7 +7,7 @@
 const siteConfig = {
   brandName: "TutorMate Pro",
   email: "tutormatepro@gmail.com",
-  googleCalendarScheduleUrl: "https://calendar.app.google/wH1qNiNfKuJ1xL6u9"
+  googleCalendarScheduleUrl: "https://calendar.app.google/PY6Tqz4pdFBUvLpL8"
 };
 
 // Configuración inicial de Consent Mode de GA4 al cargar el script

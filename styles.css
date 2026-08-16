@@ -1752,3 +1752,61 @@ html[data-region="mx"] .faq-answer-content { color: #5f6c6c; font-size: .9rem; l
 @media (min-width: 1024px) {
   .grid-4 { grid-template-columns: repeat(4, 1fr); }
 }
+/* Google Calendar booking integration */
+.google-booking-shell {
+  overflow: hidden;
+  border: 1px solid var(--clr-border);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: var(--shadow-md);
+}
+
+.google-booking-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem 2rem 1.5rem;
+  border-bottom: 1px solid var(--clr-border);
+  background: linear-gradient(135deg, rgba(0, 43, 102, 0.045), rgba(35, 113, 236, 0.08));
+}
+
+.google-booking-heading h2 {
+  margin: 0.75rem 0 0.35rem;
+  color: var(--clr-primary);
+  font-family: var(--font-title);
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+.google-booking-heading p {
+  max-width: 650px;
+  margin: 0;
+  color: var(--clr-text-muted);
+  line-height: 1.6;
+}
+
+.google-booking-frame {
+  display: block;
+  width: 100%;
+  min-height: 680px;
+  border: 0;
+  background: #fff;
+}
+
+@media (max-width: 760px) {
+  .google-booking-heading {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 1.4rem;
+  }
+
+  .google-booking-heading .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .google-booking-frame {
+    min-height: 760px;
+    height: 760px;
+  }
+}
