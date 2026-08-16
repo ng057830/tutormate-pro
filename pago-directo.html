@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es" data-page="direct-payment">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,follow">
+  <meta name="theme-color" content="#0b1120">
+  <link rel="canonical" href="https://www.tutormatepro.com/pago-directo.html">
+  <title>Pago directo del plan | TutorMate Pro</title>
+  <meta name="description" content="Datos verificados para pagar directamente un plan de TutorMate Pro mediante transferencia bancaria en EUR o USD.">
+  <link rel="stylesheet" href="./styles.css?v=20260816">
+  <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
+</head>
+<body class="payment-page">
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand"><span class="brand-name">TutorMate Pro</span><span class="brand-sub">Pago directo y verificado</span></a>
+      <nav class="nav-menu"><a href="planes.html" class="nav-link">Volver a planes</a><a href="reservar.html" class="nav-link">Reservar valoración</a></nav>
+      <div class="nav-cta"><a href="mailto:tutormatepro@gmail.com" class="btn btn-outline">Consultar</a></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section payment-hero">
+      <div class="container payment-layout">
+        <div class="payment-intro">
+          <span class="badge">Sin checkout ni cobros automáticos</span>
+          <h1>Pago directo del paquete</h1>
+          <p>Transfiere únicamente después de confirmar el plan y la disponibilidad. No pedimos tarjetas, contraseñas ni códigos de seguridad.</p>
+          <div class="payment-plan-summary" aria-live="polite">
+            <span>Plan seleccionado</span>
+            <strong id="payment-plan-name">Plan TutorMate Pro</strong>
+            <div id="payment-plan-amount">Importe por confirmar</div>
+          </div>
+          <div class="security-note">
+            <strong>Verificación importante</strong>
+            <p>Comprueba que el beneficiario y los datos bancarios coincidan exactamente con esta página. TutorMate Pro nunca cambia una cuenta por WhatsApp, chat o mensaje privado.</p>
+          </div>
+        </div>
+
+        <div class="payment-panel">
+          <div class="payment-market-switch" role="group" aria-label="Seleccionar país y moneda">
+            <button type="button" class="payment-market active" data-market="es">España · EUR</button>
+            <button type="button" class="payment-market" data-market="mx">México · USD</button>
+          </div>
+
+          <section class="payment-account active" data-account="es" aria-labelledby="eur-title">
+            <div class="payment-account-head">
+              <div><span class="payment-kicker">Transferencia SEPA</span><h2 id="eur-title">Cuenta en euros</h2></div>
+              <span class="verified-pill">Datos verificados</span>
+            </div>
+            <p class="payment-description">Para alumnos y familias de España. SEPA Instant puede acreditarse inmediatamente; SEPA estándar suele tardar entre 1 y 2 días hábiles.</p>
+            <dl class="bank-details">
+              <div><dt>Beneficiario</dt><dd><span>Bridge Building Sp. Z.o.o.</span><button class="copy-data" data-copy="Bridge Building Sp. Z.o.o." type="button">Copiar</button></dd></div>
+              <div><dt>IBAN</dt><dd><span>LU33 4080 0000 4643 6344</span><button class="copy-data" data-copy="LU334080000046436344" type="button">Copiar</button></dd></div>
+              <div><dt>Banco</dt><dd><span>Banking Circle S.A.</span><button class="copy-data" data-copy="Banking Circle S.A." type="button">Copiar</button></dd></div>
+              <div><dt>BIC / SWIFT</dt><dd><span>BCIRLULL</span><button class="copy-data" data-copy="BCIRLULL" type="button">Copiar</button></dd></div>
+              <div><dt>Moneda</dt><dd><span>EUR</span></dd></div>
+            </dl>
+            <p class="payment-fineprint">Airtm informa un mínimo de 5 EUR, máximo de 100.000 EUR y comisión de recepción gratuita para SEPA.</p>
+          </section>
+
+          <section class="payment-account" data-account="mx" aria-labelledby="usd-title" hidden>
+            <div class="payment-account-head">
+              <div><span class="payment-kicker">Transferencia ACH en USD</span><h2 id="usd-title">Cuenta para México</h2></div>
+              <span class="verified-pill">Datos verificados</span>
+            </div>
+            <p class="payment-description">Esta opción solo funciona si el remitente puede enviar ACH desde una cuenta bancaria de Estados Unidos. No acepta transferencias originadas directamente desde bancos mexicanos. El importe exacto en USD se confirma por escrito.</p>
+            <dl class="bank-details">
+              <div><dt>Beneficiario</dt><dd><span>NAHUEL GARCIA LOPEZ</span><button class="copy-data" data-copy="NAHUEL GARCIA LOPEZ" type="button">Copiar</button></dd></div>
+              <div><dt>Banco</dt><dd><span>Lead Bank</span><button class="copy-data" data-copy="Lead Bank" type="button">Copiar</button></dd></div>
+              <div><dt>Tipo de cuenta</dt><dd><span>Checking</span><button class="copy-data" data-copy="Checking" type="button">Copiar</button></dd></div>
+              <div><dt>Número de cuenta</dt><dd><span>215937758950</span><button class="copy-data" data-copy="215937758950" type="button">Copiar</button></dd></div>
+              <div><dt>Routing ACH</dt><dd><span>101019644</span><button class="copy-data" data-copy="101019644" type="button">Copiar</button></dd></div>
+              <div><dt>Moneda</dt><dd><span>USD</span></dd></div>
+            </dl>
+            <div class="payment-warning"><strong>Solo ACH desde una cuenta de EE. UU.</strong> Airtm informa un máximo de 2.000 USD para pagos ACH de terceros, acreditación estimada de 1–5 días hábiles y comisión aplicable a la recepción. Las transferencias wire inferiores a 1.501 USD pueden retrasarse o rechazarse.</div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container payment-steps">
+        <div class="section-header"><span class="badge">Proceso claro</span><h2 class="section-title">Qué hacer después del depósito</h2></div>
+        <div class="grid-3">
+          <article class="card payment-step"><span>01</span><h3>Incluye una referencia</h3><p>Escribe “TutorMate Pro”, el apellido del alumno y el paquete cuando tu banco permita agregar un concepto.</p></article>
+          <article class="card payment-step"><span>02</span><h3>Guarda el comprobante</h3><p>No publiques el comprobante. Envíalo únicamente a <a href="mailto:tutormatepro@gmail.com">tutormatepro@gmail.com</a>.</p></article>
+          <article class="card payment-step"><span>03</span><h3>Confirmamos la plaza</h3><p>La reserva del horario queda confirmada cuando el depósito aparece acreditado en la cuenta.</p></article>
+        </div>
+        <div class="payment-actions"><a href="mailto:tutormatepro@gmail.com?subject=Comprobante%20de%20pago%20TutorMate%20Pro" class="btn btn-primary">Enviar comprobante por email</a><a href="reservar.html" class="btn btn-outline">Reservar valoración</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-bottom"><div>© 2026 TutorMate Pro</div><div class="footer-legal-links"><a href="privacidad.html" class="footer-link">Privacidad</a><a href="condiciones.html" class="footer-link">Condiciones</a></div></div></footer>
+
+  <script>
+    (() => {
+      const plans = {
+        'pack-4': ['Pack 4 clases', '72 EUR'],
+        'pack-8': ['Pack 8 clases', '160 EUR'],
+        'intensivo': ['Plan Intensivo · 24 clases', '360 EUR'],
+        'universidad': ['Universidad / Estadística', 'Desde 180 EUR'],
+        'urgente': ['Preparación Urgente / PAU', 'Desde 200 EUR']
+      };
+      const params = new URLSearchParams(location.search);
+      const selectedPlan = plans[params.get('plan')] || ['Plan TutorMate Pro', 'Importe por confirmar'];
+      document.getElementById('payment-plan-name').textContent = selectedPlan[0];
+      document.getElementById('payment-plan-amount').textContent = selectedPlan[1];
+
+      const setMarket = (market) => {
+        document.querySelectorAll('.payment-market').forEach(button => button.classList.toggle('active', button.dataset.market === market));
+        document.querySelectorAll('.payment-account').forEach(account => {
+          const active = account.dataset.account === market;
+          account.classList.toggle('active', active);
+          account.hidden = !active;
+        });
+        document.documentElement.dataset.market = market;
+        if (market === 'mx') document.getElementById('payment-plan-amount').textContent = 'Importe exacto confirmado en USD';
+        else document.getElementById('payment-plan-amount').textContent = selectedPlan[1];
+      };
+      document.querySelectorAll('.payment-market').forEach(button => button.addEventListener('click', () => setMarket(button.dataset.market)));
+      setMarket(params.get('market') === 'mx' ? 'mx' : 'es');
+
+      document.querySelectorAll('.copy-data').forEach(button => button.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(button.dataset.copy);
+          const original = button.textContent;
+          button.textContent = 'Copiado';
+          button.classList.add('copied');
+          setTimeout(() => { button.textContent = original; button.classList.remove('copied'); }, 1800);
+        } catch {
+          button.textContent = 'Selecciona y copia';
+        }
+      }));
+    })();
+  </script>
+</body>
+</html>
