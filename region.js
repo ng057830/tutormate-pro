@@ -1,40 +1,18 @@
 (function () {
-  const REGION_KEY = 'tutormate-region';
-  const params = new URLSearchParams(window.location.search);
-  const requestedRegion = params.get('region');
-
-  if (requestedRegion === 'mx' || requestedRegion === 'es') {
-    localStorage.setItem(REGION_KEY, requestedRegion);
-  }
-
-  document.addEventListener('click', (event) => {
-    const selector = event.target.closest('[data-region]');
-    if (!selector) return;
-    localStorage.setItem(REGION_KEY, selector.dataset.region);
-  });
+  // Remove the obsolete manual preference so an earlier selection cannot mix regions.
+  try { localStorage.removeItem('tutormate-region'); } catch (_) { /* no-op */ }
 
   const pageRegion = document.documentElement.dataset.region;
   if (!pageRegion || document.documentElement.dataset.regionRedirect !== 'true') return;
 
-  const savedRegion = localStorage.getItem(REGION_KEY);
-  let detectedRegion = savedRegion;
+  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+  const isAmericanMarket = timezone.startsWith('America/') || timezone === 'Pacific/Honolulu';
+  const detectedRegion = isAmericanMarket ? 'mx' : 'es';
+  const onAmericanSite = window.location.pathname.startsWith('/mexico/');
 
-  if (!detectedRegion) {
-    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-    const mexicoTimezones = new Set([
-      'America/Mexico_City', 'America/Cancun', 'America/Chihuahua',
-      'America/Ciudad_Juarez', 'America/Hermosillo', 'America/Matamoros',
-      'America/Mazatlan', 'America/Merida', 'America/Monterrey',
-      'America/Ojinaga', 'America/Tijuana', 'America/Bahia_Banderas'
-    ]);
-    if (mexicoTimezones.has(timezone)) detectedRegion = 'mx';
-    if (timezone === 'Europe/Madrid' || timezone === 'Atlantic/Canary') detectedRegion = 'es';
-  }
-
-  const onMexicoSite = window.location.pathname.startsWith('/mexico/');
-  if (detectedRegion === 'mx' && !onMexicoSite) {
+  if (detectedRegion === 'mx' && !onAmericanSite) {
     window.location.replace('/mexico/');
-  } else if (detectedRegion === 'es' && onMexicoSite) {
+  } else if (detectedRegion === 'es' && onAmericanSite) {
     window.location.replace('/');
   }
 })();

@@ -39,11 +39,6 @@
         </div>
 
         <div class="payment-panel">
-          <div class="payment-market-switch" role="group" aria-label="Seleccionar país y moneda">
-            <button type="button" class="payment-market active" data-market="es">España · EUR</button>
-            <button type="button" class="payment-market" data-market="mx">México · USD</button>
-          </div>
-
           <section class="payment-account active" data-account="es" aria-labelledby="eur-title">
             <div class="payment-account-head">
               <div><span class="payment-kicker">Transferencia SEPA</span><h2 id="eur-title">Cuenta en euros</h2></div>
@@ -57,12 +52,12 @@
               <div><dt>BIC / SWIFT</dt><dd><span>BCIRLULL</span><button class="copy-data" data-copy="BCIRLULL" type="button">Copiar</button></dd></div>
               <div><dt>Moneda</dt><dd><span>EUR</span></dd></div>
             </dl>
-            <p class="payment-fineprint">Airtm informa un mínimo de 5 EUR, máximo de 100.000 EUR y comisión de recepción gratuita para SEPA.</p>
+            <p class="payment-fineprint">La cuenta acepta transferencias SEPA desde 5 EUR. Comprueba siempre que la operación se envíe en euros.</p>
           </section>
 
           <section class="payment-account" data-account="mx" aria-labelledby="usd-title" hidden>
             <div class="payment-account-head">
-              <div><span class="payment-kicker">Transferencia ACH en USD</span><h2 id="usd-title">Cuenta para México</h2></div>
+              <div><span class="payment-kicker">Transferencia ACH en USD</span><h2 id="usd-title">Cuenta para América</h2></div>
               <span class="verified-pill">Datos verificados</span>
             </div>
             <p class="payment-description">Esta opción solo funciona si el remitente puede enviar ACH desde una cuenta bancaria de Estados Unidos. No acepta transferencias originadas directamente desde bancos mexicanos. El importe exacto en USD se confirma por escrito.</p>
@@ -74,7 +69,7 @@
               <div><dt>Routing ACH</dt><dd><span>101019644</span><button class="copy-data" data-copy="101019644" type="button">Copiar</button></dd></div>
               <div><dt>Moneda</dt><dd><span>USD</span></dd></div>
             </dl>
-            <div class="payment-warning"><strong>Solo ACH desde una cuenta de EE. UU.</strong> Airtm informa un máximo de 2.000 USD para pagos ACH de terceros, acreditación estimada de 1–5 días hábiles y comisión aplicable a la recepción. Las transferencias wire inferiores a 1.501 USD pueden retrasarse o rechazarse.</div>
+            <div class="payment-warning"><strong>Solo ACH desde una cuenta de EE. UU.</strong> Los pagos ACH de terceros admiten hasta 2.000 USD y suelen acreditarse en 1–5 días hábiles. Las transferencias wire inferiores a 1.501 USD pueden retrasarse o rechazarse.</div>
           </section>
         </div>
       </div>
@@ -110,7 +105,6 @@
       document.getElementById('payment-plan-amount').textContent = selectedPlan[1];
 
       const setMarket = (market) => {
-        document.querySelectorAll('.payment-market').forEach(button => button.classList.toggle('active', button.dataset.market === market));
         document.querySelectorAll('.payment-account').forEach(account => {
           const active = account.dataset.account === market;
           account.classList.toggle('active', active);
@@ -120,8 +114,9 @@
         if (market === 'mx') document.getElementById('payment-plan-amount').textContent = 'Importe exacto confirmado en USD';
         else document.getElementById('payment-plan-amount').textContent = selectedPlan[1];
       };
-      document.querySelectorAll('.payment-market').forEach(button => button.addEventListener('click', () => setMarket(button.dataset.market)));
-      setMarket(params.get('market') === 'mx' ? 'mx' : 'es');
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+      const americanTimezone = timezone.startsWith('America/') || timezone === 'Pacific/Honolulu';
+      setMarket(americanTimezone ? 'mx' : 'es');
 
       document.querySelectorAll('.copy-data').forEach(button => button.addEventListener('click', async () => {
         try {

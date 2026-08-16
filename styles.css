@@ -1825,9 +1825,6 @@ html[data-region="mx"] .faq-answer-content { color: #5f6c6c; font-size: .9rem; l
 .security-note strong { color: var(--clr-primary); }
 .security-note p { margin: .35rem 0 0; font-size: .82rem; }
 .payment-panel { overflow: hidden; border: 1px solid var(--clr-border); border-radius: 24px; background: #fff; box-shadow: var(--shadow-lg); }
-.payment-market-switch { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; padding: .6rem; border-bottom: 1px solid var(--clr-border); background: var(--clr-surface-alt); }
-.payment-market { padding: .85rem 1rem; border: 0; border-radius: 12px; color: var(--clr-text-muted); background: transparent; font: inherit; font-weight: 800; cursor: pointer; }
-.payment-market.active { color: #fff; background: var(--clr-primary); box-shadow: var(--shadow-sm); }
 .payment-account { padding: 2rem; }
 .payment-account-head { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; }
 .payment-account-head h2 { margin: .2rem 0 0; font-size: 1.7rem; }

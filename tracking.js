@@ -315,5 +315,5 @@ function handlePlanSelection(planId) {
   localStorage.setItem('tmp_selected_plan', planId);
   trackEvent('click_solicitar_plan', { plan: planId });
   trackEvent('checkout_start', { plan: planId, provider: 'direct_transfer' });
-  window.location.href = `pago-directo.html?market=es&plan=${encodeURIComponent(planId)}`;
+  window.location.href = `pago-directo.html?plan=${encodeURIComponent(planId)}`;
 }
