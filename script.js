@@ -6,7 +6,7 @@
 // Configuración global de la marca y enlaces
 const siteConfig = {
   brandName: "TutorMate Pro",
-  email: "contacto@tutormatepro.com",
+  email: "ngmstats@gmail.com",
   googleCalendarScheduleUrl: "https://calendar.app.google/wH1qNiNfKuJ1xL6u9"
 };
 
@@ -455,7 +455,7 @@ function initFormHandler() {
       }
     } catch (error) {
       console.error('Error al enviar el formulario:', error);
-      alert('No hemos podido enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo. Si continúa el problema, escribe a contacto@tutormatepro.com.');
+      alert('No hemos podido enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo. Si continúa el problema, escribe a ngmstats@gmail.com.');
       if (submitButton) {
         submitButton.disabled = false;
         submitButton.textContent = originalLabel;
