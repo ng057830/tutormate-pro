@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,follow">
+  <title>Página no encontrada | TutorMate Pro</title>
+  <meta name="description" content="La página solicitada no está disponible. Regresa a TutorMate Pro para consultar clases y tutorías de matemáticas online.">
+  <link rel="stylesheet" href="/styles.css?v=20260816">
+  <link rel="icon" href="/assets/favicon/favicon.ico">
+</head>
+<body>
+  <main class="section section-alt" style="min-height:100vh;display:grid;place-items:center;">
+    <section class="container" style="max-width:720px;text-align:center;">
+      <span class="badge">Error 404</span>
+      <h1 class="section-title">Esta página ya no está disponible</h1>
+      <p class="section-subtitle">Puede que la dirección haya cambiado. Te llevaremos a la versión de TutorMate Pro correspondiente a tu región.</p>
+      <a id="regional-home" class="btn btn-primary" href="/">Volver al inicio</a>
+    </section>
+  </main>
+  <script>
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    const isAmerica = timezone.startsWith('America/') || timezone === 'Pacific/Honolulu';
+    document.getElementById('regional-home').href = isAmerica ? '/latam/' : '/';
+  </script>
+</body>
+</html>

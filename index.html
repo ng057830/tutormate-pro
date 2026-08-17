@@ -26,6 +26,8 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
   <link rel="manifest" href="/assets/favicon/site.webmanifest">
   <meta name="theme-color" content="#002B66">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="canonical" href="https://www.tutormatepro.com/">
   <link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/">
   <link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/">
@@ -35,12 +37,10 @@
   
   <!-- SEO Meta Tags -->
   <title>Clases de matemáticas y estadística online | TutorMate Pro</title>
-  <meta name="description" content="Clases particulares de matemáticas y estadística online en España. Refuerzo de calidad para ESO, Bachillerato, selectividad EBAU y Universidad.">
-  <meta name="keywords" content="clases particulares matemáticas online, profesor matemáticas online, clases de matemáticas bachillerato online, profesor matemáticas bachillerato, clases matemáticas selectividad, preparación PAU matemáticas II, refuerzo matemáticas verano, clases de matemáticas ESO online, clases particulares estadística online, clases de cálculo online, clases de álgebra online, clases de matemáticas online Madrid, clases de matemáticas online Barcelona">
-  
+  <meta name="description" content="Clases particulares 1:1 de matemáticas online en España para tu hijo: ESO, Bachillerato, PAU y universidad. Valoración inicial gratuita.">
   <!-- Open Graph -->
   <meta property="og:title" content="Clases de matemáticas y estadística online | TutorMate Pro">
-  <meta property="og:description" content="Clases particulares de matemáticas y estadística online en España. Refuerzo premium para ESO, Bachillerato, EBAU y Universidad.">
+  <meta property="og:description" content="Clases 1:1 de matemáticas online para tu hijo: ESO, Bachillerato, PAU y universidad. Valoración inicial gratuita.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_ES">
   <meta property="og:url" content="https://www.tutormatepro.com/">
@@ -55,35 +55,44 @@
   <script src="./tracking.js"></script>
   <script src="./region.js" defer></script>
   
-  <!-- JSON-LD Structured Data (Ad-Ready and targeted to parents & students in Spain) -->
+  <!-- Datos estructurados de la organización y el servicio en España -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "EducationalOrganization",
-      "name": "TutorMate Pro",
-      "description": "Servicio premium de clases particulares de matemáticas y estadística online para ESO, Bachillerato, Selectividad y Universidad.",
-      "url": "https://www.tutormatepro.com/",
-      "logo": "https://www.tutormatepro.com/assets/favicon/android-chrome-512x512.png",
-      "areaServed": [
-        {
-          "@type": "Country",
-          "name": "España"
-        },
-        {
-          "@type": "State",
-          "name": "Comunidad de Madrid"
-        },
-        {
-          "@type": "State",
-          "name": "Cataluña"
-        }
-      ],
-      "audience": {
-        "@type": "Audience",
-        "audienceType": "Padres y estudiantes de ESO, Bachillerato y Universidad"
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "@id": "https://www.tutormatepro.com/#organization",
+        "name": "TutorMate Pro",
+        "description": "Clases particulares de matemáticas y estadística online para ESO, Bachillerato, PAU y universidad.",
+        "url": "https://www.tutormatepro.com/",
+        "logo": "https://www.tutormatepro.com/assets/favicon/android-chrome-512x512.png",
+        "email": "tutormatepro@gmail.com"
       },
-      "sameAs": []
-    }
+      {
+        "@type": "Service",
+        "@id": "https://www.tutormatepro.com/#service-es",
+        "name": "Clases particulares de matemáticas online en España",
+        "serviceType": "Tutorías individuales de matemáticas y estadística online",
+        "provider": { "@id": "https://www.tutormatepro.com/#organization" },
+        "areaServed": { "@type": "Country", "name": "España" },
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Familias con estudiantes de ESO, Bachillerato, PAU o universidad"
+        },
+        "availableLanguage": { "@type": "Language", "name": "Español", "alternateName": "es-ES" },
+        "url": "https://www.tutormatepro.com/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.tutormatepro.com/#website",
+        "url": "https://www.tutormatepro.com/",
+        "name": "TutorMate Pro",
+        "publisher": { "@id": "https://www.tutormatepro.com/#organization" },
+        "inLanguage": ["es-ES", "es-419"]
+      }
+    ]
+  }
   </script>
 </head>
 <body>
@@ -377,7 +386,7 @@
       </div>
 
       <div style="margin-top: 3.5rem; text-align: center; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-        <img src="./assets/whiteboard_mockup.png" alt="Pizarra Interactiva TutorMate Pro" style="width: 100%; max-width: 640px; border-radius: var(--radius-lg); border: 1px solid var(--clr-border); box-shadow: var(--shadow-lg);">
+        <img src="./assets/whiteboard_mockup.webp" alt="Pizarra digital utilizada en una clase individual de matemáticas online" width="1024" height="1024" loading="lazy" decoding="async" style="width: 100%; max-width: 640px; height:auto; border-radius: var(--radius-lg); border: 1px solid var(--clr-border); box-shadow: var(--shadow-lg);">
         <p style="font-size: 0.78rem; color: var(--clr-text-light); margin-top: 1rem; max-width: 540px; text-align: center; line-height: 1.4;">Vista de nuestra aula virtual interactiva: videollamada integrada con una pizarra gráfica digital a color que se entrega completa en formato PDF tras cada sesión.</p>
       </div>
     </section>
@@ -481,7 +490,7 @@
       <div class="container">
         <div class="profile-grid">
           <div class="profile-sidebar">
-            <img src="./assets/workspace_avatar.png" alt="TutorMate Pro" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 2px solid var(--clr-accent); margin-bottom: 1.25rem; box-shadow: var(--shadow-sm);">
+            <img src="./assets/workspace_avatar.webp" alt="Tutor de matemáticas de TutorMate Pro" width="360" height="360" loading="lazy" decoding="async" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 2px solid var(--clr-accent); margin-bottom: 1.25rem; box-shadow: var(--shadow-sm);">
             <h3 class="profile-meta-title">TutorMate Pro</h3>
             <p class="profile-meta-sub">Tutor de Matemáticas Online</p>
           </div>

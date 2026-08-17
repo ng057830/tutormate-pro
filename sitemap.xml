@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.tutormatepro.com/</loc>
-    <lastmod>2026-07-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tutormatepro.com/"/>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -14,42 +17,51 @@
   </url>
   <url>
     <loc>https://www.tutormatepro.com/clases-matematicas-universidad-estadistica.html</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/clases-matematicas-universidad-estadistica.html"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/universidad.html"/>
     <lastmod>2026-07-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.tutormatepro.com/refuerzo-verano-matematicas.html</loc>
-    <lastmod>2026-07-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.tutormatepro.com/juegos.html</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/juegos.html"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/juegos.html"/>
     <lastmod>2026-07-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tutormatepro.com/contacto.html</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/contacto.html"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/contacto.html"/>
     <lastmod>2026-07-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://www.tutormatepro.com/latam/</loc>
-    <lastmod>2026-07-11</lastmod><changefreq>weekly</changefreq><priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tutormatepro.com/"/>
+    <lastmod>2026-08-16</lastmod><changefreq>weekly</changefreq><priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.tutormatepro.com/latam/secundaria.html</loc>
-    <lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/seo/clases-matematicas-eso.html"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/secundaria.html"/>
+    <lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tutormatepro.com/latam/preparatoria.html</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/seo/clases-matematicas-bachillerato.html"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/preparatoria.html"/>
     <lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tutormatepro.com/latam/universidad.html</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/clases-matematicas-universidad-estadistica.html"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/universidad.html"/>
     <lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
   </url>
   <url>
@@ -58,58 +70,82 @@
   </url>
   <url>
     <loc>https://www.tutormatepro.com/latam/planes.html</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/planes.html"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/planes.html"/>
     <lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.tutormatepro.com/latam/metodo.html</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/metodo.html"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/metodo.html"/>
     <lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.tutormatepro.com/latam/reservar.html</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/reservar.html"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/reservar.html"/>
     <lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tutormatepro.com/latam/contacto.html</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/contacto.html"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/contacto.html"/>
     <lastmod>2026-08-16</lastmod><changefreq>yearly</changefreq><priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.tutormatepro.com/latam/materiales.html</loc>
-    <lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/materiales.html"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/materiales.html"/>
+    <lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tutormatepro.com/latam/juegos.html</loc>
-    <lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/juegos.html"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/juegos.html"/>
+    <lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.tutormatepro.com/latam/sobre-mi.html</loc>
-    <lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/sobre-mi.html"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/sobre-mi.html"/>
+    <lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tutormatepro.com/planes.html</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/planes.html"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/planes.html"/>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.tutormatepro.com/metodo.html</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/metodo.html"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/metodo.html"/>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.tutormatepro.com/sobre-mi.html</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/sobre-mi.html"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/sobre-mi.html"/>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tutormatepro.com/reservar.html</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/reservar.html"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/reservar.html"/>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.tutormatepro.com/materiales.html</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/materiales.html"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/materiales.html"/>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -128,6 +164,8 @@
   </url>
   <url>
     <loc>https://www.tutormatepro.com/seo/clases-matematicas-bachillerato.html</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/seo/clases-matematicas-bachillerato.html"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/preparatoria.html"/>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -140,6 +178,8 @@
   </url>
   <url>
     <loc>https://www.tutormatepro.com/seo/clases-matematicas-eso.html</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/seo/clases-matematicas-eso.html"/>
+    <xhtml:link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/secundaria.html"/>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -185,29 +225,5 @@
     <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.tutormatepro.com/aviso-legal.html</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.tutormatepro.com/privacidad.html</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.tutormatepro.com/cookies.html</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.tutormatepro.com/condiciones.html</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
 </urlset>

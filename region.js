@@ -23,6 +23,39 @@
     const mobileNav = document.querySelector('.nav-menu-mobile');
     if (desktopNav) desktopNav.innerHTML = links;
     if (mobileNav) mobileNav.innerHTML = `${links}<a href="reservar.html" class="btn btn-primary">Reservar valoración</a>`;
+
+    if (currentFile !== 'index.html' && !document.querySelector('script[data-seo-graph]')) {
+      const canonical = document.querySelector('link[rel="canonical"]')?.href || window.location.href.split(/[?#]/)[0];
+      const description = document.querySelector('meta[name="description"]')?.content || '';
+      const heading = document.querySelector('h1')?.textContent.trim() || document.title.split('|')[0].trim();
+      const graph = {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'WebPage',
+            '@id': `${canonical}#webpage`,
+            url: canonical,
+            name: document.title,
+            description,
+            inLanguage: 'es-419',
+            isPartOf: { '@id': 'https://www.tutormatepro.com/#website' },
+            about: { '@id': 'https://www.tutormatepro.com/latam/#service' }
+          },
+          {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'TutorMate Pro LATAM', item: 'https://www.tutormatepro.com/latam/' },
+              { '@type': 'ListItem', position: 2, name: heading, item: canonical }
+            ]
+          }
+        ]
+      };
+      const structuredData = document.createElement('script');
+      structuredData.type = 'application/ld+json';
+      structuredData.dataset.seoGraph = 'latam';
+      structuredData.textContent = JSON.stringify(graph);
+      document.head.appendChild(structuredData);
+    }
   }
 
   // Vista privada de desarrollo: solo funciona desde el servidor local del propietario.
@@ -31,6 +64,10 @@
   const isLocalPreview = ['localhost', '127.0.0.1'].includes(window.location.hostname)
     && requestedRegion === pageRegion;
   if (isLocalPreview) return;
+
+  // Los buscadores deben poder rastrear ambas variantes declaradas en el sitemap.
+  const isSearchCrawler = /googlebot|google-inspectiontool|googleother|storebot-google|bingbot|bingpreview|slurp|duckduckbot|baiduspider|yandexbot/i.test(navigator.userAgent);
+  if (isSearchCrawler) return;
 
   const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
   const isAmericanMarket = timezone.startsWith('America/') || timezone === 'Pacific/Honolulu';
