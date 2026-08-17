@@ -6,6 +6,7 @@ const SEO_DIR = path.join(ROOT_DIR, 'seo');
 const LATAM_DIR = path.join(ROOT_DIR, 'latam');
 
 let exitCode = 0;
+const auditedPages = [];
 
 function logError(file, message) {
   console.error(`\x1b[31m[ERROR] [${file}]: ${message}\x1b[0m`);
@@ -19,6 +20,7 @@ function logWarning(file, message) {
 function checkHtmlFile(filePath) {
   const relativePath = path.relative(ROOT_DIR, filePath);
   const content = fs.readFileSync(filePath, 'utf8');
+  const isNoindex = /<meta\s+name=["']robots["']\s+content=["'][^"']*noindex/i.test(content);
 
   if (content.includes('tutormatepro.es')) {
     logError(relativePath, 'References the obsolete tutormatepro.es domain');
@@ -26,6 +28,10 @@ function checkHtmlFile(filePath) {
 
   if (content.includes('priceValued')) {
     logError(relativePath, 'Contains invalid Schema.org property "priceValued"');
+  }
+
+  if (/contacto@tutormatepro\.com/i.test(content)) {
+    logError(relativePath, 'Contains the obsolete corporate email address');
   }
 
   // 1. Check title tag
@@ -52,18 +58,22 @@ function checkHtmlFile(filePath) {
     const desc = descMatch[1].trim();
     if (desc.length === 0) {
       logError(relativePath, "Meta description is empty");
-    } else if (desc.length > 165) {
+    } else if (!isNoindex && desc.length > 165) {
       logWarning(relativePath, `Meta description is too long (${desc.length} chars)`);
-    } else if (desc.length < 80) {
+    } else if (!isNoindex && desc.length < 80) {
       logWarning(relativePath, `Meta description is too short (${desc.length} chars)`);
     }
   }
 
+  const pageTitle = titleMatch ? titleMatch[1].trim() : '';
+  const pageDescription = descMatch ? descMatch[1].trim() : '';
+  if (!isNoindex) auditedPages.push({ relativePath, pageTitle, pageDescription, content });
+
   // 3. Check canonical tag
   const canonicalMatch = content.match(/<link\s+rel=["']canonical["']\s+href=["']([^]*?)["']\s*\/?>/i);
-  if (!canonicalMatch) {
+  if (!canonicalMatch && !isNoindex) {
     logError(relativePath, "Missing <link rel=\"canonical\"> tag");
-  } else {
+  } else if (canonicalMatch && !isNoindex) {
     const canonical = canonicalMatch[1].trim();
     const expectedBasename = path.basename(filePath);
     const relativeHtmlPath = path.relative(ROOT_DIR, filePath).split(path.sep).join('/');
@@ -85,30 +95,47 @@ function checkHtmlFile(filePath) {
 
   // 4. Check single H1 tag
   const h1Matches = content.match(/<h1[^>]*>([^]*?)<\/h1>/gi);
-  if (!h1Matches) {
+  if (!h1Matches && !isNoindex) {
     logError(relativePath, "Missing <h1> tag");
-  } else if (h1Matches.length > 1) {
+  } else if (h1Matches && h1Matches.length > 1) {
     logError(relativePath, `Multiple <h1> tags found (${h1Matches.length})`);
   }
 
   // 5. Check H2 and H3 tags structure
   const h2Matches = content.match(/<h2[^>]*>/gi);
-  if (!h2Matches || h2Matches.length === 0) {
+  if ((!h2Matches || h2Matches.length === 0) && !isNoindex) {
     logWarning(relativePath, "No <h2> tags found");
   }
 
   // 6. Check for CTA
-  const hasCta = content.includes('contacto.html') || 
+  const hasCta = content.includes('contacto.html') ||
+                 content.includes('reservar.html') ||
                  content.includes('calendar-link') || 
                  content.includes('mailto:') ||
                  content.includes('#reservar');
-  if (!hasCta) {
+  if (!hasCta && !isNoindex) {
     logWarning(relativePath, "No CTA links found (contacto.html, calendar-link, or mailto)");
   }
 
   // 7. Check for internal links and assets (Broken Links Check)
   const hrefMatches = [...content.matchAll(/href=["']([^"']*)["']/gi)];
   const srcMatches = [...content.matchAll(/src=["']([^"']*)["']/gi)];
+
+  const unsafeBlankLinks = [...content.matchAll(/<a\b[^>]*target=["']_blank["'][^>]*>/gi)]
+    .filter(match => !/\brel=["'][^"']*noopener/i.test(match[0]));
+  const hasRuntimeLinkProtection = /<script[^>]+src=["'][^"']*script\.js/i.test(content);
+  if (unsafeBlankLinks.length && !hasRuntimeLinkProtection) {
+    logWarning(relativePath, `${unsafeBlankLinks.length} target="_blank" link(s) missing rel="noopener noreferrer"`);
+  }
+
+  const jsonLdBlocks = [...content.matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
+  jsonLdBlocks.forEach((match, index) => {
+    try {
+      JSON.parse(match[1]);
+    } catch (error) {
+      logError(relativePath, `Invalid JSON-LD block ${index + 1}: ${error.message}`);
+    }
+  });
 
   const checkLocalPath = (rawPath, attrName) => {
     // Ignore external URLs, mailto, tel, empty, and hashes
@@ -177,6 +204,21 @@ function runAudit() {
     latamFiles.forEach(file => checkHtmlFile(file));
   }
 
+  const reportDuplicates = (field, label) => {
+    const values = new Map();
+    auditedPages.forEach(page => {
+      const value = page[field];
+      if (!value) return;
+      if (!values.has(value)) values.set(value, []);
+      values.get(value).push(page.relativePath);
+    });
+    values.forEach((files, value) => {
+      if (files.length > 1) logWarning('SEO', `Duplicate ${label} in ${files.join(', ')}: "${value}"`);
+    });
+  };
+  reportDuplicates('pageTitle', 'title');
+  reportDuplicates('pageDescription', 'meta description');
+
   // Audit sitemap.xml
   const sitemapPath = path.join(ROOT_DIR, 'sitemap.xml');
   if (fs.existsSync(sitemapPath)) {
@@ -194,19 +236,15 @@ function runAudit() {
       }
     });
 
-    const indexableRootFiles = fs.readdirSync(ROOT_DIR)
-      .filter(file => file.endsWith('.html'))
-      .filter(file => {
-        const html = fs.readFileSync(path.join(ROOT_DIR, file), 'utf8');
-        return !/<meta\s+name=["']robots["']\s+content=["'][^"']*noindex/i.test(html);
-      });
-
-    indexableRootFiles.forEach(file => {
-      const expectedUrl = file === 'index.html'
+    auditedPages.forEach(page => {
+      const relativeUrl = page.relativePath.split(path.sep).join('/');
+      const expectedUrl = relativeUrl === 'index.html'
         ? 'https://www.tutormatepro.com/'
-        : `https://www.tutormatepro.com/${file}`;
+        : relativeUrl.endsWith('/index.html')
+          ? `https://www.tutormatepro.com/${relativeUrl.replace(/index\.html$/, '')}`
+          : `https://www.tutormatepro.com/${relativeUrl}`;
       if (!sitemapContent.includes(`<loc>${expectedUrl}</loc>`)) {
-        logWarning('sitemap.xml', `Indexable page missing from sitemap: "${file}"`);
+        logWarning('sitemap.xml', `Indexable page missing from sitemap: "${page.relativePath}"`);
       }
     });
   } else {

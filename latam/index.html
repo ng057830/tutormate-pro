@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clases de matemáticas online para Latinoamérica | TutorMate Pro</title>
-  <meta name="description" content="Tutorías individuales de matemáticas en español para estudiantes de Latinoamérica y familias latinas en Estados Unidos. Secundaria, bachillerato y universidad.">
+  <meta name="description" content="Clases 1:1 de matemáticas en español para tu hijo: secundaria, bachillerato y universidad en Latinoamérica y EE. UU. Valoración inicial gratuita.">
   <link rel="canonical" href="https://www.tutormatepro.com/latam/">
   <link rel="alternate" hreflang="es-419" href="https://www.tutormatepro.com/latam/">
   <link rel="alternate" hreflang="es-ES" href="https://www.tutormatepro.com/">
@@ -18,22 +18,48 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
   <meta name="theme-color" content="#002B66">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../styles.css?v=20260711">
   <script src="../region.js" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Clases de matemáticas online para Latinoamérica",
-    "serviceType": "Clases particulares y regularización de matemáticas online",
-    "provider": {
-      "@type": "EducationalOrganization",
-      "name": "TutorMate Pro",
-      "url": "https://www.tutormatepro.com/"
-    },
-    "areaServed": ["Latinoamérica", "Estados Unidos"],
-    "availableLanguage": "es-419",
-    "url": "https://www.tutormatepro.com/latam/"
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "@id": "https://www.tutormatepro.com/#organization",
+        "name": "TutorMate Pro",
+        "url": "https://www.tutormatepro.com/",
+        "logo": "https://www.tutormatepro.com/assets/favicon/android-chrome-512x512.png",
+        "email": "tutormatepro@gmail.com"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://www.tutormatepro.com/latam/#service",
+        "name": "Clases particulares de matemáticas online en español",
+        "serviceType": "Tutorías individuales y regularización de matemáticas online",
+        "provider": { "@id": "https://www.tutormatepro.com/#organization" },
+        "areaServed": [
+          { "@type": "Place", "name": "Latinoamérica" },
+          { "@type": "Country", "name": "Estados Unidos" }
+        ],
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Familias hispanohablantes con estudiantes de secundaria, bachillerato o universidad"
+        },
+        "availableLanguage": { "@type": "Language", "name": "Español", "alternateName": "es-419" },
+        "url": "https://www.tutormatepro.com/latam/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.tutormatepro.com/#website",
+        "url": "https://www.tutormatepro.com/",
+        "name": "TutorMate Pro",
+        "publisher": { "@id": "https://www.tutormatepro.com/#organization" },
+        "inLanguage": ["es-ES", "es-419"]
+      }
+    ]
   }
   </script>
 </head>
@@ -139,6 +165,26 @@
       </div>
     </section>
 
+    <section class="section container" id="familias">
+      <div class="section-header">
+        <span class="badge">Información para madres y padres</span>
+        <h2 class="section-title">Saber qué se trabajará y cómo acompañaremos a tu hijo</h2>
+        <p class="section-subtitle">Antes de proponer un plan revisamos el nivel, el material de su institución, la fecha de sus evaluaciones y la disponibilidad familiar.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card"><h3 class="card-title">Objetivo definido</h3><p class="card-desc">Acordamos si la prioridad es recuperar fundamentos, acompañar el curso o preparar una evaluación concreta.</p></article>
+        <article class="card"><h3 class="card-title">Atención realmente individual</h3><p class="card-desc">No son grupos ni clases grabadas. Toda la sesión se adapta a las dudas, ritmo y forma de razonar del estudiante.</p></article>
+        <article class="card"><h3 class="card-title">Seguimiento comprensible</h3><p class="card-desc">El material trabajado queda disponible para repasar y el avance se revisa antes de continuar con nuevos contenidos.</p></article>
+      </div>
+      <div class="trust-bar" style="margin-top:2rem;">
+        <div class="trust-item"><strong>+600</strong><span>clases impartidas</span></div>
+        <div class="trust-item"><strong>30 min</strong><span>valoración gratuita</span></div>
+        <div class="trust-item"><strong>1:1</strong><span>sin grupos</span></div>
+        <div class="trust-item"><strong>PDF</strong><span>material de repaso</span></div>
+      </div>
+      <div style="text-align:center;margin-top:2rem;"><a href="reservar.html" class="btn btn-primary">Hablar sobre el caso de mi hijo</a></div>
+    </section>
+
     <section class="section container" id="metodo">
       <div class="section-header">
         <span class="badge">Asesorías de matemáticas online</span>
@@ -172,7 +218,7 @@
               <option value="Otro LATAM">Otro</option>
             </select>
             <textarea name="comments" id="form-comments" class="form-control" rows="4" placeholder="Temas, dificultades o fecha del próximo examen"></textarea>
-            <label class="form-checkbox"><input type="checkbox" required> <span>Acepto la <a href="../privacidad.html" target="_blank">política de privacidad</a>.</span></label>
+            <label class="form-checkbox"><input type="checkbox" required> <span>Acepto la <a href="../privacidad.html" target="_blank" rel="noopener noreferrer">política de privacidad</a>.</span></label>
             <button class="btn btn-primary" type="submit" style="border:0;">Solicitar valoración gratuita</button>
           </form>
         </div>

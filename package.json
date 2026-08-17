@@ -5,7 +5,8 @@
   "main": "script.js",
   "scripts": {
     "build": "node tools/build-check.js",
-    "test": "node tools/build-check.js"
+    "test": "node tools/build-check.js",
+    "indexnow": "powershell -ExecutionPolicy Bypass -File tools/submit-indexnow.ps1"
   },
   "author": "TutorMate Pro",
   "license": "ISC"

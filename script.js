@@ -20,6 +20,7 @@ const siteConfig = {
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
+  ensureTrackingModule();
   initCookieConsent();
   initMobileMenu();
   initFaqAccordion();
@@ -29,7 +30,39 @@ document.addEventListener("DOMContentLoaded", () => {
   initSeasonalHero();
   initFormHandler();
   initEmailTracker();
+  initExternalLinkSecurity();
 });
+
+function initExternalLinkSecurity() {
+  document.querySelectorAll('a[target="_blank"]').forEach(link => {
+    const values = new Set((link.getAttribute('rel') || '').split(/\s+/).filter(Boolean));
+    values.add('noopener');
+    values.add('noreferrer');
+    link.setAttribute('rel', [...values].join(' '));
+  });
+}
+
+function ensureTrackingModule() {
+  if (!window.location.pathname.startsWith('/latam/')) return;
+  if ([...document.scripts].some(script => script.src.endsWith('/tracking.js'))) return;
+  const trackingScript = document.createElement('script');
+  trackingScript.src = '../tracking.js';
+  trackingScript.defer = true;
+  document.head.appendChild(trackingScript);
+}
+
+function ensureAnalyticsLoaded() {
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+
+  if (!document.querySelector('script[src*="googletagmanager.com/gtag/js"]')) {
+    const analyticsScript = document.createElement('script');
+    analyticsScript.async = true;
+    analyticsScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-CEQ1MQZWDH';
+    document.head.appendChild(analyticsScript);
+    gtag('js', new Date());
+  }
+}
 
 /* 0. Scroll Reveal Animations */
 function initScrollReveal() {
@@ -248,12 +281,13 @@ function initCookieConsent() {
 
 function enableAnalytics() {
   window['ga-disable-G-CEQ1MQZWDH'] = false;
+  ensureAnalyticsLoaded();
   if (typeof gtag === 'function') {
     gtag('consent', 'update', {
       'analytics_storage': 'granted',
-      'ad_storage': 'granted',
-      'ad_user_data': 'granted',
-      'ad_personalization': 'granted'
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied'
     });
     // Forzar registro de página vista una vez activado
     gtag('config', 'G-CEQ1MQZWDH');

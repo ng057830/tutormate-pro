@@ -155,7 +155,7 @@ function setupClickListeners() {
     }
 
     // 2. Clics en "Ver Planes"
-    const planesBtn = e.target.closest('[data-action="ver-planes"]');
+    const planesBtn = e.target.closest('[data-action="ver-planes"], a[href*="planes.html"]');
     if (planesBtn) {
       trackEvent('click_ver_planes', {
         page_origin: window.location.pathname
@@ -163,10 +163,18 @@ function setupClickListeners() {
     }
 
     // 3. Botón de "Reservar Valoración" (al formulario)
-    const reservarBtn = e.target.closest('[data-action="reservar-valoracion"]');
+    const reservarBtn = e.target.closest('[data-action="reservar-valoracion"], a[href*="reservar.html"]');
     if (reservarBtn) {
       trackEvent('click_reservar_valoracion', {
         page_origin: window.location.pathname
+      });
+    }
+
+    const calendarBtn = e.target.closest('.calendar-link, a[href*="calendar.app.google"], a[href*="calendar.google.com"]');
+    if (calendarBtn) {
+      trackEvent('click_calendario', {
+        page_origin: window.location.pathname,
+        link_url: calendarBtn.href || ''
       });
     }
   });
@@ -230,6 +238,10 @@ function trackEvent(eventName, params = {}) {
       gtag('event', 'click_reservar_valoracion', eventData);
       break;
 
+    case 'click_calendario':
+      gtag('event', 'click_calendario', eventData);
+      break;
+
     case 'click_solicitar_plan':
       gtag('event', 'click_solicitar_plan', eventData);
       break;
@@ -250,7 +262,7 @@ function trackEvent(eventName, params = {}) {
           gtag('event', 'conversion', {
             'send_to': `${TRACKING_CONFIG.GOOGLE_ADS_CONVERSION_ID}/${TRACKING_CONFIG.GOOGLE_ADS_LABEL_LEAD}`,
             'value': 1.0,
-            'currency': 'EUR'
+            'currency': new URLSearchParams(window.location.search).get('market') === 'latam' ? 'USD' : 'EUR'
           });
         }
         console.log(`[Tracking] Conversión lead_reserva_valoracion enviada y guardada para ${leadId}`);
